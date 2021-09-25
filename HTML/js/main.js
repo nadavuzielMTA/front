@@ -380,7 +380,26 @@ function documentReadyInit() {
 	if (jQuery().parallax) {
 		jQuery('.parallax').parallax("50%", 0.01);
 	}
+
+
+	//register
+	var $form = jQuery(this);
+	jQuery(".register").on('click', function (e) {
+		console.log("11111111111111111");
+		console.log(document.getElementById('user_name_saar').value);
+		jQuery.ajax({
+			url: '/api/register_user',
+			data: 'username=' + document.getElementById('register_user_name').value + '&password=' + document.getElementById('register_password').value,
+			success: function (msg) {
+				$form.find('.response').html(msg);
+			}
+		});
+	});
+
+
 	
+
+
 	//prettyPhoto
 	if (jQuery().prettyPhoto) {
 		jQuery("a[data-gal^='prettyPhoto']").prettyPhoto({
@@ -498,7 +517,7 @@ function documentReadyInit() {
 		$searchModal.modal('show');
 		//sending form data to PHP server if fields are not empty
 		var request = $form.serialize();
-		var ajax = jQuery.post( "search.php", request )
+		var ajax = jQuery.post( ".php", request )
 		.done(function( data ) {
 			$searchModal.append('<div class="searchform-respond">'+data+'</div>');
 		})

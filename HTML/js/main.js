@@ -383,14 +383,14 @@ function documentReadyInit() {
 
 
 	//register
+	var $form = jQuery(this);
 	jQuery(".register").on('click', function (e) {
-		$.ajax({
-			type: 'POST',
+		jQuery.ajax({
 			url: '/api/register_user',
-			data: '{"name":"jonas"}', // or JSON.stringify ({name: 'jonas'}),
-			success: function (data) { alert('data: ' + data); },
-			contentType: "application/json",
-			dataType: 'json'
+			data: 'password=' + $form.find('#login_password').val(),
+			success: function (msg) {
+				$form.find('.response').html(msg);
+			}
 		});
 	});
 

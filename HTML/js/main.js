@@ -384,10 +384,14 @@ function documentReadyInit() {
 
 	//register
 	jQuery(".register").on('click', function (e) {
-		var ajax = jQuery.post("/api/register_user", { name: "John", time: "2pm" })
-			.done(function (data) {
-				console.log("11111");
-			});
+		$.ajax({
+			type: 'POST',
+			url: '/api/register_user',
+			data: '{"name":"jonas"}', // or JSON.stringify ({name: 'jonas'}),
+			success: function (data) { alert('data: ' + data); },
+			contentType: "application/json",
+			dataType: 'json'
+		});
 	});
 
 

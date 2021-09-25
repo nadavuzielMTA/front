@@ -385,7 +385,6 @@ function documentReadyInit() {
 	//register
 	var $form = jQuery(this);
 	jQuery(".register").on('click', function (e) {
-		console.log("11111111111111111");
 		console.log(document.getElementById('user_name_saar').value);
 		jQuery.ajax({
 			url: '/api/register_user',

@@ -387,7 +387,7 @@ function documentReadyInit() {
 	jQuery(".register").on('click', function (e) {
 		jQuery.ajax({
 			url: '/api/register_user',
-			data: 'password=' + $form.find('#login_password').val(),
+			data: 'password=' + $form.find('#user_name').val(),
 			success: function (msg) {
 				$form.find('.response').html(msg);
 			}

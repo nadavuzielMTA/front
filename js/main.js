@@ -350,7 +350,6 @@ function documentReadyInit() {
 	/////////////////////////////////////////
 	//single page localscroll and scrollspy//
 	/////////////////////////////////////////
-	
 	var navHeight = jQuery('.page_header').outerHeight(true);
 	//if sidebar nav exists - binding to it. Else - to main horizontal nav
 	if (jQuery('.mainmenu_side_wrapper').length) {
@@ -381,7 +380,26 @@ function documentReadyInit() {
 	if (jQuery().parallax) {
 		jQuery('.parallax').parallax("50%", 0.01);
 	}
+
+
+	//register
+	var $form = jQuery(this);
+	jQuery(".register").on('click', function (e) {
+		console.log("11111111111111111");
+		console.log(document.getElementById('user_name_saar').value);
+		jQuery.ajax({
+			url: '/api/register_user',
+			data: 'username=' + document.getElementById('register_user_name').value + '&password=' + document.getElementById('register_password').value,
+			success: function (msg) {
+				$form.find('.response').html(msg);
+			}
+		});
+	});
+
+
 	
+
+
 	//prettyPhoto
 	if (jQuery().prettyPhoto) {
 		jQuery("a[data-gal^='prettyPhoto']").prettyPhoto({
@@ -452,14 +470,6 @@ function documentReadyInit() {
 
 		//sending form data to PHP server if fields are not empty
 		var request = $form.serialize();
-		$.ajax({
-			type: 'POST',
-			url: '/api/register_user',
-			data: '{"name":"jonas"}', // or JSON.stringify ({name: 'jonas'}),
-			success: function(data) { alert('data: ' + data); },
-			contentType: "application/json",
-			dataType: 'json'
-		});
 		var ajax = jQuery.post( "contact-form.php", request )
 		.done(function( data ) {
 			jQuery($form).find('[type="submit"]').attr('disabled', false).parent().append('<span class="contact-form-respond highlight">'+data+'</span>');
@@ -472,17 +482,6 @@ function documentReadyInit() {
 		.fail(function( data ) {
 			jQuery($form).find('[type="submit"]').attr('disabled', false).parent().append('<span class="contact-form-respond highlight">Mail cannot be sent. You need PHP server to send mail.</span>');
 		})
-	});
-
-	//search modal
-	jQuery(".nadav").on('click', function(e){
-		jQuery.ajax({
-			url: '/api/register_user',
-			data: 'ajax=true&username=nadav',
-			success: function(msg) {
-				$form.find('.response').html(msg);
-			}
-		});
 	});
 
 
@@ -518,7 +517,7 @@ function documentReadyInit() {
 		$searchModal.modal('show');
 		//sending form data to PHP server if fields are not empty
 		var request = $form.serialize();
-		var ajax = jQuery.post( "search.php", request )
+		var ajax = jQuery.post( ".php", request )
 		.done(function( data ) {
 			$searchModal.append('<div class="searchform-respond">'+data+'</div>');
 		})

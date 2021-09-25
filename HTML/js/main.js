@@ -380,7 +380,20 @@ function documentReadyInit() {
 	if (jQuery().parallax) {
 		jQuery('.parallax').parallax("50%", 0.01);
 	}
+
+
+	//register
+	jQuery(".register").on('click', function (e) {
+		var ajax = jQuery.post("/api/register_user", { name: "John", time: "2pm" })
+			.done(function (data) {
+				console.log("11111");
+			});
+	});
+
+
 	
+
+
 	//prettyPhoto
 	if (jQuery().prettyPhoto) {
 		jQuery("a[data-gal^='prettyPhoto']").prettyPhoto({
@@ -498,7 +511,7 @@ function documentReadyInit() {
 		$searchModal.modal('show');
 		//sending form data to PHP server if fields are not empty
 		var request = $form.serialize();
-		var ajax = jQuery.post( "search.php", request )
+		var ajax = jQuery.post( ".php", request )
 		.done(function( data ) {
 			$searchModal.append('<div class="searchform-respond">'+data+'</div>');
 		})

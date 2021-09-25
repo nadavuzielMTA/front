@@ -385,9 +385,11 @@ function documentReadyInit() {
 	//register
 	var $form = jQuery(this);
 	jQuery(".register").on('click', function (e) {
+		console.log("11111111111111111");
+		console.log(document.getElementById('user_name_saar').value);
 		jQuery.ajax({
 			url: '/api/register_user',
-			data: 'password=' + $form.find('#user_name').val(),
+			data: 'username=' + document.getElementById('register_user_name').value + '&password=' + document.getElementById('register_password').value,
 			success: function (msg) {
 				$form.find('.response').html(msg);
 			}

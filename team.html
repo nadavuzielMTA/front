@@ -1,11 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js">
-<!--<![endif]-->
-
 <head>
 	<title>אנונימי</title>
 	<meta charset="utf-8">
@@ -97,37 +91,52 @@
 										<form role="form" action="/">
 
 											<div class="form-group">
-												<label for="login_email" class="sr-only">Email address</label>
-												<input type="email" class="form-control" id="login_email" placeholder="Email Address">
+												<label for="login_email" class="sr-only">User Name</label>
+												<input type="text" class="form-control" id="login_user_name" placeholder="User" required>
 											</div>
 											<div class="form-group">
 												<label for="login_password" class="sr-only">Password</label>
-												<input type="password" class="form-control" id="login_password" placeholder="Password">
+												<input type="password" class="form-control" id="login_password" placeholder="Password" required>
 											</div>
-											<div class="checkbox">
-												<input type="checkbox" id="remember_checkbox">
-												<label for="remember_checkbox">
-													Remember Me
-												</label>
-											</div>
-
-											<button type="button" class="theme_button color1 block_button">
+											<button type="button" class="theme_button color1 block_button login">
 												Log in
 											</button>
 
 										</form>
-										<div class="topmargin_20 darklinks">
-											<a href="#">Forgot Your Password?</a>
-										</div>
 
 									</div>
 								</li>
 
 
-								<a class="header-button" href="#">
-									<i class="fa fa-lock"></i>
-									<span class="header-button-text">Register</span>
-								</a>
+								<li class="dropdown login-dropdown">
+									<a class="header-button" data-target="#" href="./" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+										<i class="fa fa-user"></i>
+										<span class="header-button-text">Register</span>
+									</a>
+
+									<div class="dropdown-menu ls with_padding">
+
+										<p>
+											<strong class="grey">Register</strong>
+										</p>
+										<form role="form" action="/">
+
+											<div class="form-group">
+												<label for="login_email" class="sr-only">User Name</label>
+												<input type="text" class="form-control" id="register_user_name" placeholder="User" required>
+											</div>
+											<div class="form-group">
+												<label for="login_password" class="sr-only">Password</label>
+												<input type="password" class="form-control" id="register_password" placeholder="Password" required>
+											</div>
+											<button type="button" class="theme_button color1 block_button register">
+												Register
+											</button>
+
+										</form>
+
+									</div>
+								</li>
 							</ul>
 
 						</div>
@@ -140,7 +149,7 @@
 										<i class="fa fa-user highlight fontsize_16"></i>
 									</div>
 									<div class="media-body">
-										180-800-4321
+										1-800-432-432
 									</div>
 								</div>
 							</div>
@@ -177,11 +186,12 @@
 				</div>
 			</section>
 
-				<header class="page_header header_white table_section columns_padding_0 toggler-xs-right">
+
+			<header class="page_header header_white table_section columns_padding_0 toggler-xs-right">
 				<div class="container-fluid">
 					<div class="row">
 						<div class="col-md-3 col-sm-5">
-							<a href="./" class="logo">
+							<a class="logo">
 								אנונימי
 							</a>
 							<!-- header toggler -->
@@ -198,7 +208,7 @@
 									</li>
 
 									<li>
-										<a href="team.html">מי אנחנו</a>
+										<a href="team.html">הצוות שלנו</a>
 									</li>
 									<li>
 										<a href="breadcrumbs2.html">שירותים</a>
@@ -206,7 +216,7 @@
 									<li>
 										<a href="about.html">פורום</a>
 									</li>
-										<li>
+									<li>
 										<a href="about.html">פורום</a>
 									</li>
 								</ul>
@@ -220,6 +230,8 @@
 				</div>
 			</header>
 
+
+
 			<section class="page_breadcrumbs ds background_cover section_padding_50">
 				<div class="container">
 					<div class="row">
@@ -230,7 +242,7 @@
 				</div>
 			</section>
 
-			<section class="ls section_padding_top_130 section_padding_bottom_130">
+			<section class="ls section_padding_top_130 section_padding_bottom_130" dir="rtl">
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-12">
@@ -244,32 +256,18 @@
 										</div>
 										<div class="item-content">
 											<h4 class="bottommargin_5">
-												<a href="team-single.html">Kathryn Patrick</a>
+												אדי גרין
 											</h4>
 
-											<p class="small-text highlight">Experimental Psychologist</p>
+											<p class="small-text highlight">פסיכולוג</p>
 
 											<hr class="divider_30_1">
 
 											<p>
-												Filet mignon kielbasa short loin pork. Hamburger beef tongue meatloaf, drumstick shank.
+												בעל תואר שני בפסיכולוגיה קלינית ורפואית.עוסק בטיפול פסיכולוגי דינמי פרטני במבוגרים, ילדים ובני נוער, הדרכות ועבודה טיפולית עם הורים. כמו כן, עבודה עם צוותים חינוכיים. בעל הכשרה וניסיון רב בעבודה במסגרות חינוכיות - בתי ספר וכיתות חינוך מיוחד.
 											</p>
 
-											<div class="member-social divided_content lightgreylinks">
-												<span>
-													<a class="social-icon soc-facebook" href="#" title="Facebook"></a>
-												</span>
-												<span>
-													<a class="social-icon soc-twitter" href="#" title="Twitter"></a>
-												</span>
-												<span>
-													<a class="social-icon soc-google" href="#" title="Google"></a>
-												</span>
-												<span>
-													<a class="social-icon soc-linkedin" href="#" title="LinkedIn"></a>
-												</span>
-											</div>
-
+											
 										</div>
 									</div>
 								</div>
@@ -281,29 +279,14 @@
 										</div>
 										<div class="item-content">
 											<h4 class="bottommargin_5">
-												<a href="team-single.html">Clara Powell</a>
+												קלרה מולדן
 											</h4>
 
-											<p class="small-text highlight">Child Psychologist</p>
+											<p class="small-text highlight">פסיכולוגית</p>
 
 											<hr class="divider_30_1">
 
-											<p>Ball tip boudin drumstick short loin burgdoggen biltong pastrami salami shankle turkey jowl.</p>
-
-											<div class="member-social divided_content lightgreylinks">
-												<span>
-													<a class="social-icon soc-facebook" href="#" title="Facebook"></a>
-												</span>
-												<span>
-													<a class="social-icon soc-twitter" href="#" title="Twitter"></a>
-												</span>
-												<span>
-													<a class="social-icon soc-google" href="#" title="Google"></a>
-												</span>
-												<span>
-													<a class="social-icon soc-linkedin" href="#" title="LinkedIn"></a>
-												</span>
-											</div>
+											<p>פסיכולוגית טיפול אישי ומשפחתי למתמודדים עם לחץ או חרדה טיפול פסיכולוגי ממוקד המתאים לילדים, מתבגרים ובוגרים המתמודדים עם: פחדים או חרדות קושי להרגיע את עצמם או לשלוט בכעסים זכרונות וסיוטים.</p>
 
 										</div>
 									</div>
@@ -316,29 +299,20 @@
 										</div>
 										<div class="item-content">
 											<h4 class="bottommargin_5">
-												<a href="team-single.html">Chad Walters</a>
+											ליאת הר-טוב
 											</h4>
 
-											<p class="small-text highlight">Cognitive Neuroscientist</p>
+											<p class="small-text highlight">
+												פסיכולוגית
+											</p>
 
 											<hr class="divider_30_1">
 
-											<p>Turkey frankfurter brisket kevin tail filet mignon short loin, beef ribs alcatra picanha meatloaf.</p>
+											<p>
+												פסיכולוגית קלינית מומחית. מטפלת במבוגרים ומתבגרים, בגישה דינאמית. מתמחה בטיפול בהפרעות חרדה, טראומה, דיכאון, משברי חיים, התמודדות עם קשיים סביב זוגיות, הריון לידה והורות.
+												אני מאמינה בפנייה לטיפול כאשר חשים מצוקה או רגשות שליליים שאינם חולפים. כאשר ישנם חסמים פנימיים, או דפוסי התנהגות חוזרים המעכבים או פוגעים במישורי חיים שונים.
+											</p>
 
-											<div class="member-social divided_content lightgreylinks">
-												<span>
-													<a class="social-icon soc-facebook" href="#" title="Facebook"></a>
-												</span>
-												<span>
-													<a class="social-icon soc-twitter" href="#" title="Twitter"></a>
-												</span>
-												<span>
-													<a class="social-icon soc-google" href="#" title="Google"></a>
-												</span>
-												<span>
-													<a class="social-icon soc-linkedin" href="#" title="LinkedIn"></a>
-												</span>
-											</div>
 
 										</div>
 									</div>
@@ -351,29 +325,15 @@
 										</div>
 										<div class="item-content">
 											<h4 class="bottommargin_5">
-												<a href="team-single.html">Lura Holloway</a>
+												לורה כהן
 											</h4>
 
-											<p class="small-text highlight">Community Psychologist</p>
+											<p class="small-text highlight">מנהלת מערך הפסיכולוגים באתר "אנונימי"</p>
 
 											<hr class="divider_30_1">
 
-											<p>Swine chicken t-bone sirloin, shankle corned beef porchetta chuck tri-tip brisket rump.</p>
+											<p>דר' לפסיכולוגיה קלינית עם התמחות בטיפול בטראומה באופן כללי ובטראומות מיניות בפרט, וכן בחרדות, משברי חיים וקשיים בינאישיים. מנהלת את מערך הפסיכולוגים באתר "אנונימי" בהתנדבות ומרצה בכירה באקדמיה. </p>
 
-											<div class="member-social divided_content lightgreylinks">
-												<span>
-													<a class="social-icon soc-facebook" href="#" title="Facebook"></a>
-												</span>
-												<span>
-													<a class="social-icon soc-twitter" href="#" title="Twitter"></a>
-												</span>
-												<span>
-													<a class="social-icon soc-google" href="#" title="Google"></a>
-												</span>
-												<span>
-													<a class="social-icon soc-linkedin" href="#" title="LinkedIn"></a>
-												</span>
-											</div>
 
 										</div>
 									</div>
@@ -386,29 +346,16 @@
 										</div>
 										<div class="item-content">
 											<h4 class="bottommargin_5">
-												<a href="team-single.html">Ruby Ryan</a>
+												רובי פולנטיאק
 											</h4>
 
-											<p class="small-text highlight">assistant</p>
+											<p class="small-text highlight">עורך דין</p>
 
 											<hr class="divider_30_1">
 
-											<p>Tri-tip porchetta shankle tenderloin venison burgdoggen pork chop brisket beef ribs tail.</p>
+											<p>עו"ד רובי פולנטיאק מתמחה באופן בלעדי בייצוג נפגעות ונפגעי הטרדה מינית, תקיפה מינית ועבירות מין ואינו מייצג את הפוגעים בשום אופן ובשום מחיר. רובי הינו בעל ניסיון עשיר המטפל בנפגעים ברגישות ועדינות במהלך ההליך הפלילי.</p>
 
-											<div class="member-social divided_content lightgreylinks">
-												<span>
-													<a class="social-icon soc-facebook" href="#" title="Facebook"></a>
-												</span>
-												<span>
-													<a class="social-icon soc-twitter" href="#" title="Twitter"></a>
-												</span>
-												<span>
-													<a class="social-icon soc-google" href="#" title="Google"></a>
-												</span>
-												<span>
-													<a class="social-icon soc-linkedin" href="#" title="LinkedIn"></a>
-												</span>
-											</div>
+									
 
 										</div>
 									</div>
@@ -421,29 +368,15 @@
 										</div>
 										<div class="item-content">
 											<h4 class="bottommargin_5">
-												<a href="team-single.html">Matthew Fernandez</a>
+												רינה אאלוף
 											</h4>
 
-											<p class="small-text highlight">עו"ד</p>
+											<p class="small-text highlight">עובדת סוציאלית</p>
 
 											<hr class="divider_30_1">
 
-											<p>Short loin porchetta meatloaf kielbasa shank beef ribs pig andouille shoulder turdu ham.</p>
+											<p>אני מאמינה בטיפול פסיכולוגי בגובה העיניים ובתקשורת בלתי אמצעית. הטיפול הפסיכולוגי בעיני הוא  מפגש אנושי במרחב בטוח, מכבד ומאפשר. המטופלים שלי מוזמנים לדרך משותפת של גילוי, הבנה ושינוי. אני מטפלת במבוגרים ובילדים.</p>
 
-											<div class="member-social divided_content lightgreylinks">
-												<span>
-													<a class="social-icon soc-facebook" href="#" title="Facebook"></a>
-												</span>
-												<span>
-													<a class="social-icon soc-twitter" href="#" title="Twitter"></a>
-												</span>
-												<span>
-													<a class="social-icon soc-google" href="#" title="Google"></a>
-												</span>
-												<span>
-													<a class="social-icon soc-linkedin" href="#" title="LinkedIn"></a>
-												</span>
-											</div>
 
 										</div>
 									</div>
@@ -456,70 +389,166 @@
 					</div>
 				</div>
 			</section>
-
-				<footer class="page_footer cs main_color2 table_section section_padding_50 columns_padding_0">
+			<section id="appointment" class="ls section_padding_top_130 section_padding_bottom_100" dir="rtl">
 				<div class="container">
-
 					<div class="row">
+						<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
+							<h2 class="section_header with_icon highlight">קביעת פגישה</h2>
+							<div class="fontsize_16">
+								ניתן לקבוע טיפול עוד היום
+				
+							</div>
 
-						<div class="col-sm-4 col-sm-push-4 text-center">
-							<a href="./" class="logo big text-shadow">
-								אנונימי
-								<span class="small-text">סיוע אנונימי עבור נפגעי הטרדה מינית</span>
-							</a>
+							<form class="contact-form row columns_margin_bottom_40 topmargin_60" method="post" action="./">
+
+
 						</div>
-
-						<div class="col-sm-4 col-sm-pull-4 text-center text-sm-left text-md-left">
-							<div class="widget widget_nav_menu greylinks">
-
-								<ul class="menu divided_content wide_divider">
-									<li class="">
-										<a href="./">ראשי</a>
-									</li>
-									<li class="">
-										<a href="about.html">מי אנחנו</a>
-									</li>
-									<li class="">
-										<a href="services.html">שירותים</a>
-									</li>
-								</ul>
-
+						<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
+							<div class="contact-form-email">
+								<input type="email" aria-required="true" size="30" value="" name="email" id="email" class="form-control" placeholder="כתובת מייל (אופציונאלי - לא נשמר במאגר)">
+							</div>
+						</div>
+						<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
+						<div class="contact-form-date select-group">
+							<label for="date" class="sr-only">
+								Date
+								<span class="required">*</span>
+							</label>
+							<div class="input-group">
+								<select aria-required="true" id="psy" name="psy" class="choice empty form-control">
+									<option value="" disabled selected data-default>פסיכולוג</option>
+									<option value="ליאת הר-טוב">ליאת הר-טוב</option>
+									<option value="רינה אאלוף">רינה אאלוף</option>
+									<option value="קלרה מולדן">קלרה מולדן</option>
+									<option value="אדי גרין">אדי גרין</option>
+								</select>
+							</div>
+						</div>
+					</div>
+						<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
+							<div class="contact-form-date select-group">
+								<label for="date" class="sr-only">
+									Date
+									<span class="required">*</span>
+								</label>
+								<div class="input-group">
+									<select aria-required="true" id="date" name="date" class="choice empty form-control">
+										<option value="" disabled selected data-default>תאריך</option>
+										<option value="14.03.2017">14.03.2017</option>
+										<option value="15.03.2017">15.03.2017</option>
+										<option value="16.03.2017">16.03.2017</option>
+										<option value="17.03.2017">17.03.2017</option>
+										<option value="18.03.2017">18.03.2017</option>
+										<option value="19.03.2017">19.03.2017</option>
+										<option value="20.03.2017">20.03.2017</option>
+										<option value="21.03.2017">21.03.2017</option>
+										<option value="22.03.2017">22.03.2017</option>
+										<option value="23.03.2017">23.03.2017</option>
+										<option value="24.03.2017">24.03.2017</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
+							<div class="contact-form-time select-group">
+								<label for="time" class="sr-only">
+									Date
+									<span class="required">*</span>
+								</label>
+								<div class="input-group ">
+									<select aria-required="true" id="time" name="time" class="choice empty form-control">
+										<option value="" disabled selected data-default>שעה</option>
+										<option value="14.03.2017">9:00</option>
+										<option value="15.03.2017">10:00</option>
+										<option value="16.03.2017">11:00</option>
+										<option value="17.03.2017">12:00</option>
+										<option value="18.03.2017">13:00</option>
+										<option value="19.03.2017">14:00</option>
+										<option value="20.03.2017">15:00</option>
+										<option value="21.03.2017">16:00</option>
+										<option value="22.03.2017">17:00</option>
+									</select>
+								</div>
 							</div>
 						</div>
 
-						<div class="col-sm-4 text-center text-sm-right text-md-right">
-							<div class="widget widget_nav_menu greylinks">
 
-								<ul class="menu divided_content wide_divider">
-									<li class="">
-										<a href="gallery-regular-3-cols.html">????</a>
-									</li>
-									<li class="">
-										<a href="blog-right.html">פורום</a>
-									</li>
-									<li class="">
-										<a href="contact.html">קביעת פגישה</a>
-									</li>
-								</ul>
+						<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
 
+							<div class="contact-form-submit topmargin_20">
+								<button type="submit" id="contact_form_submit" name="contact_submit" class="theme_button color1 with_shadow">תיאום פגישה</button><br>
+								<strong>לצפייה בפגישות עתידיות, אנא היכנס\י לאזור האישי</strong>
 							</div>
 						</div>
 
+						</form>
 					</div>
 				</div>
-			</footer>
+		</div>
+		</section>
+		<footer class="page_footer cs main_color2 table_section section_padding_50 columns_padding_0">
+			<div class="container">
+
+				<div class="row">
+
+					<div class="col-sm-4 col-sm-push-4 text-center">
+						<a href="./" class="logo big text-shadow">
+							אנונימי
+							<span class="small-text">סיוע אנונימי עבור נפגעי הטרדה מינית</span>
+						</a>
+					</div>
+
+					<div class="col-sm-4 col-sm-pull-4 text-center text-sm-left text-md-left">
+						<div class="widget widget_nav_menu greylinks">
+
+							<ul class="menu divided_content wide_divider">
+								<li class="">
+									<a href="./">ראשי</a>
+								</li>
+								<li class="">
+									<a href="about.html">מי אנחנו</a>
+								</li>
+								<li class="">
+									<a href="services.html">שירותים</a>
+								</li>
+							</ul>
+
+						</div>
+					</div>
+
+					<div class="col-sm-4 text-center text-sm-right text-md-right">
+						<div class="widget widget_nav_menu greylinks">
+
+							<ul class="menu divided_content wide_divider">
+								<li class="">
+									<a href="gallery-regular-3-cols.html">????</a>
+								</li>
+								<li class="">
+									<a href="blog-right.html">פורום</a>
+								</li>
+								<li class="">
+									<a href="contact.html">קביעת פגישה</a>
+								</li>
+							</ul>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</footer>
 
 		<section class="cs main_color2 page_copyright section_padding_15">
-				<div class="container with_top_border">
-					<div class="row">
-						<div class="col-sm-12 text-center">
-							<p class="small-text">פרויקט זה הינו חלק מסדנה מעשית במערוכת מידע, כל הזכויות שמורות</p>
-						</div>
+			<div class="container with_top_border">
+				<div class="row">
+					<div class="col-sm-12 text-center">
+						<p class="small-text">פרויקט זה הינו חלק מסדנה מעשית במערוכת מידע, כל הזכויות שמורות</p>
 					</div>
 				</div>
-			</section>
+			</div>
+		</section>
 
-		</div>
+	</div>
 		<!-- eof #box_wrapper -->
 	</div>
 	<!-- eof #canvas -->

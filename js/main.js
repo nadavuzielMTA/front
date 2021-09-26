@@ -400,7 +400,7 @@ function documentReadyInit() {
 		jQuery.ajax({
 			type: 'GET',
 			url: '/api/login',
-			data: 'username=' + document.getElementById('register_user_name').value + '&password=' + document.getElementById('register_password').value,
+			data: 'username=' + document.getElementById('login_user_name').value + '&password=' + document.getElementById('login_password').value,
 			success: function (msg) {
 				console.log(msg);
 				$form.find('.response').html(msg);

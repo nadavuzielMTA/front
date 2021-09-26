@@ -476,10 +476,7 @@
 		],
 	});
 
-	///////////////////
-	//events calendar//
-	///////////////////
-	//https://fullcalendar.io/
+
 	jQuery('.events_calendar').fullCalendar(
 
 		{
@@ -490,7 +487,7 @@
 			},
 			defaultDate: '2021-09-15',
 			editable: true,
-			eventLimit: true, // allow "more" link when too many events
+			eventLimit: true,
 			navLinks: true,
 			aspectRatio: 1,
 			events: [
@@ -499,7 +496,7 @@
 					start: '2021-09-15'
 				},
 				{
-					title: 'Click for Google',
+					title: '17:00',
 					url: 'http://google.com/',
 					start: '2021-09-26'
 				}

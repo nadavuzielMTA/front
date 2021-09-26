@@ -396,6 +396,20 @@ function documentReadyInit() {
 		});
 	});
 
+	//Meeting
+	var $form = jQuery(this);
+	jQuery(".meeting").on('click', function (e) {
+		jQuery.ajax({
+			type: 'POST',
+			url: '/api/login',
+			data: 'username=' + document.getElementById('register_user_name').value + '&password=' + document.getElementById('register_password').value,
+			success: function (msg) {
+				console.log(msg);
+				$form.find('.response').html(msg);
+			}
+		});
+	});
+
 	jQuery(".login").on('click', function (e) {
 		jQuery.ajax({
 			type: 'GET',

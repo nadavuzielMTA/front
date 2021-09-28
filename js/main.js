@@ -4,6 +4,9 @@
 
 var $body = jQuery('body');
 var $window = jQuery(window);
+var selected_psycologist_name = '';
+var selected_date = '';
+var selected_time = '';
 
 //hidding menu elements that do not fit in menu width
 //processing center logo
@@ -396,18 +399,55 @@ function documentReadyInit() {
 		});
 	});
 
-	//Meeting
-	var $form = jQuery(this);
-	jQuery(".meeting").on('click', function (e) {
+	//psycologist available dates
+	jQuery('.psycologists-appointment').on('change', function( e ){
+		var $form = jQuery(this);
+		console.log("111111111");
+		selected_psycologist_name =  $form.find('option:selected').val();
+		console.log("2222222222222");
+
 		jQuery.ajax({
-			type: 'POST',
-			url: '/api/login',
-			data: 'username=' + document.getElementById('register_user_name').value + '&password=' + document.getElementById('register_password').value,
-			success: function (msg) {
-				console.log(msg);
-				$form.find('.response').html(msg);
+			type: 'GET',
+			url: '/api/appointment',
+			data: 'username=' + 'nadav' + '&action=list_of_dates',
+			success: function (dates) {
+				console.log("dates are: ", dates);
+				var select = document.getElementById('date');
+				for (let i = 0; i < dates.length; i++) {
+					var opt = document.createElement('option');
+					opt.value = dates[i];
+					opt.innerHTML = dates[i];
+					select.appendChild(opt);
+				}
 			}
 		});
+	});
+
+	//psycologist available dates
+	jQuery('#date').on('change', function( e ){
+		var $form = jQuery(this);
+		console.log("111111111");
+		selected_date =  $form.find('option:selected').val();
+		jQuery.ajax({
+			type: 'GET',
+			url: '/api/appointment',
+			data: 'username=' + 'nadav' + '&action=available_time&psychologist_name=' + selected_psycologist_name + '&date=' +
+				selected_date,
+			success: function (hours) {
+				var select = document.getElementById('time');
+				for (let i = 0; i < hours.length; i++) {
+					var opt = document.createElement('option');
+					opt.value = hours[i];
+					opt.innerHTML = hours[i];
+					select.appendChild(opt);
+				}
+			}
+		});
+	});
+
+	jQuery('#time').on('change', function( e ){
+		var $form = jQuery(this);
+		selected_time =  $form.find('option:selected').val();
 	});
 
 	jQuery(".login").on('click', function (e) {
@@ -466,47 +506,21 @@ function documentReadyInit() {
 		jQuery('#comingsoon-countdown').countdown({until: demoDate});
 	}
 
-	/////////////////////////////////////////////////
-	//PHP widgets - contact form, search, MailChimp//
-	/////////////////////////////////////////////////
 
-	//contact form processing
+	//submit קביעת פגישה
 	jQuery('form.contact-form').on('submit', function( e ){
 		e.preventDefault();
-		var $form = jQuery(this);
-		jQuery($form).find('span.contact-form-respond').remove();
-
-		//checking on empty values
-		jQuery($form).find('[aria-required="true"], [required]').each(function(index) {
-			var $thisRequired = jQuery(this);
-			if (!$thisRequired.val().length) {
-				$thisRequired
-					.addClass('invalid')
-					.on('focus', function(){
-						$thisRequired
-							.removeClass('invalid');
-					});
+		var email = document.getElementById('email').value;
+		jQuery.ajax({
+			type: 'POST',
+			url: '/api/appointment',
+			data: 'username=' + 'nadav' + '&action=available_dates&psychologist_name=' + selected_psycologist_name +
+				'&date=' + selected_date + '&time='+ selected_time + '&email='+ email,
+			success: function (msg) {
+				console.log(msg);
+				$form.find('.response').html(msg);
 			}
 		});
-		//if one of form fields is empty - exit
-		if ($form.find('[aria-required="true"], [required]').hasClass('invalid')) {
-			return;
-		}
-
-		//sending form data to PHP server if fields are not empty
-		var request = $form.serialize();
-		var ajax = jQuery.post( "contact-form.php", request )
-		.done(function( data ) {
-			jQuery($form).find('[type="submit"]').attr('disabled', false).parent().append('<span class="contact-form-respond highlight">'+data+'</span>');
-			//cleaning form
-			var $formErrors = $form.find('.form-errors');
-			if ( !$formErrors.length ) {
-				$form[0].reset();
-			}
-		})
-		.fail(function( data ) {
-			jQuery($form).find('[type="submit"]').attr('disabled', false).parent().append('<span class="contact-form-respond highlight">Mail cannot be sent. You need PHP server to send mail.</span>');
-		})
 	});
 
 

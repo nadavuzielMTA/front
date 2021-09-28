@@ -5900,7 +5900,7 @@ a.logo.vertical_logo img {
 
 .page_header_wrapper.header_transparent, .page_header_wrapper.header_half_transparent {
 	height: 0 !important;
-	position: relative;
+	position:relative;
 	background-color: transparent;
 }
 
@@ -8405,6 +8405,8 @@ body.active-side-header.slide-right .page_header_side {
 
 @media (min-width: 992px) {
 	.mainmenu_wrapper {
+		
+	
 		position: relative;
 	}
   /* menu layout */

@@ -245,7 +245,7 @@ Border colors for elements in color section: rgba(255, 255, 255, 0.3)
 	padding: 0;
 	background-color: transparent;
 	border-radius: 0;
-	font-family: 'Playfair Display', serif;
+	font-family: 'Muli', sans-serif;
 	color: inherit;
 	font-weight: 700;
 	font-size: 18px;
@@ -1511,8 +1511,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
-	font-family: 'Playfair Display', serif;
+h6{
+	font-family: 'Muli', sans-serif;
 	font-weight: 700;
 	line-height: 1.1;
 	word-break: break-word;
@@ -5746,7 +5746,7 @@ a.logo {
 	word-break: break-word;
 	font-weight: 700;
 	font-size: 30px;
-	font-family: 'Playfair Display', serif;
+	font-family: 'Muli', sans-serif;
 	line-height: 1;
 	position: relative;
 	z-index: 2;
@@ -5763,7 +5763,7 @@ a.logo .small-text {
 
 .large-text {
 	display: block;
-	font-size: 28px;
+	font-size: 25px;
 	line-height: 1;
 }
 
@@ -5799,6 +5799,7 @@ a.logo.text-shadow .small-text {
 footer a.logo img {
 	max-width: 100%;
 }
+
 
 @media (max-width: 991px) {
 	a.logo img {
@@ -6078,6 +6079,7 @@ a.logo.vertical_logo img {
 	overflow: visible;
 	width: 10000px;
 	padding: 0 15px;
+
 }
 
 .header_right_buttons {
@@ -8065,6 +8067,7 @@ body.active-side-header.slide-right .page_header_side {
 .page_copyright.parallax,
 .page_footer.parallax {
 	background-image: url(../img/parallax/bottom.jpg);
+	
 }
 
 .section_404.background_cover {
@@ -8403,7 +8406,7 @@ body.active-side-header.slide-right .page_header_side {
 */
 /* Desktop menu - (min 992px) styles */
 .sf-menu a {
-	font-family: 'Playfair Display', serif;
+	font-family: 'Muli', sans-serif;
 	font-weight: 700;
 	font-size: 18px;
 	text-align: left;
@@ -10137,7 +10140,7 @@ widget_pages
 	display: inline-block;
 	padding: 8px 0 8px 16px;
 	position: relative;
-	font-family: 'Playfair Display', serif;
+	font-family: 'Muli', sans-serif;
 	font-size: 18px;
 	font-weight: 700;
 }

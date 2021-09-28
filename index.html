@@ -22,14 +22,21 @@
 
 </head>
 
-<body>
+<body onload="what_user()">
+	<script>
+        function what_user() {
+            var d = document.getElementById("result");
+            var user = ""; // get the user type
+            if (user == "admin") d.outerHTML = "<a href=" + "admin_index.html" + ">" + "אזור אישי" + "</a>";
+			else if (user == "user") d.outerHTML = "<a href=" + "admin_user.html" + ">" + "אזור אישי" + "</a>";
+            else d.outerHTML = "<a href=" + "admin_signup.html" + ">" + "אזור אישי" + "</a>";
+        }
 
+	</script>
 
 	<div class="preloader">
 		<div class="preloader_image"></div>
 	</div>
-
-	<!-- search modal -->
 	<div class="modal" tabindex="-1" role="dialog" aria-labelledby="search_modal" id="search_modal">
 		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			<span aria-hidden="true">
@@ -45,26 +52,6 @@
 			</form>
 		</div>
 	</div>
-
-	<!-- Unyson messages modal -->
-	<div class="modal fade" tabindex="-1" role="dialog" id="messages_modal">
-		<div class="fw-messages-wrap ls with_padding">
-			<!-- Uncomment this UL with LI to show messages in modal popup to your user: -->
-			<!--
-			<ul class="list-unstyled">
-				<li>Message To User</li>
-			</ul>
-			-->
-
-		</div>
-	</div>
-	<!-- eof .modal -->
-	<!-- wrappers for visual page editor and boxed version of template -->
-	<div id="canvas">
-		<div id="box_wrapper">
-
-			<!-- template sections -->
-
 			<section class="page_topline cs table_section table_section_md columns_padding_0">
 				<div class="container-fluid">
 					<div class="row">
@@ -73,27 +60,30 @@
 
 								<li class="dropdown login-dropdown">
 									<a class="header-button" data-target="#" href="./" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-										<i class="fa fa-user"></i>
-										<span class="header-button-text">Login</span>
+										<i class="fa fa-sign-in"></i>
+										<span class="header-button-text">התחברות</span>
 									</a>
 
 									<div class="dropdown-menu ls with_padding">
-
-										<p>
-											<strong class="grey">If you have an account, please log in:</strong>
+										
+										<p dir="rtl" style="text-align:right;">
+											<strong class="grey">אם יש ברושתך משתמש, אנא התחבר\י:</strong>
 										</p>
+										
 										<form role="form" action="/">
 
 											<div class="form-group">
 												<label for="login_email" class="sr-only">User Name</label>
-												<input type="text" class="form-control" id="login_user_name" placeholder="User" required>
+												<i class="grey fa fa-user"></i>
+												<input type="text" class="form-control" id="login_user_name" placeholder="User Name" required>
 											</div>
 											<div class="form-group">
 												<label for="login_password" class="sr-only">Password</label>
+												<i class="grey fa fa-pencil-square-o"></i>
 												<input type="password" class="form-control" id="login_password" placeholder="Password" required>
 											</div>
 											<button type="button" class="theme_button color1 block_button login">
-												Log in
+												התחברות
 											</button>
 
 										</form>
@@ -104,27 +94,29 @@
 
 								<li class="dropdown login-dropdown">
 									<a class="header-button" data-target="#" href="./" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-										<i class="fa fa-user"></i>
-										<span class="header-button-text">Register</span>
+										<i class="fa fa-user-plus"></i>
+										<span class="header-button-text">הרשמה</span>
 									</a>
 
 									<div class="dropdown-menu ls with_padding">
 
-										<p>
-											<strong class="grey">Register</strong>
+										<p dir="rtl" style="text-align:right;">
+											<strong class="grey">הרשמה לאתר</strong>
 										</p>
 										<form role="form" action="/">
 
 											<div class="form-group">
 												<label for="login_email" class="sr-only">User Name</label>
-												<input type="text" class="form-control" id="register_user_name" placeholder="User" required>
+												<i class="grey fa fa-user"></i>
+														<input type="text" class="form-control" id="register_user_name" placeholder="User Name" required>
 											</div>
 											<div class="form-group">
 												<label for="login_password" class="sr-only">Password</label>
+												<i class="grey fa fa-pencil-square-o"></i>
 												<input type="password" class="form-control" id="register_password" placeholder="Password" required>
 											</div>
 											<button type="button" class="theme_button color1 block_button register">
-												Register
+												הרשמה
 											</button>
 
 										</form>
@@ -165,7 +157,7 @@
 										<i class="fa fa-envelope highlight fontsize_16"></i>
 									</div>
 									<div class="media-body">
-										support@psychologist.com
+										support@anonimi.com
 									</div>
 								</div>
 							</div>
@@ -199,12 +191,14 @@
 									<li class="active">
 										<a href="index.html">ראשי</a>
 									</li>
-
 									<li>
-										<a href="team.html">הצוות שלנו</a>
+										<div id="result">אזור אישי</div>
 									</li>
 									<li>
 										<a href="about.html">על האתר</a>
+									</li>
+									<li>
+										<a href="team.html">הצוות שלנו</a>
 									</li>
 									<li>
 										<a href="blog.html">כתבות</a>
@@ -268,7 +262,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-6 col-md-push-6 text-center">
-							<h2 class="section_header">חשוב לנו שתדע/י שאת/ה לא לבד</h2>
+							<h2 class="section_header ">חשוב לנו שתדע/י שאת/ה לא לבד</h2>
 							<br>
 							<p class="bold fontsize_18">בכל שלב עומד לרשותך קו הסיוע לנפגעות ונפגעי תקיפה מינית. פסיכולוגיות/ים מנוסות/ים, הזמינות/ים 24 שעות ביממה, יקשיבו לך ויעניקו תמיכה רגשית תוך שמירה על סודיות ופרטיות באמצעות פלטפורמת הZoom.</p>
 							<p class="fontsize_18">
@@ -510,11 +504,16 @@
 							</article>
 						</div>
 						<!-- .item-content.entry-content -->
-						</article>
+
 					</div>
-				</div>
-		</div>
-		</section>
+					<div class="row">
+						<div class="col-sm-12 text-center">
+							<a href="blog.html" class="theme_button color1"">לכתבות נוספות</a>
+							</div>
+							</div>
+						</div>
+					</div>
+</section>
 
 		<section class="cs main_color2 parallax page_testimonials section_padding_75">
 			<div class="container">
@@ -570,6 +569,20 @@
 							<div class="panel panel-default">
 								<div class="panel-heading">
 									<h4 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordion1" href="#collapse0" class="collapsed">
+											מהי הטרדה מינית?
+										</a>
+									</h4>
+								</div>
+								<div id="collapse0" class="panel-collapse collapse">
+									<div class="panel-body">
+										הטרדה המינית הינה מונח כולל המתייחס למעשים אסורים שונים בדרגות חומרה שונות. במונח הטרדה מינית נכללות הטרדות מיניות מילוליות והטרדות מיניות שאינן מילוליות כמו הפצת תצלומים, סרטים או הקלטות של אדם המתמקדות במיניותו, צילום אנשים במצבים אינטימיים, מעשים מגונים, אינוס, מעשי סדום, בעילה אסורה בהסכמה ועוד.
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
 										<a data-toggle="collapse" data-parent="#accordion1" href="#collapse1" class="collapsed">
 											האם אני נדרש לספק פרטים אודייתי בשביל לקבל טיפול?
 										</a>
@@ -578,6 +591,8 @@
 								<div id="collapse1" class="panel-collapse collapse">
 									<div class="panel-body">
 										<b>חד משמעית לא!</b> את\אתה לא חייבים להיחשף על מנת לקבל טיפול ועזרה על ידי פסיכולוג מוסמך, רק במידה ותחליט\י להגיש תלונה נצטרך פרטים לצרכי הגשת התלונה בשמך.
+										<br />
+										מכיוון שבמדינת ישראל לצרכי הגשת תלונה יש לספק את פרטי המגיש יש צורך בקבלת פרטים אך, חשוב לציין כי הפרטים נשארים בגדר חסויים ולא ישותפו ללא אישורך.
 									</div>
 								</div>
 							</div>
@@ -591,7 +606,7 @@
 								</div>
 								<div id="collapse2" class="panel-collapse collapse">
 									<div class="panel-body">
-										כלל השירותים הניתים באתר "אנונימי" הינם ללא תשלום וללא תמורה ונעשים בהתנדבות מלאה על ידי גורמי המקצוע.
+										כלל השירותים הניתים באתר "אנונימי" הינם ללא תשלום וללא מטרת רווח וכן נעשים בהתנדבות מלאה על ידי גורמי מקצוע מוסמכים מהתעשייה.
 									</div>
 								</div>
 							</div>
@@ -599,13 +614,13 @@
 								<div class="panel-heading">
 									<h4 class="panel-title">
 										<a data-toggle="collapse" data-parent="#accordion1" href="#collapse3" class="collapsed">
-											האם בשביל הטיפול המשפטי אצטרך להיחשף?
+											איך עובד תהליך הליווי המשפטי?
 										</a>
 									</h4>
 								</div>
 								<div id="collapse3" class="panel-collapse collapse">
 									<div class="panel-body">
-										מכיוון שבמדינת ישראל לצרכי הגשת תלונה יש לספק את פרטי המגיש יש צורך בקבלת פרטים אך, חשוב לציין כי הפרטים נשארים בגדר חסויים ולא ישותפו ללא אישורך.
+										ראשית תידרש להיחשף ולמלא את הטופס הנמצא בדף הגשת תלונה, לאחר מכן עורך דין פלילי מטעמנו יצור איתך קשר וילוו את התלהליך מטעמך מול גורמי אכיפת החוק ותביעה אזרחית וכן יעדכן בהתקדמות התהליך.
 									</div>
 								</div>
 							</div>
@@ -614,13 +629,13 @@
 								<div class="panel-heading">
 									<h4 class="panel-title">
 										<a data-toggle="collapse" data-parent="#accordion1" href="#collapse4" class="collapsed">
-											איך עובד תהליך הליווי המשפטי?
+											כמה זמן נמשך ההליך המשפטי? 
 										</a>
 									</h4>
 								</div>
 								<div id="collapse4" class="panel-collapse collapse">
 									<div class="panel-body">
-										עורך דין פלילי מומסך המתחמה במקרי הטרדה מינית ילווה את התהליך מטעמך מול גורמי אכיפת החוק ויעדכן בהתקדמות התהליך.
+										מאד תלוי באופי המקרה ובהרבה מאד משתנים. ההליך יכול לקחת בין מספר חודשים לכמה שנים במקרים מסוימים.
 									</div>
 								</div>
 							</div>
@@ -708,7 +723,7 @@
 	</div>
 	</section>
 
-	<footer class="page_footer cs main_color2 table_section section_padding_50 columns_padding_0">
+	<footer class="page_footer cs main_color2 table_section section_padding_50 columns_padding_0" >
 		<div class="container">
 
 			<div class="row">

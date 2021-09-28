@@ -5761,6 +5761,12 @@ a.logo .small-text {
 	line-height: 1;
 }
 
+.large-text {
+	display: block;
+	font-size: 28px;
+	line-height: 1;
+}
+
 a.logo.text-shadow {
 	text-shadow: 0 0.05em 0.1em rgba(68, 68, 68, 0.5);
 }

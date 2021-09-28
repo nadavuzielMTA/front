@@ -1644,7 +1644,9 @@ hr {
 iframe {
 	border: none;
 	max-width: 100%;
+	
 }
+
 
 input[type='number'] {
 	-moz-appearance: textfield;

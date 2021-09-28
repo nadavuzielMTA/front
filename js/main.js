@@ -1,4 +1,4 @@
-"use strict";
+﻿"use strict";
 //Wrapping all JavaScript code into a IIFE function for prevent global variables creation
 (function(){
 
@@ -380,6 +380,22 @@ function documentReadyInit() {
 	if (jQuery().parallax) {
 		jQuery('.parallax').parallax("50%", 0.01);
 	}
+
+
+	function what_user() {
+		var d = document.getElementById("result");
+		let a = document.createElement('a')
+		a.text = 'zone'
+		var user = ""; // get the user type
+		if (user == "") a.href = 'admin_index.html'
+		else {
+			a.href = 'admin_user.html'
+		}
+		d.parentNode.removeChild(d);
+		document.body.appendChild(a);
+		console.log("error")
+	}
+
 
 
 	//register

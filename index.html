@@ -22,8 +22,17 @@
 
 </head>
 
-<body>
+<body onload="what_user()">
+	<script>
+        function what_user() {
+            var d = document.getElementById("result");
+            var user = ""; // get the user type
+            if (user == "admin") d.outerHTML = "<a href=" + "admin_index.html" + ">" + "אזור אישי" + "</a>";
+			else if (user == "user") d.outerHTML = "<a href=" + "admin_user.html" + ">" + "אזור אישי" + "</a>";
+            else d.outerHTML = "<a href=" + "admin_signup.html" + ">" + "אזור אישי" + "</a>";
+        }
 
+	</script>
 
 	<div class="preloader">
 		<div class="preloader_image"></div>
@@ -71,7 +80,7 @@
 												<input type="password" class="form-control" id="login_password" placeholder="Password" required>
 											</div>
 											<button type="button" class="theme_button color1 block_button login">
-												Log in
+												התחבר
 											</button>
 
 										</form>
@@ -102,7 +111,7 @@
 												<input type="password" class="form-control" id="register_password" placeholder="Password" required>
 											</div>
 											<button type="button" class="theme_button color1 block_button register">
-												Register
+												הירשם
 											</button>
 
 										</form>
@@ -177,7 +186,9 @@
 									<li class="active">
 										<a href="index.html">ראשי</a>
 									</li>
-
+									<li>
+										<div id="result">אזור אישי</div>
+									</li>
 									<li>
 										<a href="team.html">הצוות שלנו</a>
 									</li>
@@ -488,7 +499,7 @@
 							</article>
 						</div>
 						<!-- .item-content.entry-content -->
-						</article>
+
 					</div>
 					<div class="row">
 						<div class="col-sm-12 text-center">
@@ -560,7 +571,7 @@
 								</div>
 								<div id="collapse0" class="panel-collapse collapse">
 									<div class="panel-body">
-										<b>חד משמעית לא!</b> את\אתה לא חייבים להיחשף על מנת לקבל טיפול ועזרה על ידי פסיכולוג מוסמך, רק במידה ותחליט\י להגיש תלונה נצטרך פרטים לצרכי הגשת התלונה בשמך.
+										הטרדה המינית הינה מונח כולל המתייחס למעשים אסורים שונים בדרגות חומרה שונות. במונח הטרדה מינית נכללות הטרדות מיניות מילוליות והטרדות מיניות שאינן מילוליות כמו הפצת תצלומים, סרטים או הקלטות של אדם המתמקדות במיניותו, צילום אנשים במצבים אינטימיים, מעשים מגונים, אינוס, מעשי סדום, בעילה אסורה בהסכמה ועוד.
 									</div>
 								</div>
 							</div>
@@ -575,6 +586,8 @@
 								<div id="collapse1" class="panel-collapse collapse">
 									<div class="panel-body">
 										<b>חד משמעית לא!</b> את\אתה לא חייבים להיחשף על מנת לקבל טיפול ועזרה על ידי פסיכולוג מוסמך, רק במידה ותחליט\י להגיש תלונה נצטרך פרטים לצרכי הגשת התלונה בשמך.
+										<br />
+										מכיוון שבמדינת ישראל לצרכי הגשת תלונה יש לספק את פרטי המגיש יש צורך בקבלת פרטים אך, חשוב לציין כי הפרטים נשארים בגדר חסויים ולא ישותפו ללא אישורך.
 									</div>
 								</div>
 							</div>
@@ -588,7 +601,7 @@
 								</div>
 								<div id="collapse2" class="panel-collapse collapse">
 									<div class="panel-body">
-										כלל השירותים הניתים באתר "אנונימי" הינם ללא תשלום וללא תמורה ונעשים בהתנדבות מלאה על ידי גורמי המקצוע.
+										כלל השירותים הניתים באתר "אנונימי" הינם ללא תשלום וללא מטרת רווח וכן נעשים בהתנדבות מלאה על ידי גורמי מקצוע מוסמכים מהתעשייה.
 									</div>
 								</div>
 							</div>
@@ -596,13 +609,13 @@
 								<div class="panel-heading">
 									<h4 class="panel-title">
 										<a data-toggle="collapse" data-parent="#accordion1" href="#collapse3" class="collapsed">
-											האם בשביל הטיפול המשפטי אצטרך להיחשף?
+											איך עובד תהליך הליווי המשפטי?
 										</a>
 									</h4>
 								</div>
 								<div id="collapse3" class="panel-collapse collapse">
 									<div class="panel-body">
-										מכיוון שבמדינת ישראל לצרכי הגשת תלונה יש לספק את פרטי המגיש יש צורך בקבלת פרטים אך, חשוב לציין כי הפרטים נשארים בגדר חסויים ולא ישותפו ללא אישורך.
+										ראשית תידרש להיחשף ולמלא את הטופס הנמצא בדף הגשת תלונה, לאחר מכן עורך דין פלילי מטעמנו יצור איתך קשר וילוו את התלהליך מטעמך מול גורמי אכיפת החוק ותביעה אזרחית וכן יעדכן בהתקדמות התהליך.
 									</div>
 								</div>
 							</div>
@@ -611,13 +624,13 @@
 								<div class="panel-heading">
 									<h4 class="panel-title">
 										<a data-toggle="collapse" data-parent="#accordion1" href="#collapse4" class="collapsed">
-											איך עובד תהליך הליווי המשפטי?
+											כמה זמן נמשך ההליך המשפטי? 
 										</a>
 									</h4>
 								</div>
 								<div id="collapse4" class="panel-collapse collapse">
 									<div class="panel-body">
-										עורך דין פלילי מומסך המתחמה במקרי הטרדה מינית ילווה את התהליך מטעמך מול גורמי אכיפת החוק ויעדכן בהתקדמות התהליך.
+										מאד תלוי באופי המקרה ובהרבה מאד משתנים. ההליך יכול לקחת בין מספר חודשים לכמה שנים במקרים מסוימים.
 									</div>
 								</div>
 							</div>
@@ -625,7 +638,7 @@
 								<div class="panel-heading">
 									<h4 class="panel-title">
 										<a data-toggle="collapse" data-parent="#accordion1" href="#collapse5" class="collapsed">
-											איך עובד תהליך הליווי המשפטי?
+											כמה זמן נמשך ההליך המשפטי?
 										</a>
 									</h4>
 								</div>
@@ -741,7 +754,7 @@
 	</div>
 	</section>
 
-	<footer class="page_footer cs main_color2 table_section section_padding_50 columns_padding_0">
+	<footer class="page_footer cs main_color2 table_section section_padding_50 columns_padding_0" >
 		<div class="container">
 
 			<div class="row">

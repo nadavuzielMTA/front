@@ -6021,6 +6021,10 @@ a.logo.vertical_logo img {
 	width: 100%;
 }
 
+#col-box{
+	text-align: right;
+}
+
 #search_modal .form-control:-moz-placeholder {
 	color: rgba(255, 255, 255, 0.8);
 	opacity: 1;

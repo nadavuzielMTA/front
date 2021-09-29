@@ -446,8 +446,7 @@ function getCookie(name) {
 				url: '/api/login',
 				data: 'username=' + document.getElementById('register_user_name').value + '&password=' + document.getElementById('register_password').value,
 				success: function (msg) {
-					console.log(msg);
-					$form.find('.response').html(msg);
+					setCookie("username", username,1);
 					alert("תודה על הרשמתך" + document.getElementById('register_user_name').value);
 					window.location.replace("admin_signin.html");
 
@@ -525,7 +524,30 @@ function getCookie(name) {
 			setCookie("username", '' ,1);
 		});
 
+		jQuery(".new-complaint").on('click', function (e) {
+			var username = getCookie("username");
+			var first_name = document.getElementById('first_name').value;
+			var last_name = document.getElementById('last_name').value;
+			var email = document.getElementById('email').value;
+			var city = document.getElementById('city').value;
+			var phone_number = document.getElementById('phone').value;
+			var date = document.getElementById('date').value;
+			var place = document.getElementById('place').value;
+			var time = document.getElementById('time').value;
+			var description = document.getElementById('description').value;
 
+			jQuery.ajax({
+				type: 'POST',
+				url: '/api/complaint',
+				data: 'username=' + username + '&first_name=' + first_name +  '&last_name=' + last_name +
+					'&email=' + email +  '&city=' + city +  '&phone_number=' + phone_number +
+					'&date=' + date +  '&place=' + place +  '&time=' + time +
+					'&description=' + description,
+				success: function (msg) {
+					console.log(msg);
+				}
+			});
+		});
 
 		//prettyPhoto
 		if (jQuery().prettyPhoto) {

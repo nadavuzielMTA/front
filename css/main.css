@@ -2730,7 +2730,9 @@ html[xmlns] .slides {
 .ds .flex-control-paging li a:hover {
 	background-color: #ffffff;
 }
-
+.scroll{
+	overflow: auto;
+}
 .flex-control-thumbs {
 	margin: 5px 0 0;
 	position: static;

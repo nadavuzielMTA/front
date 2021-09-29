@@ -448,6 +448,9 @@ function getCookie(name) {
 				success: function (msg) {
 					console.log(msg);
 					$form.find('.response').html(msg);
+					alert("תודה על הרשמתך" + document.getElementById('register_user_name').value);
+					window.location.replace("admin_signin.html");
+
 				}
 			});
 		});
@@ -1315,5 +1318,4 @@ function getCookie(name) {
 		}
 
 	});
-	//end of IIFE function
 })();

@@ -916,19 +916,20 @@ function windowLoadInit() {
 			var $carousel = jQuery(this);
 			var data = $carousel.data();
 
-			var loop = data.loop ? data.loop : false;
-			var margin = (data.margin || data.margin === 0) ? data.margin : 30;
+			var loop = data.loop ? data.loop : true;
+			var margin = (data.margin || data.margin === 0) ? data.margin : 27;
 			var nav = data.nav ? data.nav : false;
 			var dots = data.dots ? data.dots : false;
 			var themeClass = data.themeclass ? data.themeclass : 'owl-theme';
 			var center = data.center ? data.center : false;
 			var items = data.items ? data.items : 4;
-			var autoplay = data.autoplay ? data.autoplay : false;
+			var autoplay = data.autoplay ? data.autoplay : true;
 			var responsiveXs = data.responsiveXs ? data.responsiveXs : 1;
 			var responsiveSm = data.responsiveSm ? data.responsiveSm : 2;
 			var responsiveMd = data.responsiveMd ? data.responsiveMd : 3;
 			var responsiveLg = data.responsiveLg ? data.responsiveLg : 4;
 			var filters = data.filters ? data.filters : false;
+		
 
 			if (filters) {
 				$carousel.clone().appendTo($carousel.parent()).addClass( filters.substring(1) + '-carousel-original' );

@@ -18,18 +18,19 @@
 	<link rel="stylesheet" href="css/fonts.css">
 	<link rel="stylesheet" href="css/main.css" class="color-switcher-link">
 	<script src="js/vendor/modernizr-2.6.2.min.js"></script>
-
+	<script src="https://code.jquery.com/jquery-3.3.1.js"
+			integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+			crossorigin="anonymous">
+	</script>
+	<script src="js/compressed.js"></script>
+	<script src="js/main.js"></script>
 
 </head>
 
-<body>
-
-
+<body onload="what_user()">
 	<div class="preloader">
 		<div class="preloader_image"></div>
 	</div>
-
-	<!-- search modal -->
 	<div class="modal" tabindex="-1" role="dialog" aria-labelledby="search_modal" id="search_modal">
 		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			<span aria-hidden="true">
@@ -45,574 +46,557 @@
 			</form>
 		</div>
 	</div>
+	<section class="page_topline cs table_section table_section_md columns_padding_0">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-3 text-center text-md-left">
+					<ul class="inline-dropdown inline-block divided_content">
 
-	<!-- Unyson messages modal -->
-	<div class="modal fade" tabindex="-1" role="dialog" id="messages_modal">
-		<div class="fw-messages-wrap ls with_padding">
-			<!-- Uncomment this UL with LI to show messages in modal popup to your user: -->
-			<!--
-			<ul class="list-unstyled">
-				<li>Message To User</li>
-			</ul>
-			-->
-
-		</div>
-	</div>
-	<!-- eof .modal -->
-	<!-- wrappers for visual page editor and boxed version of template -->
-	<div id="canvas">
-		<div id="box_wrapper">
-
-			<!-- template sections -->
-
-			<section class="page_topline cs table_section table_section_md columns_padding_0">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-3 text-center text-md-left">
-							<ul class="inline-dropdown inline-block divided_content">
-
-								<li class="dropdown login-dropdown">
-									<a class="header-button" data-target="#" href="./" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-										<i class="fa fa-user"></i>
-										<span class="header-button-text">Login</span>
-									</a>
-
-									<div class="dropdown-menu ls with_padding">
-
-										<p>
-											<strong class="grey">If you have an account, please log in:</strong>
-										</p>
-										<form role="form" action="/">
-
-											<div class="form-group">
-												<label for="login_email" class="sr-only">User Name</label>
-												<input type="text" class="form-control" id="login_user_name" placeholder="User" required>
-											</div>
-											<div class="form-group">
-												<label for="login_password" class="sr-only">Password</label>
-												<input type="password" class="form-control" id="login_password" placeholder="Password" required>
-											</div>
-											<button type="button" class="theme_button color1 block_button login">
-												Log in
-											</button>
-
-										</form>
-
-									</div>
-								</li>
-
-
-								<li class="dropdown login-dropdown">
-									<a class="header-button" data-target="#" href="./" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-										<i class="fa fa-user"></i>
-										<span class="header-button-text">Register</span>
-									</a>
-
-									<div class="dropdown-menu ls with_padding">
-
-										<p>
-											<strong class="grey">Register</strong>
-										</p>
-										<form role="form" action="/">
-
-											<div class="form-group">
-												<label for="login_email" class="sr-only">User Name</label>
-												<input type="text" class="form-control" id="register_user_name" placeholder="User" required>
-											</div>
-											<div class="form-group">
-												<label for="login_password" class="sr-only">Password</label>
-												<input type="password" class="form-control" id="register_password" placeholder="Password" required>
-											</div>
-											<button type="button" class="theme_button color1 block_button register">
-												Register
-											</button>
-
-										</form>
-
-									</div>
-								</li>
-							</ul>
-
-						</div>
-
-						<div class="col-md-6 text-center divided_content">
-
-							<div>
-								<div class="media small-teaser">
-									<div class="media-left">
-										<i class="fa fa-user highlight fontsize_16"></i>
-									</div>
-									<div class="media-body">
-										1-800-432-432
-									</div>
-								</div>
-							</div>
-
-							<div>
-								<div class="media small-teaser">
-									<div class="media-left">
-										<i class="fa fa-map-marker highlight fontsize_16"></i>
-									</div>
-									<div class="media-body">
-										דיזינגוף 180, ת"א
-									</div>
-								</div>
-							</div>
-
-							<div>
-								<div class="media small-teaser">
-									<div class="media-left">
-										<i class="fa fa-envelope highlight fontsize_16"></i>
-									</div>
-									<div class="media-body">
-										support@psychologist.com
-									</div>
-								</div>
-							</div>
-
-						</div>
-
-						<div class="col-md-3 text-center text-md-right bottommargin_0">
-							<a href="#appointment" class="theme_button color1 margin_0">קביעת פגישה</a>
-						</div>
-
-					</div>
-				</div>
-			</section>
-
-			<header class="page_header header_white table_section columns_padding_0 toggler-xs-right" dir="rtl">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-3 col-sm-5">
-							<a class="logo">
-								אנונימי
+						<li class="dropdown login-dropdown">
+							<a class="header-button" data-target="#" href="./" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+								<i class="fa fa-sign-in"></i>
+								<span class="header-button-text">התחברות</span>
 							</a>
-							<!-- header toggler -->
-							<span class="toggle_menu visible-xs">
-								<span></span>
-							</span>
-						</div>
-						<div class="col-md-6 col-sm-2 text-center">
-							<!-- main nav start -->
-							<nav class="mainmenu_wrapper">
-								<ul class="mainmenu nav sf-menu">
-									<li class="active">
-										<a href="index.html">ראשי</a>
-									</li>
 
-									<li>
-										<a href="team.html">הצוות שלנו</a>
-									</li>
-									<li>
-										<a href="about.html">על האתר</a>
-									</li>
-									<li>
-										<a href="blog.html">כתבות</a>
-									</li>
-									<li>
-										<a href="complain.html">הגשת תלונה</a>
-									</li>
-									<li>
-										<a href="forum.html">פורום</a>
-									</li>
-								</ul>
-							</nav>
-							<!-- eof main nav -->
-							<span class="toggle_menu hidden-xs">
-								<span></span>
-							</span>
-						</div>
-					</div>
+							<div class="dropdown-menu ls with_padding">
+
+								<p dir="rtl" style="text-align:right;">
+									<strong class="grey">אם יש ברושתך משתמש, אנא התחבר\י:</strong>
+								</p>
+
+								<form role="form" action="/">
+
+									<div class="form-group">
+										<label for="login_email" class="sr-only">User Name</label>
+										<i class="grey fa fa-user"></i>
+										<input type="text" class="form-control" id="login_user_name" placeholder="User Name" required>
+									</div>
+									<div class="form-group">
+										<label for="login_password" class="sr-only">Password</label>
+										<i class="grey fa fa-pencil-square-o"></i>
+										<input type="password" class="form-control" id="login_password" placeholder="Password" required>
+									</div>
+									<button type="button" class="theme_button color1 block_button login">
+										התחברות
+									</button>
+
+								</form>
+
+							</div>
+						</li>
+
+
+						<li class="dropdown login-dropdown">
+							<a class="header-button" data-target="#" href="./" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+								<i class="fa fa-user-plus"></i>
+								<span class="header-button-text">הרשמה</span>
+							</a>
+
+							<div class="dropdown-menu ls with_padding">
+
+								<p dir="rtl" style="text-align:right;">
+									<strong class="grey">הרשמה לאתר</strong>
+								</p>
+								<form role="form" action="/">
+
+									<div class="form-group">
+										<label for="login_email" class="sr-only">User Name</label>
+										<i class="grey fa fa-user"></i>
+										<input type="text" class="form-control" id="register_user_name" placeholder="User Name" required>
+									</div>
+									<div class="form-group">
+										<label for="login_password" class="sr-only">Password</label>
+										<i class="grey fa fa-pencil-square-o"></i>
+										<input type="password" class="form-control" id="register_password" placeholder="Password" required>
+									</div>
+									<button type="button" class="theme_button color1 block_button register">
+										הרשמה
+									</button>
+
+								</form>
+
+							</div>
+						</li>
+					</ul>
+
 				</div>
-			</header>
 
-			<section class="page_breadcrumbs ds background_cover section_padding_50">
-				<div class="container">
-					<div class="row">
-						<div class="col-sm-12 text-center">
-							<h2>כתבות ששוות קריאה</h2>
+				<div class="col-md-6 text-center divided_content">
 
+					<div>
+						<div class="media small-teaser">
+							<div class="media-left">
+								<i class="fa fa-user highlight fontsize_16"></i>
+							</div>
+							<div class="media-body">
+								1-800-432-432
+							</div>
 						</div>
 					</div>
+
+					<div>
+						<div class="media small-teaser">
+							<div class="media-left">
+								<i class="fa fa-map-marker highlight fontsize_16"></i>
+							</div>
+							<div class="media-body">
+								דיזינגוף 180, ת"א
+							</div>
+						</div>
+					</div>
+
+					<div>
+						<div class="media small-teaser">
+							<div class="media-left">
+								<i class="fa fa-envelope highlight fontsize_16"></i>
+							</div>
+							<div class="media-body">
+								support@anonimi.com
+							</div>
+						</div>
+					</div>
+
 				</div>
-			</section>
 
-			<section class="ls page_portfolio section_padding_top_100 section_padding_bottom_75" dir="rtl">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-4 text-center">
-							<article class="vertical-item content-padding post format-standard with_shadow">
-
-								<div class="item-media entry-thumbnail">
-									<img src="images/blog_post5.jpg" alt="">
-								</div>
-
-								<div class="item-content entry-content">
-									<header class="entry-header">
-
-										<div class="entry-date small-text highlight">
-
-											<time class="entry-date">
-												06/03/15
-											</time>
-
-										</div>
-
-										<h4 class="entry-title">
-											<a href="https://www.ynet.co.il/articles/0,7340,L-4634001,00.html" rel="bookmark" target="_blank">האם הטיפול הפסיכולוגי עדיין סובל מתדמית שלילית?</a><br />
-											<div class="entry-date small-text highlight">ד"ר רבקה הקרמן-גרינברג</div>
-										</h4>
-
-										<hr class="divider_30_1">
-
-									</header>
-									<!-- .entry-header -->
-
-									<p class="bottommargin_40 fontsize_18">הטיעון ש"רק משוגעים הולכים לפסיכולוג" החל להעלות אבק. הסיבה לכך היא משום שטיפול פסיכולוגי כבר מזמן לא עוסק אך ורק במחלות נפש, אלא מתרכז גם בטיפול בבעיות חיים של אנשים שהם בריאים בנפשם ופונים לעזרה מקצועית על מנת להתמודד עם לבטים פנימיים או קשיים במשפחה, בחיי האהבה או בעבודה..</p>
-
-									<a href="https://www.ynet.co.il/articles/0,7340,L-4634001,00.html" class="theme_button color1" target="_blank">לכתבה</a>
-
-								</div>
-								<!-- .item-content.entry-content -->
-							</article>
-						</div>
-						<div class="col-md-4 text-center">
-							<article class="vertical-item content-padding post format-standard with_shadow">
-
-								<div class="item-media entry-thumbnail">
-									<img src="images/blog_post6.jpg" alt="">
-								</div>
-
-								<div class="item-content entry-content">
-									<header class="entry-header">
-
-										<div class="entry-date small-text highlight">
-
-											<time class="entry-date">
-												18/07/19
-											</time>
-
-										</div>
-
-										<h4 class="entry-title">
-											<a href="https://www.haaretz.co.il/blogs/amosprywes/BLOG-1.7538091" rel="bookmark" target="_blank">האם בעידננו נותר מקום לטיפול פסיכולוגי במתכונתו המסורתית?</a><br />
-											<div class="entry-date small-text highlight">עמוס פריבס</div>
-										</h4>
-
-										<hr class="divider_30_1">
-
-									</header>
-									<!-- .entry-header -->
-
-									<p class="bottommargin_40 fontsize_18">ותר ויותר דוחקים בפסיכולוגים לנטוש את פורמט השיחות הממושכות שפותח במאה ה-19 ולהתקדם למודלים פחות תובעניים, כמו הטיפול ההתנהגותי. אלא שהקרב עם הקידמה אינו תמיד אבוד מראש</p>
-
-									<a href="https://www.haaretz.co.il/blogs/amosprywes/BLOG-1.7538091" class="theme_button color1" target="_blank">לכתבה</a>
-
-								</div>
-								<!-- .item-content.entry-content -->
-							</article>
-						</div>
-						<div class="col-md-4 text-center">
-							<article class="vertical-item content-padding post format-standard with_shadow">
-
-								<div class="item-media entry-thumbnail">
-									<img src="images/blog_post3.jpg" alt="">
-								</div>
-
-								<div class="item-content entry-content">
-									<header class="entry-header">
-
-										<div class="entry-date small-text highlight">
-
-											<time class="entry-date">
-												12/08/21
-											</time>
-
-										</div>
-
-										<h4 class="entry-title">
-											<a href="https://www.globes.co.il/news/article.aspx?did=1001381472" rel="bookmark" target="_blank">פס"ד הבאדי שוט - רוחות של אופטימיות נושבות מירושלים</a><br />
-											<div class="entry-date small-text highlight">עו"ד הילה אראל-שמש</div>
-										</h4>
-
-										<hr class="divider_30_1">
-
-									</header>
-									<!-- .entry-header -->
-
-									<p class="bottommargin_40 fontsize_18">בעולם שבו הגשת תלונה למשטרה על הטרדה מינית היא לא פחות מ"ויה דה לה רוזה" עבור מתלוננות, מקום העבודה הוא פלטפורמה מעולה ואפקטיבית למיגור התופעות הללו.</p>
-
-									<a href="https://www.globes.co.il/news/article.aspx?did=1001381472" class="theme_button color1" target="_blank">לכתבה</a>
-
-								</div>
-								<!-- .item-content.entry-content -->
-							</article>
-						</div>
-						<!-- .item-content.entry-content -->
-						</article>
-					</div>
-
-					<div class="col-md-4 text-center">
-						<article class="vertical-item content-padding post format-standard with_shadow">
-
-							<div class="item-media entry-thumbnail">
-								<img src="images/blog_post4.jpg" alt="">
-							</div>
-
-							<div class="item-content entry-content">
-								<header class="entry-header">
-
-									<div class="entry-date small-text highlight">
-
-										<time class="entry-date">
-											21/09/20
-										</time>
-
-									</div>
-
-									<h4 class="entry-title">
-										<a href="https://www.ynet.co.il/health/article/HkHiuyWSw" rel="bookmark" target="_blank">12 המלצות לשמירה על בריאות נפשית - בסגר</a><br />
-									<div class="entry-date small-text highlight">ד"ר ליאורה בר-טורף</div>
-									</h4>
-
-									<hr class="divider_30_1">
-
-								</header>
-								<!-- .entry-header -->
-
-								<p class="bottommargin_40 fontsize_18">פסיכולוגית קלינית מומחית לגיל השלישי נותנת תרייסר צעדים שיעזרו לבני הגיל המבוגר להתמודד עם המצוקה הנפשית בתקופה של ריחוק ובידוד חברתי, "אפשר לעבור את המשבר ואולי אף לצאת ממנו מחוזקים".</p>
-
-								<a href="https://www.ynet.co.il/health/article/HkHiuyWSw" class="theme_button color1" target="_blank">לכתבה</a>
-
-							</div>
-							<!-- .item-content.entry-content -->
-						</article>
-					</div>
-					<div class="col-md-4 text-center">
-						<article class="vertical-item content-padding post format-standard with_shadow">
-
-							<div class="item-media entry-thumbnail">
-								<img src="images/blog_post2.jpg" alt="">
-							</div>
-
-							<div class="item-content entry-content">
-								<header class="entry-header">
-
-									<div class="entry-date small-text highlight">
-
-										<time class="entry-date">
-											28/08/16
-										</time>
-
-									</div>
-
-									<h4 class="entry-title">
-										<a href="https://www.mako.co.il/health-wellness/mental-health/Article-1ea85a7044cb651006.htm?partner=tagit" rel="bookmark" target="_blank">לא רק מחלות נפש: למה אנשים הולכים לפסיכולוג?</a><br />
-										<div class="entry-date small-text highlight">רוני גובר</div>
-									</h4>
-
-									<hr class="divider_30_1">
-
-								</header>
-								<!-- .entry-header -->
-
-								<p class="bottommargin_40 fontsize_18">חושבים שטיפול פסיכולוגי הוא לא בשבילכם? שהביקור אצל הפסיכולוג מיועד רק לטיפול במחלות נפש? אתם טועים ובגדול, טיפול נפשי יכול להיות בדיוק מה שחסר לכם ואינכם מודעים לכך. אז איך יודעים מתי ללכת לטיפול?</p>
-
-								<a href="https://www.mako.co.il/health-wellness/mental-health/Article-1ea85a7044cb651006.htm?partner=tagit" class="theme_button color1" target="_blank">לכתבה</a>
-
-							</div>
-							<!-- .item-content.entry-content -->
-						</article>
-					</div>
-					<div class="col-md-4 text-center">
-						<article class="vertical-item content-padding post format-standard with_shadow">
-
-							<div class="item-media entry-thumbnail">
-								<img src="images/blog_post1.jpg" alt="">
-							</div>
-
-							<div class="item-content entry-content">
-								<header class="entry-header">
-
-									<div class="entry-date small-text highlight">
-
-										<time class="entry-date">
-											28/08/20
-										</time>
-
-									</div>
-
-									<h4 class="entry-title">
-										<a href="https://www.mako.co.il/pride-blogs/Article-ff2ada113e02471027.htm?partner=tagit" rel="bookmark" target="_blank">חינוך מחדש</a><br />
-										<div class="entry-date small-text highlight">דוד בביוף</div>
-									</h4>
-
-									<hr class="divider_30_1">
-
-								</header>
-								<!-- .entry-header -->
-
-								<p class="bottommargin_40 fontsize_18">לכל הומו יש לפחות סיפור אחד על הטרדה מינית. זר שנגע במסיבה, גבר ששלח תמונות של איבר המין מבלי שאף אחד ביקש או פגישה שהסתיימה בסקס, למרות שהמילה "לא" נאמרה בבירור.</p>
-
-								<a href="https://www.mako.co.il/pride-blogs/Article-ff2ada113e02471027.htm?partner=tagit" class="theme_button color1" target="_blank">לכתבה</a>
-
-							</div>
-							<!-- .item-content.entry-content -->
-						</article>
-					</div>
-</div>
-							<!-- eof .isotope_container.row -->
-
-
-						</div>
-					</div>
-				
-			</section>
-			<section id="appointment" class="ls section_padding_top_130 section_padding_bottom_100" dir="rtl">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
-						<h2 class="section_header with_icon highlight">קביעת פגישה</h2>
-						<div class="fontsize_16">
-							ניתן לקבוע טיפול אחד בכל חודש
-						</div>
-						<form class="contact-form row columns_margin_bottom_40 topmargin_60" method="post" action="./">
-
-
-					</div>
-					<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
-						<div class="contact-form-email">
-							<input type="email" aria-required="true" size="30" value="" name="email" id="email" class="form-control" placeholder="כתובת מייל (אופציונאלי - לא נשמר במאגר)">
-						</div>
-					</div>
-					<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
-						<div class="contact-form-date select-group">
-							<label for="date" class="sr-only">
-								Date
-								<span class="required">*</span>
-							</label>
-							<div class="input-group">
-								<select aria-required="true" id="psy" name="psy" class="choice empty form-control psycologists-appointment">
-									<option value="" disabled selected data-default>פסיכולוג</option>
-									<option value="ליאת הר-טוב">ליאת הר-טוב</option>
-									<option value="רינה אאלוף">רינה אאלוף</option>
-									<option value="קלרה מולדן">קלרה מולדן</option>
-									<option value="אדי גרין">אדי גרין</option>
-								</select>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
-						<div class="contact-form-date select-group">
-							<label for="date" class="sr-only">
-								Date
-								<span class="required">*</span>
-							</label>
-							<div class="input-group">
-								<select aria-required="true" id="date" name="date" class="choice empty form-control">
-									<option value="" disabled selected data-default>תאריך</option>
-								</select>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
-						<div class="contact-form-time select-group">
-							<label for="time" class="sr-only">
-								Date
-								<span class="required">*</span>
-							</label>
-							<div class="input-group ">
-								<select aria-required="true" id="time" name="time" class="choice empty form-control">
-									<option value="" disabled selected data-default>שעה</option>
-								</select>
-							</div>
-						</div>
-					</div>
-
-
-					<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
-
-						<div class="contact-form-submit topmargin_20">
-							<button type="submit" id="contact_form_submit" name="contact_submit" class="theme_button color1 with_shadow nadav">תיאום פגישה</button><br>
-							<strong>לצפייה בפגישות עתידיות, אנא היכנס\י לאזור האישי</strong>
-						</div>
-					</div>
-
-					</form>
+				<div class="col-md-3 text-center text-md-right bottommargin_0">
+					<a href="#appointment" class="theme_button color1 margin_0">קביעת פגישה</a>
+				</div>
+
+			</div>
+		</div>
+	</section>
+	<header class="page_header header_white table_section columns_padding_0 toggler-xs-right" dir="rtl">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-1 col-sm-1">
+					<a class="logo">
+						אנונימי
+					</a>
+					<!-- header toggler -->
+					<span class="toggle_menu visible-xs">
+						<span></span>
+					</span>
+				</div>
+				<div class="col-md-6 col-sm-2 text-center">
+					<!-- main nav start -->
+					<nav class="mainmenu_wrapper">
+						<ul class="mainmenu nav sf-menu">
+							<li>
+								<a href="index.html">ראשי</a>
+							</li>
+							<li>
+								<div id="result">אזור אישי</div>
+							</li>
+							<li>
+								<a href="about.html">על האתר</a>
+							</li>
+							<li>
+								<a href="team.html">הצוות שלנו</a>
+							</li>
+							<li>
+								<a href="blog.html">כתבות</a>
+							</li>
+							<li>
+								<a href="new_complaint.html">הגשת תלונה</a>
+							</li>
+							<li>
+								<a href="forum.html">פורום</a>
+							</li>
+						</ul>
+					</nav>
+					<!-- eof main nav -->
+					<span class="toggle_menu hidden-xs">
+						<span></span>
+					</span>
 				</div>
 			</div>
-	</div>
+		</div>
+	</header>
+
+	<section class="page_breadcrumbs ds background_cover section_padding_50">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 text-center">
+					<h2>כתבות ששוות קריאה</h2>
+
+				</div>
+			</div>
+		</div>
 	</section>
 
-		<footer class="page_footer cs main_color2 table_section section_padding_50 columns_padding_0">
-			<div class="container">
+	<section class="ls page_portfolio section_padding_top_100 section_padding_bottom_75" dir="rtl">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 text-center">
+					<article class="vertical-item content-padding post format-standard with_shadow">
 
-				<div class="row">
+						<div class="item-media entry-thumbnail">
+							<img src="images/blog_post5.jpg" alt="">
+						</div>
 
-					<div class="col-sm-4 col-sm-push-4 text-center">
-						<a href="./" class="logo big text-shadow">
-							Psychologist
-							<span class="small-text">Premium HTML Template</span>
-						</a>
-					</div>
+						<div class="item-content entry-content">
+							<header class="entry-header">
 
-					<div class="col-sm-4 col-sm-pull-4 text-center text-sm-left text-md-left">
-						<div class="widget widget_nav_menu greylinks">
+								<div class="entry-date small-text highlight">
 
-							<ul class="menu divided_content wide_divider">
-								<li class="">
-									<a href="./">Home</a>
-								</li>
-								<li class="">
-									<a href="about.html">About</a>
-								</li>
-								<li class="">
-									<a href="services.html">Services</a>
-								</li>
-							</ul>
+									<time class="entry-date">
+										06/03/15
+									</time>
+
+								</div>
+
+								<h4 class="entry-title">
+									<a href="https://www.ynet.co.il/articles/0,7340,L-4634001,00.html" rel="bookmark" target="_blank">האם הטיפול הפסיכולוגי עדיין סובל מתדמית שלילית?</a><br />
+									<div class="entry-date small-text highlight">ד"ר רבקה הקרמן-גרינברג</div>
+								</h4>
+
+								<hr class="divider_30_1">
+
+							</header>
+							<!-- .entry-header -->
+
+							<p class="bottommargin_40 fontsize_18">הטיעון ש"רק משוגעים הולכים לפסיכולוג" החל להעלות אבק. הסיבה לכך היא משום שטיפול פסיכולוגי כבר מזמן לא עוסק אך ורק במחלות נפש, אלא מתרכז גם בטיפול בבעיות חיים של אנשים שהם בריאים בנפשם ופונים לעזרה מקצועית על מנת להתמודד עם לבטים פנימיים או קשיים במשפחה, בחיי האהבה או בעבודה..</p>
+
+							<a href="https://www.ynet.co.il/articles/0,7340,L-4634001,00.html" class="theme_button color1" target="_blank">לכתבה</a>
 
 						</div>
-					</div>
+						<!-- .item-content.entry-content -->
+					</article>
+				</div>
+				<div class="col-md-4 text-center">
+					<article class="vertical-item content-padding post format-standard with_shadow">
 
-					<div class="col-sm-4 text-center text-sm-right text-md-right">
-						<div class="widget widget_nav_menu greylinks">
+						<div class="item-media entry-thumbnail">
+							<img src="images/blog_post6.jpg" alt="">
+						</div>
 
-							<ul class="menu divided_content wide_divider">
-								<li class="">
-									<a href="gallery-regular-3-cols.html">Gallery</a>
-								</li>
-								<li class="">
-									<a href="blog-right.html">Blog</a>
-								</li>
-								<li class="">
-									<a href="contact.html">Contacts</a>
-								</li>
-							</ul>
+						<div class="item-content entry-content">
+							<header class="entry-header">
+
+								<div class="entry-date small-text highlight">
+
+									<time class="entry-date">
+										18/07/19
+									</time>
+
+								</div>
+
+								<h4 class="entry-title">
+									<a href="https://www.haaretz.co.il/blogs/amosprywes/BLOG-1.7538091" rel="bookmark" target="_blank">האם בעידננו נותר מקום לטיפול פסיכולוגי במתכונתו המסורתית?</a><br />
+									<div class="entry-date small-text highlight">עמוס פריבס</div>
+								</h4>
+
+								<hr class="divider_30_1">
+
+							</header>
+							<!-- .entry-header -->
+
+							<p class="bottommargin_40 fontsize_18">ותר ויותר דוחקים בפסיכולוגים לנטוש את פורמט השיחות הממושכות שפותח במאה ה-19 ולהתקדם למודלים פחות תובעניים, כמו הטיפול ההתנהגותי. אלא שהקרב עם הקידמה אינו תמיד אבוד מראש</p>
+
+							<a href="https://www.haaretz.co.il/blogs/amosprywes/BLOG-1.7538091" class="theme_button color1" target="_blank">לכתבה</a>
 
 						</div>
+						<!-- .item-content.entry-content -->
+					</article>
+				</div>
+				<div class="col-md-4 text-center">
+					<article class="vertical-item content-padding post format-standard with_shadow">
+
+						<div class="item-media entry-thumbnail">
+							<img src="images/blog_post3.jpg" alt="">
+						</div>
+
+						<div class="item-content entry-content">
+							<header class="entry-header">
+
+								<div class="entry-date small-text highlight">
+
+									<time class="entry-date">
+										12/08/21
+									</time>
+
+								</div>
+
+								<h4 class="entry-title">
+									<a href="https://www.globes.co.il/news/article.aspx?did=1001381472" rel="bookmark" target="_blank">פס"ד הבאדי שוט - רוחות של אופטימיות נושבות מירושלים</a><br />
+									<div class="entry-date small-text highlight">עו"ד הילה אראל-שמש</div>
+								</h4>
+
+								<hr class="divider_30_1">
+
+							</header>
+							<!-- .entry-header -->
+
+							<p class="bottommargin_40 fontsize_18">בעולם שבו הגשת תלונה למשטרה על הטרדה מינית היא לא פחות מ"ויה דה לה רוזה" עבור מתלוננות, מקום העבודה הוא פלטפורמה מעולה ואפקטיבית למיגור התופעות הללו.</p>
+
+							<a href="https://www.globes.co.il/news/article.aspx?did=1001381472" class="theme_button color1" target="_blank">לכתבה</a>
+
+						</div>
+						<!-- .item-content.entry-content -->
+					</article>
+				</div>
+				<!-- .item-content.entry-content -->
+				</article>
+			</div>
+
+			<div class="col-md-4 text-center">
+				<article class="vertical-item content-padding post format-standard with_shadow">
+
+					<div class="item-media entry-thumbnail">
+						<img src="images/blog_post4.jpg" alt="">
 					</div>
+
+					<div class="item-content entry-content">
+						<header class="entry-header">
+
+							<div class="entry-date small-text highlight">
+
+								<time class="entry-date">
+									21/09/20
+								</time>
+
+							</div>
+
+							<h4 class="entry-title">
+								<a href="https://www.ynet.co.il/health/article/HkHiuyWSw" rel="bookmark" target="_blank">12 המלצות לשמירה על בריאות נפשית - בסגר</a><br />
+								<div class="entry-date small-text highlight">ד"ר ליאורה בר-טורף</div>
+							</h4>
+
+							<hr class="divider_30_1">
+
+						</header>
+						<!-- .entry-header -->
+
+						<p class="bottommargin_40 fontsize_18">פסיכולוגית קלינית מומחית לגיל השלישי נותנת תרייסר צעדים שיעזרו לבני הגיל המבוגר להתמודד עם המצוקה הנפשית בתקופה של ריחוק ובידוד חברתי, "אפשר לעבור את המשבר ואולי אף לצאת ממנו מחוזקים".</p>
+
+						<a href="https://www.ynet.co.il/health/article/HkHiuyWSw" class="theme_button color1" target="_blank">לכתבה</a>
+
+					</div>
+					<!-- .item-content.entry-content -->
+				</article>
+			</div>
+			<div class="col-md-4 text-center">
+				<article class="vertical-item content-padding post format-standard with_shadow">
+
+					<div class="item-media entry-thumbnail">
+						<img src="images/blog_post2.jpg" alt="">
+					</div>
+
+					<div class="item-content entry-content">
+						<header class="entry-header">
+
+							<div class="entry-date small-text highlight">
+
+								<time class="entry-date">
+									28/08/16
+								</time>
+
+							</div>
+
+							<h4 class="entry-title">
+								<a href="https://www.mako.co.il/health-wellness/mental-health/Article-1ea85a7044cb651006.htm?partner=tagit" rel="bookmark" target="_blank">לא רק מחלות נפש: למה אנשים הולכים לפסיכולוג?</a><br />
+								<div class="entry-date small-text highlight">רוני גובר</div>
+							</h4>
+
+							<hr class="divider_30_1">
+
+						</header>
+						<!-- .entry-header -->
+
+						<p class="bottommargin_40 fontsize_18">חושבים שטיפול פסיכולוגי הוא לא בשבילכם? שהביקור אצל הפסיכולוג מיועד רק לטיפול במחלות נפש? אתם טועים ובגדול, טיפול נפשי יכול להיות בדיוק מה שחסר לכם ואינכם מודעים לכך. אז איך יודעים מתי ללכת לטיפול?</p>
+
+						<a href="https://www.mako.co.il/health-wellness/mental-health/Article-1ea85a7044cb651006.htm?partner=tagit" class="theme_button color1" target="_blank">לכתבה</a>
+
+					</div>
+					<!-- .item-content.entry-content -->
+				</article>
+			</div>
+			<div class="col-md-4 text-center">
+				<article class="vertical-item content-padding post format-standard with_shadow">
+
+					<div class="item-media entry-thumbnail">
+						<img src="images/blog_post1.jpg" alt="">
+					</div>
+
+					<div class="item-content entry-content">
+						<header class="entry-header">
+
+							<div class="entry-date small-text highlight">
+
+								<time class="entry-date">
+									28/08/20
+								</time>
+
+							</div>
+
+							<h4 class="entry-title">
+								<a href="https://www.mako.co.il/pride-blogs/Article-ff2ada113e02471027.htm?partner=tagit" rel="bookmark" target="_blank">חינוך מחדש</a><br />
+								<div class="entry-date small-text highlight">דוד בביוף</div>
+							</h4>
+
+							<hr class="divider_30_1">
+
+						</header>
+						<!-- .entry-header -->
+
+						<p class="bottommargin_40 fontsize_18">לכל הומו יש לפחות סיפור אחד על הטרדה מינית. זר שנגע במסיבה, גבר ששלח תמונות של איבר המין מבלי שאף אחד ביקש או פגישה שהסתיימה בסקס, למרות שהמילה "לא" נאמרה בבירור.</p>
+
+						<a href="https://www.mako.co.il/pride-blogs/Article-ff2ada113e02471027.htm?partner=tagit" class="theme_button color1" target="_blank">לכתבה</a>
+
+					</div>
+					<!-- .item-content.entry-content -->
+				</article>
+			</div>
+		</div>
+		<!-- eof .isotope_container.row -->
+		</div>
+		</div>
+
+	</section>
+	<section id="appointment" class="ls section_padding_top_130 section_padding_bottom_100" dir="rtl">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
+					<h2 class="section_header with_icon highlight">קביעת פגישה</h2>
+					<div class="fontsize_16">
+						ניתן לקבוע טיפול אחד בכל חודש
+					</div>
+					<form class="contact-form row columns_margin_bottom_40 topmargin_60" method="post" action="./">
+
 
 				</div>
+				<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
+					<div class="contact-form-email">
+						<input type="email" aria-required="true" size="30" value="" name="email" id="email" class="form-control" placeholder="כתובת מייל (אופציונאלי - לא נשמר במאגר)">
+					</div>
+				</div>
+				<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
+					<div class="contact-form-date select-group">
+						<label for="date" class="sr-only">
+							Date
+							<span class="required">*</span>
+						</label>
+						<div class="input-group">
+							<select aria-required="true" id="psy" name="psy" class="choice empty form-control psycologists-appointment">
+								<option value="" disabled selected data-default>פסיכולוג</option>
+								<option value="ליאת הר-טוב">ליאת הר-טוב</option>
+								<option value="רינה אאלוף">רינה אאלוף</option>
+								<option value="קלרה מולדן">קלרה מולדן</option>
+								<option value="אדי גרין">אדי גרין</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
+					<div class="contact-form-date select-group">
+						<label for="date" class="sr-only">
+							Date
+							<span class="required">*</span>
+						</label>
+						<div class="input-group">
+							<select aria-required="true" id="date" name="date" class="choice empty form-control">
+								<option value="" disabled selected data-default>תאריך</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
+					<div class="contact-form-time select-group">
+						<label for="time" class="sr-only">
+							Date
+							<span class="required">*</span>
+						</label>
+						<div class="input-group ">
+							<select aria-required="true" id="time" name="time" class="choice empty form-control">
+								<option value="" disabled selected data-default>שעה</option>
+							</select>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
+
+					<div class="contact-form-submit topmargin_20">
+						<button type="submit" id="contact_form_submit" name="contact_submit" class="theme_button color1 with_shadow nadav">תיאום פגישה</button><br>
+						<strong>לצפייה בפגישות עתידיות, אנא היכנס\י לאזור האישי</strong>
+					</div>
+				</div>
+
+				</form>
 			</div>
-		</footer>
+		</div>
+		</div>
+	</section>
+
+	</div>
+	<!-- eof #box_wrapper -->
+	</div>
+	<!-- eof #canvas -->
+	<footer class="page_footer cs main_color2 table_section section_padding_50 columns_padding_0 ">
+		<div class="container">
+
+			<div class="row">
+
+				<div class="col-sm-4 col-sm-push-4 text-center">
+					<a href="#top" class="logo big text-shadow">
+						אנונימי
+						<span class="large-text">סיוע אנונימי עבור נפגעי הטרדה מינית</span>
+					</a>
+				</div>
+
+				<div class="col-sm-4 col-sm-pull-4 text-center text-sm-left text-md-left">
+					<div class="widget widget_nav_menu greylinks">
+
+						<ul class="menu divided_content wide_divider">
+							<li class="">
+								<a href="forum.html">צאט</a>
+							</li>
+							<li class="">
+								<a href="new_complaint.html">הגשת תלונה</a>
+							</li>
+							<li class="">
+								<a href="blog.html">כתבות</a>
+							</li>
+						</ul>
+
+					</div>
+				</div>
+
+				<div class="col-sm-4 text-center text-sm-right text-md-right">
+					<div class="widget widget_nav_menu greylinks">
+
+						<ul class="menu divided_content wide_divider">
+							<li class="">
+								<a href="team.html">הצוות שלנו</a>
+							</li>
+							<li class="">
+								<a href="about.html">מי אנחנו</a>
+							</li>
+							<li class="">
+								<a href="index.html">ראשי</a>
+
+							</li>
+						</ul>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+
 
 		<section class="cs main_color2 page_copyright section_padding_15">
 			<div class="container with_top_border">
 				<div class="row">
 					<div class="col-sm-12 text-center">
-						<p class="small-text">&copy; 2017 Psychology and Counseling. All Rights Reserved</p>
+						<p class="small-text">פרויקט זה הינו חלק מסדנה מעשית במערכות מידע, כל הזכויות שמורות לסער, נדב וטל</p>
 					</div>
 				</div>
 			</div>
 		</section>
+	</footer>
 
-	</div>
-		<!-- eof #box_wrapper -->
-	</div>
-	<!-- eof #canvas -->
-
-	<script src="js/compressed.js"></script>
-	<script src="js/main.js"></script>
 
 
 </body>

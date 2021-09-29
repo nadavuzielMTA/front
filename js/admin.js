@@ -13,10 +13,16 @@ function getCookie(name) {
 	return null;
 }
 
+
 $(function() {
 	// your code goes here
 	var username = getCookie("username");
 	zoom_meetings = [];
+	if (username) {
+		var user = getCookie("username"); // get the user type
+		document.getElementById("change_user").innerText = user;
+	}
+
 	jQuery.ajax({
 		type: 'GET',
 		url: '/api/meetings',

@@ -8,6 +8,28 @@ var selected_psycologist_name = '';
 var selected_date = '';
 var selected_time = '';
 
+
+function setCookie(name, value,days) {
+	var expires = "";
+	if (days) {
+		var date = new Date();
+		date.setTime(date.getTime() + (days*24*60*60*1000));
+		expires = "; expires=" + date.toUTCString();
+	}
+	document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+}
+
+function getCookie(name) {
+	var nameEQ = name + "=";
+	var ca = document.cookie.split(';');
+	for(var i=0;i < ca.length;i++) {
+		var c = ca[i];
+		while (c.charAt(0)==' ') c = c.substring(1,c.length);
+		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+	}
+	return null;
+}
+
 //hidding menu elements that do not fit in menu width
 //processing center logo
 function menuHideExtraElements() {
@@ -399,8 +421,6 @@ function documentReadyInit() {
 		console.log("error")
 	}
 
-
-
 	//register
 	var $form = jQuery(this);
 	jQuery(".register").on('click', function (e) {
@@ -418,14 +438,13 @@ function documentReadyInit() {
 	//psycologist available dates
 	jQuery('.psycologists-appointment').on('change', function( e ){
 		var $form = jQuery(this);
-		console.log("111111111");
 		selected_psycologist_name =  $form.find('option:selected').val();
-		console.log("2222222222222");
+		var username = getCookie("username");
 
 		jQuery.ajax({
 			type: 'GET',
 			url: '/api/appointment',
-			data: 'username=' + 'nadav' + '&action=list_of_dates',
+			data: 'username=' + username + '&action=list_of_dates',
 			success: function (dates) {
 				console.log("dates are: ", dates);
 				var select = document.getElementById('date');
@@ -444,10 +463,11 @@ function documentReadyInit() {
 		var $form = jQuery(this);
 		console.log("111111111");
 		selected_date =  $form.find('option:selected').val();
+		var username = getCookie("username");
 		jQuery.ajax({
 			type: 'GET',
 			url: '/api/appointment',
-			data: 'username=' + 'nadav' + '&action=available_time&psychologist_name=' + selected_psycologist_name + '&date=' +
+			data: 'username=' + username + '&action=available_time&psychologist_name=' + selected_psycologist_name + '&date=' +
 				selected_date,
 			success: function (hours) {
 				var select = document.getElementById('time');
@@ -472,12 +492,17 @@ function documentReadyInit() {
 			url: '/api/login',
 			data: 'username=' + document.getElementById('login_user_name').value + '&password=' + document.getElementById('login_password').value,
 			success: function (msg) {
-				console.log(msg);
+				if (msg) {
+					setCookie("username",document.getElementById('login_user_name').value,1);
+				}
 				$form.find('.response').html(msg);
 			}
 		});
 	});
 
+	jQuery(".logout").on('click', function (e) {
+		setCookie("username", '' ,1);
+	});
 	
 
 
@@ -527,10 +552,11 @@ function documentReadyInit() {
 	jQuery('form.contact-form').on('submit', function( e ){
 		e.preventDefault();
 		var email = document.getElementById('email').value;
+		var username = getCookie("username");
 		jQuery.ajax({
 			type: 'POST',
 			url: '/api/appointment',
-			data: 'username=' + 'nadav' + '&action=available_dates&psychologist_name=' + selected_psycologist_name +
+			data: 'username=' + username + '&action=available_dates&psychologist_name=' + selected_psycologist_name +
 				'&date=' + selected_date + '&time='+ selected_time + '&email='+ email,
 			success: function (msg) {
 				console.log(msg);

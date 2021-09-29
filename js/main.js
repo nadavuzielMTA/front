@@ -37,11 +37,11 @@ var selected_time = '';
 
 
 
-var d = document.getElementById("result");
-	var user = getCookie("username"); // get the user type
-if (user == "admin") d.outerHTML = "<a href=" + "admin_index.html" + ">" + "אזור אישי" + "</a>";
-else if (user == "user") d.outerHTML = "<a href=" + "admin_user.html" + ">" + "אזור אישי" + "</a>";
-else d.outerHTML = "<a href=" + "admin_signup.html" + ">" + "אזור אישי" + "</a>";
+//var d = document.getElementById("result");
+	//var user = getCookie("username"); // get the user type
+//if (user == "admin") d.outerHTML = "<a href=" + "admin_index.html" + ">" + "אזור אישי" + "</a>";
+//else if (user == "user") d.outerHTML = "<a href=" + "admin_user.html" + ">" + "אזור אישי" + "</a>";
+//else d.outerHTML = "<a href=" + "admin_signup.html" + ">" + "אזור אישי" + "</a>";
 
 
 

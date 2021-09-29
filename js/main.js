@@ -1,6 +1,8 @@
 ﻿"use strict";
 //Wrapping all JavaScript code into a IIFE function for prevent global variables creation
 
+var admin_users_psy = ['leat har-tov', 'adi grin', 'rina aaluf', 'clara moldan', 'ruby polantiak'];
+var admin_users_law = ['ruby polantiak'];
 
 function setCookie(name, value, days) {
 	var expires = "";
@@ -25,10 +27,12 @@ function getCookie(name) {
 }
 
 function what_user() {
+
 	var d = document.getElementById("result");
 	var user = getCookie("username"); // get the user type
-	if (user == "admin") d.outerHTML = "<a href=" + "admin_index.html" + ">" + "אזור אישי" + "</a>";
-	else if (user == "user") d.outerHTML = "<a href=" + "admin_user.html" + ">" + "אזור אישי" + "</a>";
+	if (admin_users_psy.includes(user)) d.outerHTML = "<a href=" + "admin_index_psy.html" + ">" + "אזור אישי" + "</a>";
+	else if (admin_users_law.includes(user)) d.outerHTML = "<a href=" + "admin_inbox.html" + ">" + "אזור אישי" + "</a>";
+	else if (user != '') d.outerHTML = "<a href=" + "admin_index.html" + ">" + "אזור אישי" + "</a>";
 	else d.outerHTML = "<a href=" + "admin_signup.html" + ">" + "אזור אישי" + "</a>";
 }
 
@@ -38,8 +42,7 @@ function what_user() {
 	var selected_psycologist_name = '';
 	var selected_date = '';
 	var selected_time = '';
-	var admin_users_psy = ['leat har-tov', 'adi grin', 'rina aaluf', 'clara moldan', 'ruby polantiak'];
-	var admin_users_law = ['ruby polantiak'];
+
 
 	//hidding menu elements that do not fit in menu width
 	//processing center logo
@@ -435,14 +438,14 @@ function what_user() {
 		//register
 		var $form = jQuery(this);
 		jQuery(".register").on('click', function (e) {
-			alert("תודה על הרשמתך" + document.getElementById('register_user_name').value);
-			window.location.replace("admin_signin.html");
 			jQuery.ajax({
 				type: 'POST',
 				url: '/api/login',
 				data: 'username=' + document.getElementById('register_user_name').value + '&password=' + document.getElementById('register_password').value,
 
 				success: function (msg) {
+					alert(" תודה על הרשמתך " + document.getElementById('register_user_name').value);
+					location.reload();
 					console.log(msg);
 					$form.find('.response').html(msg);
 
@@ -509,9 +512,9 @@ function what_user() {
 				data: 'username=' + username + '&password=' + document.getElementById('login_password').value,
 				success: function (msg) {
 					if (msg) {
-						setCookie("username", username,1);
+						setCookie("username", username, 1);
 					}
-					$form.find('.response').html(msg);
+					else { alert("שם משתמש או סיסמא לא נכונים"); }
 				}
 			});
 		});

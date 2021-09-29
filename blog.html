@@ -18,23 +18,214 @@
 	<link rel="stylesheet" href="css/fonts.css">
 	<link rel="stylesheet" href="css/main.css" class="color-switcher-link">
 	<script src="js/vendor/modernizr-2.6.2.min.js"></script>
-	<script
-	src="https://code.jquery.com/jquery-3.3.1.js"
-	integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-	crossorigin="anonymous">
-</script>
-<script>
-$(function (){
-	$("#header").load("headerr.html");
-	$("#footer").load("footer.html");
-});
-</script>
+
 
 </head>
 
 <body>
 
-<div id="header"></div>
+
+	<div class="preloader">
+		<div class="preloader_image"></div>
+	</div>
+
+	<!-- search modal -->
+	<div class="modal" tabindex="-1" role="dialog" aria-labelledby="search_modal" id="search_modal">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">
+				<i class="rt-icon2-cross2"></i>
+			</span>
+		</button>
+		<div class="widget widget_search">
+			<form method="get" class="searchform search-form form-inline" action="./">
+				<div class="form-group">
+					<input type="text" value="" name="search" class="form-control" placeholder="Search keyword" id="modal-search-input">
+				</div>
+				<button type="submit" class="theme_button">Search</button>
+			</form>
+		</div>
+	</div>
+
+	<!-- Unyson messages modal -->
+	<div class="modal fade" tabindex="-1" role="dialog" id="messages_modal">
+		<div class="fw-messages-wrap ls with_padding">
+			<!-- Uncomment this UL with LI to show messages in modal popup to your user: -->
+			<!--
+			<ul class="list-unstyled">
+				<li>Message To User</li>
+			</ul>
+			-->
+
+		</div>
+	</div>
+	<!-- eof .modal -->
+	<!-- wrappers for visual page editor and boxed version of template -->
+	<div id="canvas">
+		<div id="box_wrapper">
+
+			<!-- template sections -->
+
+			<section class="page_topline cs table_section table_section_md columns_padding_0">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-3 text-center text-md-left">
+							<ul class="inline-dropdown inline-block divided_content">
+
+								<li class="dropdown login-dropdown">
+									<a class="header-button" data-target="#" href="./" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+										<i class="fa fa-user"></i>
+										<span class="header-button-text">Login</span>
+									</a>
+
+									<div class="dropdown-menu ls with_padding">
+
+										<p>
+											<strong class="grey">If you have an account, please log in:</strong>
+										</p>
+										<form role="form" action="/">
+
+											<div class="form-group">
+												<label for="login_email" class="sr-only">User Name</label>
+												<input type="text" class="form-control" id="login_user_name" placeholder="User" required>
+											</div>
+											<div class="form-group">
+												<label for="login_password" class="sr-only">Password</label>
+												<input type="password" class="form-control" id="login_password" placeholder="Password" required>
+											</div>
+											<button type="button" class="theme_button color1 block_button login">
+												Log in
+											</button>
+
+										</form>
+
+									</div>
+								</li>
+
+
+								<li class="dropdown login-dropdown">
+									<a class="header-button" data-target="#" href="./" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+										<i class="fa fa-user"></i>
+										<span class="header-button-text">Register</span>
+									</a>
+
+									<div class="dropdown-menu ls with_padding">
+
+										<p>
+											<strong class="grey">Register</strong>
+										</p>
+										<form role="form" action="/">
+
+											<div class="form-group">
+												<label for="login_email" class="sr-only">User Name</label>
+												<input type="text" class="form-control" id="register_user_name" placeholder="User" required>
+											</div>
+											<div class="form-group">
+												<label for="login_password" class="sr-only">Password</label>
+												<input type="password" class="form-control" id="register_password" placeholder="Password" required>
+											</div>
+											<button type="button" class="theme_button color1 block_button register">
+												Register
+											</button>
+
+										</form>
+
+									</div>
+								</li>
+							</ul>
+
+						</div>
+
+						<div class="col-md-6 text-center divided_content">
+
+							<div>
+								<div class="media small-teaser">
+									<div class="media-left">
+										<i class="fa fa-user highlight fontsize_16"></i>
+									</div>
+									<div class="media-body">
+										1-800-432-432
+									</div>
+								</div>
+							</div>
+
+							<div>
+								<div class="media small-teaser">
+									<div class="media-left">
+										<i class="fa fa-map-marker highlight fontsize_16"></i>
+									</div>
+									<div class="media-body">
+										דיזינגוף 180, ת"א
+									</div>
+								</div>
+							</div>
+
+							<div>
+								<div class="media small-teaser">
+									<div class="media-left">
+										<i class="fa fa-envelope highlight fontsize_16"></i>
+									</div>
+									<div class="media-body">
+										support@psychologist.com
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+						<div class="col-md-3 text-center text-md-right bottommargin_0">
+							<a href="#appointment" class="theme_button color1 margin_0">קביעת פגישה</a>
+						</div>
+
+					</div>
+				</div>
+			</section>
+
+			<header class="page_header header_white table_section columns_padding_0 toggler-xs-right" dir="rtl">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-3 col-sm-5">
+							<a class="logo">
+								אנונימי
+							</a>
+							<!-- header toggler -->
+							<span class="toggle_menu visible-xs">
+								<span></span>
+							</span>
+						</div>
+						<div class="col-md-6 col-sm-2 text-center">
+							<!-- main nav start -->
+							<nav class="mainmenu_wrapper">
+								<ul class="mainmenu nav sf-menu">
+									<li class="active">
+										<a href="index.html">ראשי</a>
+									</li>
+
+									<li>
+										<a href="team.html">הצוות שלנו</a>
+									</li>
+									<li>
+										<a href="about.html">על האתר</a>
+									</li>
+									<li>
+										<a href="blog.html">כתבות</a>
+									</li>
+									<li>
+										<a href="complain.html">הגשת תלונה</a>
+									</li>
+									<li>
+										<a href="forum.html">פורום</a>
+									</li>
+								</ul>
+							</nav>
+							<!-- eof main nav -->
+							<span class="toggle_menu hidden-xs">
+								<span></span>
+							</span>
+						</div>
+					</div>
+				</div>
+			</header>
+
 			<section class="page_breadcrumbs ds background_cover section_padding_50">
 				<div class="container">
 					<div class="row">
@@ -353,13 +544,73 @@ $(function (){
 	</div>
 	</section>
 
+		<footer class="page_footer cs main_color2 table_section section_padding_50 columns_padding_0">
+			<div class="container">
 
+				<div class="row">
+
+					<div class="col-sm-4 col-sm-push-4 text-center">
+						<a href="./" class="logo big text-shadow">
+							Psychologist
+							<span class="small-text">Premium HTML Template</span>
+						</a>
+					</div>
+
+					<div class="col-sm-4 col-sm-pull-4 text-center text-sm-left text-md-left">
+						<div class="widget widget_nav_menu greylinks">
+
+							<ul class="menu divided_content wide_divider">
+								<li class="">
+									<a href="./">Home</a>
+								</li>
+								<li class="">
+									<a href="about.html">About</a>
+								</li>
+								<li class="">
+									<a href="services.html">Services</a>
+								</li>
+							</ul>
+
+						</div>
+					</div>
+
+					<div class="col-sm-4 text-center text-sm-right text-md-right">
+						<div class="widget widget_nav_menu greylinks">
+
+							<ul class="menu divided_content wide_divider">
+								<li class="">
+									<a href="gallery-regular-3-cols.html">Gallery</a>
+								</li>
+								<li class="">
+									<a href="blog-right.html">Blog</a>
+								</li>
+								<li class="">
+									<a href="contact.html">Contacts</a>
+								</li>
+							</ul>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</footer>
+
+		<section class="cs main_color2 page_copyright section_padding_15">
+			<div class="container with_top_border">
+				<div class="row">
+					<div class="col-sm-12 text-center">
+						<p class="small-text">&copy; 2017 Psychology and Counseling. All Rights Reserved</p>
+					</div>
+				</div>
+			</div>
+		</section>
 
 	</div>
 		<!-- eof #box_wrapper -->
 	</div>
 	<!-- eof #canvas -->
-<div id="footer"></div>
+
 	<script src="js/compressed.js"></script>
 	<script src="js/main.js"></script>
 

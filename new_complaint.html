@@ -1,30 +1,27 @@
 <!DOCTYPE html>
 <html class="no-js">
-<!--<![endif]-->
 
 <head dir="rtl">
     <title>אנונימי</title>
     <meta charset="utf-8">
-    <!--[if IE]>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <![endif]-->
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/main.css" class="color-switcher-link">
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous">
+    </script>
+    <script src="js/compressed.js"></script>
+    <script src="js/main.js"></script>
 
 </head>
 
-<body>
-
-
+<body onload="what_user()">
     <div class="preloader">
         <div class="preloader_image"></div>
     </div>
@@ -162,7 +159,6 @@
             </div>
         </div>
     </section>
-
     <header class="page_header header_white table_section columns_padding_0 toggler-xs-right" dir="rtl">
         <div class="container-fluid">
             <div class="row">
@@ -179,7 +175,7 @@
                     <!-- main nav start -->
                     <nav class="mainmenu_wrapper">
                         <ul class="mainmenu nav sf-menu">
-                            <li class="active">
+                            <li>
                                 <a href="index.html">ראשי</a>
                             </li>
                             <li>
@@ -255,19 +251,19 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="row">
-                        <h3>לכתוב  הסבר על תהליך הגשת תלונה באתר </h3>
+                        <h3>הליך התלונה במשטרה </h3>
                         <p>
 
                             במידה ואת/ה מחליט/ה,
                             <b>וזה נתון אך ורק לבחירתך</b>
-                                ,
-                                את/ה יכול/ה להגיש תלונה במשטרה. תהליך הגשת התלונה יכול להיות מורכב וארוך ולכן יש באפשרותך, בכל עת, לבקש ליווי מהעו"ד שלנו.
-                                הליך הליווי המשפטי הינו תהליך המצריך חשיפה של המתלונן, ניתן לקבל מידע מפורט אודות השלבים של ההליך המשפטי והאזרחי באמצעות המייל או באחד הטיפולים עם הפסיכולוגיים.
+                            ,
+                            את/ה יכול/ה להגיש תלונה במשטרה. תהליך הגשת התלונה יכול להיות מורכב וארוך ולכן יש באפשרותך, בכל עת, לבקש ליווי מהעו"ד שלנו.
+                            הליך הליווי המשפטי הינו תהליך המצריך חשיפה של המתלונן, ניתן לקבל מידע מפורט אודות השלבים של ההליך המשפטי והאזרחי באמצעות המייל או באחד הטיפולים עם הפסיכולוגיים.
                             <br />
 
-                            <b>על מנת לשלוח את התלונה יש להתחבר למשתמש באתר</b> 
+                            <b>על מנת לשלוח את התלונה יש להתחבר למשתמש באתר</b>
                         </p>
-                        
+
                     </div>
                 </div>
             </div>
@@ -386,9 +382,69 @@
     </section>
 
 
+    <footer class="page_footer cs main_color2 table_section section_padding_50 columns_padding_0 ">
+        <div class="container">
 
-    <script src="js/compressed.js"></script>
-    <script src="js/main.js"></script>
+            <div class="row">
+
+                <div class="col-sm-4 col-sm-push-4 text-center">
+                    <a href="#top" class="logo big text-shadow">
+                        אנונימי
+                        <span class="large-text">סיוע אנונימי עבור נפגעי הטרדה מינית</span>
+                    </a>
+                </div>
+
+                <div class="col-sm-4 col-sm-pull-4 text-center text-sm-left text-md-left">
+                    <div class="widget widget_nav_menu greylinks">
+
+                        <ul class="menu divided_content wide_divider">
+                            <li class="">
+                                <a href="forum.html">צאט</a>
+                            </li>
+                            <li class="">
+                                <a href="new_complaint.html">הגשת תלונה</a>
+                            </li>
+                            <li class="">
+                                <a href="blog.html">כתבות</a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4 text-center text-sm-right text-md-right">
+                    <div class="widget widget_nav_menu greylinks">
+
+                        <ul class="menu divided_content wide_divider">
+                            <li class="">
+                                <a href="team.html">הצוות שלנו</a>
+                            </li>
+                            <li class="">
+                                <a href="about.html">מי אנחנו</a>
+                            </li>
+                            <li class="">
+                                <a href="index.html">ראשי</a>
+
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <section class="cs main_color2 page_copyright section_padding_15">
+            <div class="container with_top_border">
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <p class="small-text">פרויקט זה הינו חלק מסדנה מעשית במערכות מידע, כל הזכויות שמורות לסער, נדב וטל</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </footer>
 
 
 </body>

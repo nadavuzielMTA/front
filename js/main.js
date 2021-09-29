@@ -24,6 +24,14 @@ function getCookie(name) {
 	return null;
 }
 
+function what_user() {
+	var d = document.getElementById("result");
+	var user = getCookie("username"); // get the user type
+	if (user == "admin") d.outerHTML = "<a href=" + "admin_index.html" + ">" + "אזור אישי" + "</a>";
+	else if (user == "user") d.outerHTML = "<a href=" + "admin_user.html" + ">" + "אזור אישי" + "</a>";
+	else d.outerHTML = "<a href=" + "admin_signup.html" + ">" + "אזור אישי" + "</a>";
+}
+
 (function(){
 	var $body = jQuery('body');
 	var $window = jQuery(window);
@@ -32,20 +40,6 @@ function getCookie(name) {
 	var selected_time = '';
 	var admin_users_psy = ['leat har-tov', 'adi grin', 'rina aaluf', 'clara moldan', 'ruby polantiak'];
 	var admin_users_law = ['ruby polantiak'];
-
-	var d = document.getElementById("result");
-	var user = getCookie("username"); // get the user type
-
-	// if (user == "admin") d.outerHTML = "<a href=" + "admin_index.html" + ">" + "אזור אישי" + "</a>";
-	// else if (user == "user") d.outerHTML = "<a href=" + "admin_user.html" + ">" + "אזור אישי" + "</a>";
-	// else d.outerHTML = "<a href=" + "admin_signup.html" + ">" + "אזור אישי" + "</a>";
-
-	// if (user == "admin") $("#result").replaceWith("../admin_user.html");
-	// else if (user != "") window.location.replace("../admin_user.html");
-	// else window.location.replace("../admin_signup.html");
-
-
-
 
 	//hidding menu elements that do not fit in menu width
 	//processing center logo
@@ -441,15 +435,16 @@ function getCookie(name) {
 		//register
 		var $form = jQuery(this);
 		jQuery(".register").on('click', function (e) {
+			alert("תודה על הרשמתך" + document.getElementById('register_user_name').value);
+			window.location.replace("admin_signin.html");
 			jQuery.ajax({
 				type: 'POST',
 				url: '/api/login',
 				data: 'username=' + document.getElementById('register_user_name').value + '&password=' + document.getElementById('register_password').value,
+
 				success: function (msg) {
 					console.log(msg);
 					$form.find('.response').html(msg);
-					alert("תודה על הרשמתך" + document.getElementById('register_user_name').value);
-					window.location.replace("admin_signin.html");
 
 				}
 			});
@@ -628,35 +623,6 @@ function getCookie(name) {
 
 			})
 		});
-
-		//MailChimp subscribe form processing
-		jQuery('.signup').on('submit', function( e ) {
-			e.preventDefault();
-			var $form = jQuery(this);
-			// update user interface
-			$form.find('.response').html('Adding email address...');
-			// Prepare query string and send AJAX request
-			jQuery.ajax({
-				url: 'mailchimp/store-address.php',
-				data: 'ajax=true&email=' + escape($form.find('.mailchimp_email').val()),
-				success: function(msg) {
-					$form.find('.response').html(msg);
-				}
-			});
-		});
-
-		//twitter
-		if (jQuery().tweet) {
-			jQuery('.twitter').tweet({
-				modpath: "./twitter/",
-				count: 2,
-				avatar_size: 48,
-				loading_text: 'loading twitter feed...',
-				join_text: 'auto',
-				username: 'michaeljackson',
-				template: "{avatar}<div class=\"tweet_right\">{time}{join}<span class=\"tweet_text\">{tweet_text}</span></div>"
-			});
-		}
 
 
 		//adding CSS classes for elements that needs different styles depending on they widht width

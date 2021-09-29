@@ -6,7 +6,7 @@
 	<title>אנונימי</title>
 	<meta charset="utf-8">
 	<!--[if IE]>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<![endif]-->
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,12 +18,21 @@
 	<link rel="stylesheet" href="css/fonts.css">
 	<link rel="stylesheet" href="css/main.css" class="color-switcher-link">
 	<script src="js/vendor/modernizr-2.6.2.min.js"></script>
-
-
+	<script
+			src="https://code.jquery.com/jquery-3.3.1.js"
+			integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+			crossorigin="anonymous">
+	</script>
+	<script>
+		$(function (){
+			$("#header").load("headerr.html");
+			$("#footer").load("footer.html");
+		});
+	</script>
 </head>
 
 <body>
-
+	<div id="header"></div>
 	<div class="preloader">
 		<div class="preloader_image"></div>
 	</div>
@@ -42,174 +51,6 @@
 			</form>
 		</div>
 	</div>
-			<section class="page_topline cs table_section table_section_md columns_padding_0">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-3 text-center text-md-left">
-							<ul class="inline-dropdown inline-block divided_content">
-
-								<li class="dropdown login-dropdown">
-									<a class="header-button" data-target="#" href="./" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-										<i class="fa fa-sign-in"></i>
-										<span class="header-button-text">התחברות</span>
-									</a>
-
-									<div class="dropdown-menu ls with_padding">
-										
-										<p dir="rtl" style="text-align:right;">
-											<strong class="grey">אם יש ברושתך משתמש, אנא התחבר\י:</strong>
-										</p>
-										
-										<form role="form" action="/">
-
-											<div class="form-group">
-												<label for="login_email" class="sr-only">User Name</label>
-												<i class="grey fa fa-user"></i>
-												<input type="text" class="form-control" id="login_user_name" placeholder="User Name" required>
-											</div>
-											<div class="form-group">
-												<label for="login_password" class="sr-only">Password</label>
-												<i class="grey fa fa-pencil-square-o"></i>
-												<input type="password" class="form-control" id="login_password" placeholder="Password" required>
-											</div>
-											<button type="button" class="theme_button color1 block_button login">
-												התחברות
-											</button>
-
-										</form>
-
-									</div>
-								</li>
-
-
-								<li class="dropdown login-dropdown">
-									<a class="header-button" data-target="#" href="./" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-										<i class="fa fa-user-plus"></i>
-										<span class="header-button-text">הרשמה</span>
-									</a>
-
-									<div class="dropdown-menu ls with_padding">
-
-										<p dir="rtl" style="text-align:right;">
-											<strong class="grey">הרשמה לאתר</strong>
-										</p>
-										<form role="form" action="/">
-
-											<div class="form-group">
-												<label for="login_email" class="sr-only">User Name</label>
-												<i class="grey fa fa-user"></i>
-														<input type="text" class="form-control" id="register_user_name" placeholder="User Name" required>
-											</div>
-											<div class="form-group">
-												<label for="login_password" class="sr-only">Password</label>
-												<i class="grey fa fa-pencil-square-o"></i>
-												<input type="password" class="form-control" id="register_password" placeholder="Password" required>
-											</div>
-											<button type="button" class="theme_button color1 block_button register">
-												הרשמה
-											</button>
-
-										</form>
-
-									</div>
-								</li>
-							</ul>
-
-						</div>
-
-						<div class="col-md-6 text-center divided_content">
-
-							<div>
-								<div class="media small-teaser">
-									<div class="media-left">
-										<i class="fa fa-user highlight fontsize_16"></i>
-									</div>
-									<div class="media-body">
-										1-800-432-432
-									</div>
-								</div>
-							</div>
-
-							<div>
-								<div class="media small-teaser">
-									<div class="media-left">
-										<i class="fa fa-map-marker highlight fontsize_16"></i>
-									</div>
-									<div class="media-body">
-										דיזינגוף 180, ת"א
-									</div>
-								</div>
-							</div>
-
-							<div>
-								<div class="media small-teaser">
-									<div class="media-left">
-										<i class="fa fa-envelope highlight fontsize_16"></i>
-									</div>
-									<div class="media-body">
-										support@anonimi.com
-									</div>
-								</div>
-							</div>
-
-						</div>
-
-						<div class="col-md-3 text-center text-md-right bottommargin_0">
-							<a href="#appointment" class="theme_button color1 margin_0">קביעת פגישה</a>
-						</div>
-
-					</div>
-				</div>
-			</section>
-
-			<header class="page_header header_white table_section columns_padding_0 toggler-xs-right" dir="rtl">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-1 col-sm-1">
-							<a class="logo">
-								אנונימי
-							</a>
-							<!-- header toggler -->
-							<span class="toggle_menu visible-xs">
-								<span></span>
-							</span>
-						</div>
-						<div class="col-md-6 col-sm-2 text-center">
-							<!-- main nav start -->
-							<nav class="mainmenu_wrapper">
-								<ul class="mainmenu nav sf-menu">
-									<li class="active">
-										<a href="index.html">ראשי</a>
-									</li>
-									<li>
-										<div id="result">אזור אישי</div>
-									</li>
-									<li>
-										<a href="about.html">על האתר</a>
-									</li>
-									<li>
-										<a href="team.html">הצוות שלנו</a>
-									</li>
-									<li>
-										<a href="blog.html">כתבות</a>
-									</li>
-									<li>
-										<a href="new_complaint.html">הגשת תלונה</a>
-									</li>
-									<li>
-										<a href="forum.html">פורום</a>
-									</li>
-								</ul>
-							</nav>
-							<!-- eof main nav -->
-							<span class="toggle_menu hidden-xs">
-								<span></span>
-							</span>
-						</div>
-					</div>
-				</div>
-			</header>
-
 			<section class="intro_section page_mainslider ds">
 				<div class="flexslider">
 					<ul class="slides">
@@ -713,76 +554,14 @@
 	</div>
 	</section>
 
-	<footer class="page_footer cs main_color2 table_section section_padding_50 columns_padding_0 " >
-		<div class="container">
-
-			<div class="row">
-
-				<div class="col-sm-4 col-sm-push-4 text-center">
-					<a href="./" class="logo big text-shadow">
-						אנונימי
-						<span class="large-text">סיוע אנונימי עבור נפגעי הטרדה מינית</span>
-					</a>
-				</div>
-
-				<div class="col-sm-4 col-sm-pull-4 text-center text-sm-left text-md-left">
-					<div class="widget widget_nav_menu greylinks">
-
-						<ul class="menu divided_content wide_divider">
-							<li class="">
-								<a href="./">ראשי</a>
-							</li>
-							<li class="">
-								<a href="about.html">מי אנחנו</a>
-							</li>
-							<li class="">
-								<a href="services.html">שירותים</a>
-							</li>
-						</ul>
-
-					</div>
-				</div>
-
-				<div class="col-sm-4 text-center text-sm-right text-md-right">
-					<div class="widget widget_nav_menu greylinks">
-
-						<ul class="menu divided_content wide_divider">
-							<li class="">
-								<a href="gallery-regular-3-cols.html">????</a>
-							</li>
-							<li class="">
-								<a href="blog-right.html">פורום</a>
-							</li>
-							<li class="">
-								<a href="contact.html">קביעת פגישה</a>
-
-							</li>
-						</ul>
-
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</footer>
-
-	<section class="cs main_color2 page_copyright section_padding_15">
-		<div class="container with_top_border">
-			<div class="row">
-				<div class="col-sm-12 text-center">
-					<p class="small-text">פרויקט זה הינו חלק מסדנה מעשית במערכות מידע, כל הזכויות שמורות</p>
-				</div>
-			</div>
-		</div>
-	</section>
-
 	</div>
 	<!-- eof #box_wrapper -->
 	</div>
 	<!-- eof #canvas -->
-
+	<div id="footer"></div>
 	<script src="js/compressed.js"></script>
 	<script src="js/main.js"></script>
+
 
 
 </body>

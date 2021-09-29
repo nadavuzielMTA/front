@@ -1,5 +1,60 @@
 "use strict";
 
+var zoom_meetings = [];
+
+function getCookie(name) {
+	var nameEQ = name + "=";
+	var ca = document.cookie.split(';');
+	for(var i=0;i < ca.length;i++) {
+		var c = ca[i];
+		while (c.charAt(0)==' ') c = c.substring(1,c.length);
+		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+	}
+	return null;
+}
+
+$(function() {
+	// your code goes here
+	var username = getCookie("username");
+	zoom_meetings = [];
+	jQuery.ajax({
+		type: 'GET',
+		url: '/api/meetings',
+		data: 'username=' + username,
+		success: function (backend_events) {
+			for (var i = 0; i < backend_events.length; i++) {
+				console.log(backend_events[i]['title']);
+				console.log(typeof backend_events[i]['title']);
+				zoom_meetings.push({title: backend_events[i]['title'],
+									url: backend_events[i]['url'],
+									start: backend_events[i]['start']});
+
+				console.log(zoom_meetings[i]);
+				console.log(typeof zoom_meetings[i]);
+				console.log("dsadsadas");
+				console.log(typeof {title: '13:30', url: 'dsadas', start:'blah'})
+				jQuery('.events_calendar').fullCalendar(
+					{
+						header: {
+							left: 'prev,next today',
+							center: 'title',
+							right: 'month,agendaWeek,agendaDay,listWeek'
+						},
+						defaultDate: '2021-09-15',
+						editable: true,
+						eventLimit: true,
+						navLinks: true,
+						aspectRatio: 1,
+						events: zoom_meetings
+					}
+				);
+			}
+
+		}
+	});
+
+});
+
 (function(){
 	
 
@@ -45,81 +100,6 @@
 			}
 		}
 	});
-			
-
-	var DAYS = [
-		"01.03",
-		"06.03",
-		"11.03",
-		"16.03",
-		"21.03",
-		"26.03",
-		"31.03"
-	 ];
-
-	var MONTHS = [
-		"Jan",
-		"Feb",
-		"Mar",
-		"Apr",
-		"May",
-		"Jun",
-		"Jul",
-		"Aug",
-		"Sep",
-		"Oct",
-		"Nov",
-		"Dec"
-	];
-
-	var MONTHS_HALF = [
-		"Jan",
-		"Feb",
-		"Mar",
-		"Apr",
-		"May",
-		"Jun",
-	];
-
-	
-	
-	jQuery('.events_calendar').fullCalendar(
-
-		{
-			header: {
-				left: 'prev,next today',
-				center: 'title',
-				right: 'month,agendaWeek,agendaDay,listWeek'
-			},
-			defaultDate: '2021-09-15',
-			editable: true,
-			eventLimit: true,
-			navLinks: true,
-			aspectRatio: 1,
-			events: [
-				{
-					title: 'All Day Event',
-					start: '2021-09-15'
-				},
-				{
-					title: '17:00',
-					url: 'http://google.com/',
-					start: '2021-09-26'
-				},
-				{
-					title: '13:00',
-					url: 'http://google.com/',
-					start: '2021-09-26'
-				},
-				{
-					title: '14:00',
-					url: 'http://google.com/',
-					start: '2021-09-26'
-				},
-			]
-		}
-
-	);
 
 	/////////////////////
 	//date range picker//

@@ -12,6 +12,14 @@ function getCookie(name) {
 	}
 	return null;
 }
+function the_change() {
+	var user = getCookie("username"); // get the user type
+	var d = document.getElementById("change_user");
+	document.getElementById("change_user").innerHTML = user;
+	}
+
+
+
 
 $(function() {
 	// your code goes here

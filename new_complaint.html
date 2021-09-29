@@ -1,176 +1,406 @@
 <!DOCTYPE html>
+<html class="no-js">
+<!--<![endif]-->
 
-<html>
+<head dir="rtl">
+    <title>אנונימי</title>
+    <meta charset="utf-8">
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <![endif]-->
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<head>
-	<title>אנונימי- תלונה</title>
-	<meta charset="utf-8">
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/animations.css">
-	<link rel="stylesheet" href="css/fonts.css">
-	<link rel="stylesheet" href="css/main.css" class="color-switcher-link">
-	<script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/main.css" class="color-switcher-link">
+    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+
+
 </head>
 
-<body>
+<body onload="what_user()">
+    <script>
+        function what_user() {
+            var d = document.getElementById("result");
+            var user = ""; // get the user type
+            if (user == "admin") d.outerHTML = "<a href=" + "admin_index.html" + ">" + "אזור אישי" + "</a>";
+            else if (user == "user") d.outerHTML = "<a href=" + "admin_user.html" + ">" + "אזור אישי" + "</a>";
+            else d.outerHTML = "<a href=" + "admin_signup.html" + ">" + "אזור אישי" + "</a>";
+        }
 
-	<section class="page_breadcrumbs cs section_padding_top_25 section_padding_bottom_25 gradient">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-12 text-center">
-					<h2 class="white small">הגשת תלונה</h2>
-						<ol class="breadcrumb divided_content">
-							<li>
-								<a href="#"><a>התחבר</a>
-							</li>
-							<li>
-								<a href="#"><a>דף הבית</a>
-							</li>
-						</ol>
-					</div>
-				</div>
-			</div>
-		</section>
+    </script>
 
-        <section class="ls section_padding_top_25" dir="rtl">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="row">	
-                        <h3>לכתוב  הסבר על תהליך הגשת תלונה באתר </h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore in blanditiis tempora aliquam omnis recusandae maxime fugiat error dolores vel reiciendis quia, laboriosam dolorum, ipsa corrupti. Laboriosam odio ducimus harum. Lorem ipsum dolor
-                                    sit amet, consectetur adipisicing elit. Distinctio assumenda vitae iure, totam laboriosam voluptatibus delectus autem pariatur excepturi eligendi natus unde. Numquam vel quia dolore tempore consequuntur nobis architecto.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo repellendus, repellat rem debitis id, harum ipsa nostrum, aut eius atque repudiandae officia nemo. Laborum fugit maiores aut non sit alias. Lorem ipsum dolor sit amet, consectetur adipisicing
-                                    elit. Dignissimos voluptas nihil tenetur quibusdam, laborum sed id laboriosam obcaecati corporis necessitatibus saepe voluptatem incidunt, cumque aperiam, quam nisi? Numquam, ullam, alias.</p>
+    <div class="preloader">
+        <div class="preloader_image"></div>
+    </div>
+    <div class="modal" tabindex="-1" role="dialog" aria-labelledby="search_modal" id="search_modal">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">
+                <i class="rt-icon2-cross2"></i>
+            </span>
+        </button>
+        <div class="widget widget_search">
+            <form method="get" class="searchform search-form form-inline" action="./">
+                <div class="form-group">
+                    <input type="text" value="" name="search" class="form-control" placeholder="Search keyword" id="modal-search-input">
+                </div>
+                <button type="submit" class="theme_button">Search</button>
+            </form>
+        </div>
+    </div>
+    <section class="page_topline cs table_section table_section_md columns_padding_0">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3 text-center text-md-left">
+                    <ul class="inline-dropdown inline-block divided_content">
+
+                        <li class="dropdown login-dropdown">
+                            <a class="header-button" data-target="#" href="./" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                                <i class="fa fa-sign-in"></i>
+                                <span class="header-button-text">התחברות</span>
+                            </a>
+
+                            <div class="dropdown-menu ls with_padding">
+
+                                <p dir="rtl" style="text-align:right;">
+                                    <strong class="grey">אם יש ברושתך משתמש, אנא התחבר\י:</strong>
+                                </p>
+
+                                <form role="form" action="/">
+
+                                    <div class="form-group">
+                                        <label for="login_email" class="sr-only">User Name</label>
+                                        <i class="grey fa fa-user"></i>
+                                        <input type="text" class="form-control" id="login_user_name" placeholder="User Name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="login_password" class="sr-only">Password</label>
+                                        <i class="grey fa fa-pencil-square-o"></i>
+                                        <input type="password" class="form-control" id="login_password" placeholder="Password" required>
+                                    </div>
+                                    <button type="button" class="theme_button color1 block_button login">
+                                        התחברות
+                                    </button>
+
+                                </form>
+
+                            </div>
+                        </li>
+
+
+                        <li class="dropdown login-dropdown">
+                            <a class="header-button" data-target="#" href="./" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                                <i class="fa fa-user-plus"></i>
+                                <span class="header-button-text">הרשמה</span>
+                            </a>
+
+                            <div class="dropdown-menu ls with_padding">
+
+                                <p dir="rtl" style="text-align:right;">
+                                    <strong class="grey">הרשמה לאתר</strong>
+                                </p>
+                                <form role="form" action="/">
+
+                                    <div class="form-group">
+                                        <label for="login_email" class="sr-only">User Name</label>
+                                        <i class="grey fa fa-user"></i>
+                                        <input type="text" class="form-control" id="register_user_name" placeholder="User Name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="login_password" class="sr-only">Password</label>
+                                        <i class="grey fa fa-pencil-square-o"></i>
+                                        <input type="password" class="form-control" id="register_password" placeholder="Password" required>
+                                    </div>
+                                    <button type="button" class="theme_button color1 block_button register">
+                                        הרשמה
+                                    </button>
+
+                                </form>
+
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <div class="col-md-6 text-center divided_content">
+
+                    <div>
+                        <div class="media small-teaser">
+                            <div class="media-left">
+                                <i class="fa fa-user highlight fontsize_16"></i>
+                            </div>
+                            <div class="media-body">
+                                1-800-432-432
+                            </div>
                         </div>
                     </div>
+
+                    <div>
+                        <div class="media small-teaser">
+                            <div class="media-left">
+                                <i class="fa fa-map-marker highlight fontsize_16"></i>
+                            </div>
+                            <div class="media-body">
+                                דיזינגוף 180, ת"א
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="media small-teaser">
+                            <div class="media-left">
+                                <i class="fa fa-envelope highlight fontsize_16"></i>
+                            </div>
+                            <div class="media-body">
+                                support@anonimi.com
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-            </section>
 
-        <section class="ls section_padding_top_100 section_padding_bottom_100" dir="rtl">
-            <div class="container">
-                <h3>טופס הגשת תלונה</h3>
+                <div class="col-md-3 text-center text-md-right bottommargin_0">
+                    <a href="#appointment" class="theme_button color1 margin_0">קביעת פגישה</a>
+                </div>
 
-                <div class="row">
+            </div>
+        </div>
+    </section>
 
-                    <form class="form-register" role="form">
-
-                        <div class="col-sm-6">
-                            <div class="form-group validate-required" id="last_name_field">
-                                <label for="last_name" class="control-label">
-                                    <span class="grey">שם משפחה:</span>
-                                    <span class="required">*</span>
-                                </label>
-
-                                <input type="text" class="form-control " name="last_name" id="last_name" placeholder="" value="">
-                            </div>
-
-                            <div class="form-group" id="city_field">
-                                <label for="city" class="control-label">
-                                    <span class="grey">עיר מגורים:</span>
-                                    <span class="required">*</span>
-                                </label>
-                                <input type="text" class="form-control " name="city" id="city" placeholder="" value="">
-                            </div>
-                        </div>
-
-                        <div class="col-sm-6">
-                            <div class="form-group validate-required" id="first_name_field">
-                                <label for="first_name" class="control-label">
-                                    <span class="grey">שם פרטי:</span>
-                                    <span class="required">*</span>
-                                </label>
-                                <input type="text" class="form-control " name="first_name" id="first_name" placeholder="" value="">
-                            </div>
-
-                            <div class="form-group validate-required validate-email" id="email_field">
-                                <label for="email" class="control-label">
-                                    <span class="grey">כתובת מייל:</span>
-                                    <span class="required">*</span>
-                                </label>
-                                <input type="text" class="form-control " name="email" id="email" placeholder="" value="">
-                            </div>
-                        </div>
-
-                       
-                            <div class="col-sm-6">
-                            <div class="form-group validate-required" id="date_fields">
-                                <label for="date" class="control-label">
-                                    <span class="grey">תאריך התרחשות האירוע:</span>
-                                    <span class="required">*</span>
-                                </label>
-
-                                <input type="text" class="form-control " name="date" id="date" placeholder="" value="">
-
-                            </div>
-
-                       
-
-
-                            <div class="form-group  validate-required" id="time_field">
-                                <label for="time" class="control-label">
-                                    <span class="grey">שעת התרחשות האירוע:</span>
-                                    <span class="required">*</span>
-                                </label>
-
-                                <input type="text" class="form-control " name="time" id="time" placeholder="" value="">
-
-                            </div>
-                            </div>
-                            <div class="col-sm-6">
-                            <div class="form-group validate-required validate-postcode" id="phone_field">
-                                <label for="phone" class="control-label">
-                                    <span class="grey">טלפון:</span>
-                                    <span class="required">*</span>
-                                </label>
-
-                                <input type="text" class="form-control " name="phone" id="phone" placeholder="" value="">
-
-                            </div>
-
-                            <div class="form-group validate-required " id="place_field">
-                                <label for="place" class="control-label">
-                                    <span class="grey">מקום התרחשות האירוע:</span>
-                                    <span class="required">*</span>
-                                </label>
-
-                                <input type="text" class="form-control " name="place" id="place" placeholder="" value="">
-                            </div>
-                            </div>
-                        </div>
-                        
-                        <div class="row form-group">
-                            <label class="col-lg-12 control-label"> 
-                                <span class="grey">תיאור האירוע:</span>
-                                <span class="required">*</span>   
-                            </label>
-                            <div class="col-lg-12">
-                                <textarea rows="8" class="form-control"></textarea>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-7">
-
-                            <button type="submit" class="theme_button wide_button color1 topmargin_40">שליחת תלונה</button>
-                         
-
-                        </div>
-
-
-                    </form>
-
-
+    <header class="page_header header_white table_section columns_padding_0 toggler-xs-right" dir="rtl">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-1 col-sm-1">
+                    <a class="logo">
+                        אנונימי
+                    </a>
+                    <!-- header toggler -->
+                    <span class="toggle_menu visible-xs">
+                        <span></span>
+                    </span>
+                </div>
+                <div class="col-md-6 col-sm-2 text-center">
+                    <!-- main nav start -->
+                    <nav class="mainmenu_wrapper">
+                        <ul class="mainmenu nav sf-menu">
+                            <li class="active">
+                                <a href="index.html">ראשי</a>
+                            </li>
+                            <li>
+                                <div id="result">אזור אישי</div>
+                            </li>
+                            <li>
+                                <a href="about.html">על האתר</a>
+                            </li>
+                            <li>
+                                <a href="team.html">הצוות שלנו</a>
+                            </li>
+                            <li>
+                                <a href="blog.html">כתבות</a>
+                            </li>
+                            <li>
+                                <a href="new_complaint.html">הגשת תלונה</a>
+                            </li>
+                            <li>
+                                <a href="forum.html">פורום</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!-- eof main nav -->
+                    <span class="toggle_menu hidden-xs">
+                        <span></span>
+                    </span>
                 </div>
             </div>
-        </section>
+        </div>
+    </header>
+
+    <section class="intro_section page_mainslider ds">
+        <div class="flexslider">
+            <ul class="slides">
+
+                <li>
+                    <img src="images/slide02.jpg" alt="">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12 text-center">
+                                <div class="slide_description_wrapper">
+                                    <div class="slide_description">
+                                        <div class="intro-layer" data-animation="fadeInRight">
+                                            <h3>
+                                                הגשת תלונה
+                                            </h3>
+                                        </div>
+                                        <div class="intro-layer" data-animation="fadeInLeft">
+                                            <p class="large-text grey">
+                                                ליווי וייצוג בהלכי האזרחי
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <!-- eof .slide_description -->
+                                </div>
+                                <!-- eof .slide_description_wrapper -->
+                            </div>
+                            <!-- eof .col-* -->
+                        </div>
+                        <!-- eof .row -->
+                    </div>
+                    <!-- eof .container -->
+                </li>
+
+
+            </ul>
+        </div>
+        <!-- eof flexslider -->
+    </section>
+
+    <section class="ls section_padding_top_25" dir="rtl">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <h3>לכתוב  הסבר על תהליך הגשת תלונה באתר </h3>
+                        <p>
+
+                            במידה ואת/ה מחליט/ה,
+                            <b>וזה נתון אך ורק לבחירתך</b>
+                                ,
+                                את/ה יכול/ה להגיש תלונה במשטרה. תהליך הגשת התלונה יכול להיות מורכב וארוך ולכן יש באפשרותך, בכל עת, לבקש ליווי מהעו"ד שלנו.
+                                הליך הליווי המשפטי הינו תהליך המצריך חשיפה של המתלונן, ניתן לקבל מידע מפורט אודות השלבים של ההליך המשפטי והאזרחי באמצעות המייל או באחד הטיפולים עם הפסיכולוגיים.
+                            <br />
+
+                            <b>על מנת לשלוח את התלונה יש להתחבר למשתמש באתר</b> 
+                        </p>
+                        
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <section class="ls section_padding_top_100 section_padding_bottom_100" dir="rtl">
+        <div class="container">
+            <h3>טופס הגשת תלונה</h3>
+
+            <div class="row">
+
+                <form class="form-register" role="form">
+
+                    <div class="col-sm-6">
+                        <div class="form-group validate-required" id="last_name_field">
+                            <label for="last_name" class="control-label">
+                                <span class="grey">שם משפחה:</span>
+                                <span class="required">*</span>
+                            </label>
+
+                            <input type="text" class="form-control " name="last_name" id="last_name" placeholder="" value="" required>
+                        </div>
+
+                        <div class="form-group" id="city_field">
+                            <label for="city" class="control-label">
+                                <span class="grey">עיר מגורים:</span>
+                                <span class="required">*</span>
+                            </label>
+                            <input type="text" class="form-control " name="city" id="city" placeholder="" value="" required>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group validate-required" id="first_name_field">
+                            <label for="first_name" class="control-label">
+                                <span class="grey">שם פרטי:</span>
+                                <span class="required">*</span>
+                            </label>
+                            <input type="text" class="form-control " name="first_name" id="first_name" placeholder="" value="" required>
+                        </div>
+
+                        <div class="form-group validate-required validate-email" id="email_field">
+                            <label for="email" class="control-label">
+                                <span class="grey">כתובת מייל:</span>
+                                <span class="required">*</span>
+                            </label>
+                            <input type="text" class="form-control " name="email" id="email" placeholder="" value="" required>
+                        </div>
+                    </div>
+
+
+                    <div class="col-sm-6">
+                        <div class="form-group validate-required" id="date_fields">
+                            <label for="date" class="control-label">
+                                <span class="grey">תאריך התרחשות האירוע (אופציונאלי):</span>
+                                <span class="required">*</span>
+                            </label>
+
+                            <input type="text" class="form-control " name="date" id="date" placeholder="" value="">
+
+                        </div>
 
 
 
-	<script src="js/compressed.js"></script>
-	<script src="js/main.js"></script>
+
+                        <div class="form-group  validate-required" id="time_field">
+                            <label for="time" class="control-label">
+                                <span class="grey">שעת התרחשות האירוע (אופציונאלי):</span>
+                                <span class="required">*</span>
+                            </label>
+
+                            <input type="text" class="form-control " name="time" id="time" placeholder="" value="">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group validate-required validate-postcode" id="phone_field">
+                            <label for="phone" class="control-label">
+                                <span class="grey">טלפון:</span>
+                                <span class="required">*</span>
+                            </label>
+
+                            <input type="text" class="form-control " name="phone" id="phone" placeholder="" value="" required>
+
+                        </div>
+
+                        <div class="form-group validate-required " id="place_field">
+                            <label for="place" class="control-label">
+                                <span class="grey">מקום התרחשות האירוע:</span>
+                                <span class="required">*</span>
+                            </label>
+
+                            <input type="text" class="form-control " name="place" id="place" placeholder="" value="" required>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="row form-group">
+                <label class="col-lg-12 control-label">
+                    <span class="grey">תיאור האירוע:</span>
+                    <span class="required">*</span>
+                </label>
+                <div class="col-lg-12">
+                    <textarea rows="8" class="form-control"></textarea>
+                </div>
+            </div>
+
+            <div class="col-sm-7">
+
+                <button type="submit" class="theme_button wide_button color1 topmargin_40">שליחת תלונה</button>
+            </div>
+
+
+            </form>
+
+
+        </div>
+        </div>
+    </section>
+
+
+
+    <script src="js/compressed.js"></script>
+    <script src="js/main.js"></script>
 
 
 </body>

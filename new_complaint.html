@@ -22,17 +22,8 @@
 
 </head>
 
-<body onload="what_user()">
-    <script>
-        function what_user() {
-            var d = document.getElementById("result");
-            var user = ""; // get the user type
-            if (user == "admin") d.outerHTML = "<a href=" + "admin_index.html" + ">" + "אזור אישי" + "</a>";
-            else if (user == "user") d.outerHTML = "<a href=" + "admin_user.html" + ">" + "אזור אישי" + "</a>";
-            else d.outerHTML = "<a href=" + "admin_signup.html" + ">" + "אזור אישי" + "</a>";
-        }
+<body>
 
-    </script>
 
     <div class="preloader">
         <div class="preloader_image"></div>
@@ -338,9 +329,6 @@
                             <input type="text" class="form-control " name="date" id="date" placeholder="" value="">
 
                         </div>
-
-
-
 
                         <div class="form-group  validate-required" id="time_field">
                             <label for="time" class="control-label">

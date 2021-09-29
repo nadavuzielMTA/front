@@ -11,21 +11,15 @@
 	<link rel="stylesheet" href="css/fonts.css">
 	<link rel="stylesheet" href="css/main.css" class="color-switcher-link">
 	<script src="js/vendor/modernizr-2.6.2.min.js"></script>
-	<script
-			src="https://code.jquery.com/jquery-3.3.1.js"
+	<script src="https://code.jquery.com/jquery-3.3.1.js"
 			integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
 			crossorigin="anonymous">
 	</script>
-	<script>
-		$(function (){
-			$("#header").load("header.html");
-			$("#footer").load("footer.html");
-		});
-	</script>
+	<script src="js/compressed.js"></script>
+	<script src="js/main.js"></script>
 </head>
 
-<body>
-	<div id="header"></div>
+<body onload="what_user()">
 	<div class="preloader">
 		<div class="preloader_image"></div>
 	</div>
@@ -44,518 +38,760 @@
 			</form>
 		</div>
 	</div>
-			<section class="intro_section page_mainslider ds">
-				<div class="flexslider">
-					<ul class="slides">
+	<section class="page_topline cs table_section table_section_md columns_padding_0">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-3 text-center text-md-left">
+					<ul class="inline-dropdown inline-block divided_content">
 
-						<li>
-							<img src="images/slide01.jpg" alt="">
-							<div class="container">
-								<div class="row">
-									<div class="col-sm-12 text-center">
-										<div class="slide_description_wrapper">
-											<div class="slide_description">
-												<div class="intro-layer" data-animation="fadeInRight">
-													<h3>
-														אנונימי
-													</h3>
-												</div>
-												<div class="intro-layer" data-animation="fadeInLeft">
-													<p class="large-text grey">
-														סיוע אנונימי עבור נפגעי הטרדה מינית
-													</p>
-												</div>
-											</div>
-											<!-- eof .slide_description -->
-										</div>
-										<!-- eof .slide_description_wrapper -->
+						<li class="dropdown login-dropdown">
+							<a class="header-button" data-target="#" href="./" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+								<i class="fa fa-sign-in"></i>
+								<span class="header-button-text">התחברות</span>
+							</a>
+
+							<div class="dropdown-menu ls with_padding">
+
+								<p dir="rtl" style="text-align:right;">
+									<strong class="grey">אם יש ברושתך משתמש, אנא התחבר\י:</strong>
+								</p>
+
+								<form role="form" action="/">
+
+									<div class="form-group">
+										<label for="login_email" class="sr-only">User Name</label>
+										<i class="grey fa fa-user"></i>
+										<input type="text" class="form-control" id="login_user_name" placeholder="User Name" required>
 									</div>
-									<!-- eof .col-* -->
-								</div>
-								<!-- eof .row -->
+									<div class="form-group">
+										<label for="login_password" class="sr-only">Password</label>
+										<i class="grey fa fa-pencil-square-o"></i>
+										<input type="password" class="form-control" id="login_password" placeholder="Password" required>
+									</div>
+									<button type="button" class="theme_button color1 block_button login">
+										התחברות
+									</button>
+
+								</form>
+
 							</div>
-							<!-- eof .container -->
 						</li>
 
 
+						<li class="dropdown login-dropdown">
+							<a class="header-button" data-target="#" href="./" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+								<i class="fa fa-user-plus"></i>
+								<span class="header-button-text">הרשמה</span>
+							</a>
+
+							<div class="dropdown-menu ls with_padding">
+
+								<p dir="rtl" style="text-align:right;">
+									<strong class="grey">הרשמה לאתר</strong>
+								</p>
+								<form role="form" action="/">
+
+									<div class="form-group">
+										<label for="login_email" class="sr-only">User Name</label>
+										<i class="grey fa fa-user"></i>
+										<input type="text" class="form-control" id="register_user_name" placeholder="User Name" required>
+									</div>
+									<div class="form-group">
+										<label for="login_password" class="sr-only">Password</label>
+										<i class="grey fa fa-pencil-square-o"></i>
+										<input type="password" class="form-control" id="register_password" placeholder="Password" required>
+									</div>
+									<button type="button" class="theme_button color1 block_button register">
+										הרשמה
+									</button>
+
+								</form>
+
+							</div>
+						</li>
 					</ul>
+
 				</div>
-				<!-- eof flexslider -->
-			</section>
-			<section id="about" class="cs parallax darken_gradient page_about section_padding_top_75 columns_margin_bottom_30" dir="rtl">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-6 col-md-push-6 text-center">
-							<h2 class="section_header ">חשוב לנו שתדע/י שאת/ה לא לבד</h2>
-							<br>
-							<p class="bold fontsize_18">בכל שלב עומד לרשותך קו הסיוע לנפגעות ונפגעי תקיפה מינית. פסיכולוגיות/ים מנוסות/ים, הזמינות/ים 24 שעות ביממה, יקשיבו לך ויעניקו תמיכה רגשית תוך שמירה על סודיות ופרטיות באמצעות פלטפורמת הZoom.</p>
-							<p class="fontsize_18">
-								שיתוף המידע הנאסף באתר הוא אך ורק ברמה המינימאלית הנדרשת ואך ורק לצרכי הטיפול ובכפוף להגבלות הפרטיות. המידע המשותף עם בעלי המקצוע הוא אנונימי (למעט הגשת תלונה במשטרה) ואינו יכול לשמש לזיהוי גולש כזה או אחר.
-							</p>
-							<div class="with_icon topmargin_60">
-								<h5 class="small-text text-uppercase inline-block">סער כהן</h5>
-								<span class="lightgrey">מנהל אתר אנונימי</span>
+
+				<div class="col-md-6 text-center divided_content">
+
+					<div>
+						<div class="media small-teaser">
+							<div class="media-left">
+								<i class="fa fa-user highlight fontsize_16"></i>
+							</div>
+							<div class="media-body">
+								1-800-432-432
 							</div>
 						</div>
-						<div class="col-md-6 col-md-pull-6 text-center bottommargin_0">
-							<img src="images/person.png" alt="" class="top-overlap" />
+					</div>
+
+					<div>
+						<div class="media small-teaser">
+							<div class="media-left">
+								<i class="fa fa-map-marker highlight fontsize_16"></i>
+							</div>
+							<div class="media-body">
+								דיזינגוף 180, ת"א
+							</div>
 						</div>
+					</div>
+
+					<div>
+						<div class="media small-teaser">
+							<div class="media-left">
+								<i class="fa fa-envelope highlight fontsize_16"></i>
+							</div>
+							<div class="media-body">
+								support@anonimi.com
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="col-md-3 text-center text-md-right bottommargin_0">
+					<a href="#appointment" class="theme_button color1 margin_0">קביעת פגישה</a>
+				</div>
+
+			</div>
+		</div>
+	</section>
+	<header class="page_header header_white table_section columns_padding_0 toggler-xs-right" dir="rtl">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-1 col-sm-1">
+					<a class="logo">
+						אנונימי
+					</a>
+					<!-- header toggler -->
+					<span class="toggle_menu visible-xs">
+						<span></span>
+					</span>
+				</div>
+				<div class="col-md-6 col-sm-2 text-center">
+					<!-- main nav start -->
+					<nav class="mainmenu_wrapper">
+						<ul class="mainmenu nav sf-menu">
+							<li>
+								<a href="index.html">ראשי</a>
+							</li>
+							<li>
+								<div id="result">אזור אישי</div>
+							</li>
+							<li>
+								<a href="about.html">על האתר</a>
+							</li>
+							<li>
+								<a href="team.html">הצוות שלנו</a>
+							</li>
+							<li>
+								<a href="blog.html">כתבות</a>
+							</li>
+							<li>
+								<a href="new_complaint.html">הגשת תלונה</a>
+							</li>
+							<li>
+								<a href="forum.html">פורום</a>
+							</li>
+						</ul>
+					</nav>
+					<!-- eof main nav -->
+					<span class="toggle_menu hidden-xs">
+						<span></span>
+					</span>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="preloader">
+		<div class="preloader_image"></div>
+	</div>
+	<div class="modal" tabindex="-1" role="dialog" aria-labelledby="search_modal" id="search_modal">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">
+				<i class="rt-icon2-cross2"></i>
+			</span>
+		</button>
+		<div class="widget widget_search">
+			<form method="get" class="searchform search-form form-inline" action="./">
+				<div class="form-group">
+					<input type="text" value="" name="search" class="form-control" placeholder="Search keyword" id="modal-search-input">
+				</div>
+				<button type="submit" class="theme_button">Search</button>
+			</form>
+		</div>
+	</div>
+	<section class="intro_section page_mainslider ds">
+		<div class="flexslider">
+			<ul class="slides">
+
+				<li>
+					<img src="images/slide01.jpg" alt="">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-12 text-center">
+								<div class="slide_description_wrapper">
+									<div class="slide_description">
+										<div class="intro-layer" data-animation="fadeInRight">
+											<h3>
+												אנונימי
+											</h3>
+										</div>
+										<div class="intro-layer" data-animation="fadeInLeft">
+											<p class="large-text grey">
+												סיוע אנונימי עבור נפגעי הטרדה מינית
+											</p>
+										</div>
+									</div>
+									<!-- eof .slide_description -->
+								</div>
+								<!-- eof .slide_description_wrapper -->
+							</div>
+							<!-- eof .col-* -->
+						</div>
+						<!-- eof .row -->
+					</div>
+					<!-- eof .container -->
+				</li>
+
+
+			</ul>
+		</div>
+		<!-- eof flexslider -->
+	</section>
+	<section id="about" class="cs parallax darken_gradient page_about section_padding_top_75 columns_margin_bottom_30" dir="rtl">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-md-push-6 text-center">
+					<h2 class="section_header ">חשוב לנו שתדע/י שאת/ה לא לבד</h2>
+					<br>
+					<p class="bold fontsize_18">בכל שלב עומד לרשותך קו הסיוע לנפגעות ונפגעי תקיפה מינית. פסיכולוגיות/ים מנוסות/ים, הזמינות/ים 24 שעות ביממה, יקשיבו לך ויעניקו תמיכה רגשית תוך שמירה על סודיות ופרטיות באמצעות פלטפורמת הZoom.</p>
+					<p class="fontsize_18">
+						שיתוף המידע הנאסף באתר הוא אך ורק ברמה המינימאלית הנדרשת ואך ורק לצרכי הטיפול ובכפוף להגבלות הפרטיות. המידע המשותף עם בעלי המקצוע הוא אנונימי (למעט הגשת תלונה במשטרה) ואינו יכול לשמש לזיהוי גולש כזה או אחר.
+					</p>
+					<div class="with_icon topmargin_60">
+						<h5 class="small-text text-uppercase inline-block">סער כהן</h5>
+						<span class="lightgrey">מנהל אתר אנונימי</span>
 					</div>
 				</div>
-			</section>
-			<section id="services" class="ls section_padding_top_130 section_padding_bottom_100" dir="rtl">
-				<div class="container">
-					<div class="row">
-						<div class="col-sm-12 text-center">
-							<h2 class="section_header with_icon">האם אני צריך טיפול?</h2>
-							<p>
-								לאחר הפגיעה המינית ייתכן ותחווי/ה מספר תופעות שכיחות אשר יכולות להופיע מיד לאחר הפגיעה, אך גם שנים אחריה
-							</p>
-						</div>
-					</div>
-					<div class="row columns_padding_0 columns_margin_0 fontsize_16">
-						<div class="col-md-3 col-sm-6">
-							<div class="with_padding text-center teaser hover_shadow">
-								<img src="images/service-icons/relationship.png" alt="" />
-								<h4>
-									רגשות אשם
-								</h4>
-								<p>
-									עוסקת בסבל שלנו אחרי שגילינו שלא עמדנו בציפיות של עצמנו – לא הצלחנו לחשוב, להרגיש או להתנהג בהתאם למה שאנחנו מאמינים כראוי ומתבקש במצב ספציפי.
-								</p>
-							</div>
-						</div>
-						<div class="col-md-3 col-sm-6">
-							<div class="with_padding text-center teaser hover_shadow">
-								<img src="images/service-icons/mental.png" alt="" />
-								<h4>
-									חוסר ריכוז
-								</h4>
-								<p>
-									קשיי ריכוז (או קשיי קשב) מוגדרים כמצב שבו יכולות הקשב של הפרט נמוכות, באופן קבוע או זמני, לאחר האירוע.
-								</p>
-							</div>
-						</div>
-						<div class="col-md-3 col-sm-6 clear-sm">
-							<div class="with_padding text-center teaser hover_shadow">
-								<img src="images/service-icons/feelings.png" alt="" />
-								<h4>
-									מחשבות טורדניות
-								</h4>
-								<p>
-									מחשבות פולשניות או טורדניות הן מחשבות, דימויים או רעיונות לא רצויים שעשויים להפוך לאובססיות. הן מצערות ומעוררות מצוקה, וקשה לנהל אותן ולהשתחרר מהן.
-								</p>
-							</div>
-						</div>
-						<div class="col-md-3 col-sm-6">
-							<div class="with_padding text-center teaser hover_shadow">
-								<img src="images/service-icons/conflicting.png" alt="" />
-								<h4>
-									נדודי שינה
-								</h4>
-								<p>
-									שינה לא תקינה בלילה שגורמת לעייפות ולתפקוד לקוי במהלך היום.
-								</p>
-							</div>
-						</div>
-						<div class="col-md-3 col-sm-6 clear-lg clear-md clear-sm">
-							<div class="with_padding text-center teaser hover_shadow">
-								<img src="images/service-icons/meditation.png" alt="" />
-								<h4>
-									ירידה בתאבון ובחשק המיני
-								</h4>
-								<p>
-									.חוסר תאבון לאחר האירוע וחוסר רצון לקיים אי אלו קשרים מיניים
-								</p>
-							</div>
-						</div>
-						<div class="col-md-3 col-sm-6">
-							<div class="with_padding text-center teaser hover_shadow">
-								<img src="images/service-icons/depression.png" alt="" />
-								<h4>
-									עצבנות ומתח
-								</h4>
-								<p>
-									התפרצויות זעם, חוסר סבלנות, אי-שקט, אלימות מילולית או פיזית, מתח שרירים גבוה, נטייה לאימפולסיביות והיעדר שיקול דעת.
-								</p>
-							</div>
-						</div>
-						<div class="col-md-3 col-sm-6 clear-sm">
-							<div class="with_padding text-center teaser hover_shadow">
-								<img src="images/service-icons/mind.png" alt="" />
-								<h4>
-									תמונות חוזרות של האירוע
-								</h4>
-								<p>
-									שחזור האירוע על ידי הנפגע בצורה קבועה וללא יכולת להשתחרר מהזיכרון הטראומתי.
-								</p>
-							</div>
-						</div>
-						<div class="col-md-3 col-sm-6">
-							<div class="with_padding text-center teaser hover_shadow">
-								<img src="images/service-icons/relaxation.png" alt="" />
-								<h4>
-									אי שקט
-								</h4>
-								<p>
-									הגוף מתוח, השרירים ב"היכון", הראש כואב רוב הזמן, אתם מוצאים עצמכם מתאפקים שוב ושוב שלא להתפרץ על האדם הקרוב ביותר שיקלע לדרככם, או לפרוץ בבכי פתאומי.
-								</p>
-							</div>
-						</div>
+				<div class="col-md-6 col-md-pull-6 text-center bottommargin_0">
+					<img src="images/person.png" alt="" class="top-overlap" />
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="services" class="ls section_padding_top_130 section_padding_bottom_100" dir="rtl">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 text-center">
+					<h2 class="section_header with_icon">האם אני צריך טיפול?</h2>
+					<p>
+						לאחר הפגיעה המינית ייתכן ותחווי/ה מספר תופעות שכיחות אשר יכולות להופיע מיד לאחר הפגיעה, אך גם שנים אחריה
+					</p>
+				</div>
+			</div>
+			<div class="row columns_padding_0 columns_margin_0 fontsize_16">
+				<div class="col-md-3 col-sm-6">
+					<div class="with_padding text-center teaser hover_shadow">
+						<img src="images/service-icons/relationship.png" alt="" />
+						<h4>
+							רגשות אשם
+						</h4>
+						<p>
+							עוסקת בסבל שלנו אחרי שגילינו שלא עמדנו בציפיות של עצמנו – לא הצלחנו לחשוב, להרגיש או להתנהג בהתאם למה שאנחנו מאמינים כראוי ומתבקש במצב ספציפי.
+						</p>
 					</div>
 				</div>
-			</section>
-
-
-
-			<section class="ls section_padding_top_130 section_padding_bottom_100 columns_margin_top_0 columns_margin_bottom_30" dir="rtl">
-				<div class="container">
-					<div class="row">
-						<div class="col-sm-12 text-center">
-							<h2 class="section_header with_icon">כתבות ששוות קריאה</h2>
-							<p>
-								ריכזנו עבורכם מספר כתבות מעניינות בנושאים שונים, במידה וקראתם כתבה מעניינת שלדעתכם מתאימה לפרסום באתר נשמח שתשלחו לנו בכתובת המייל support@anonimi.com
-							</p>
-						</div>
+				<div class="col-md-3 col-sm-6">
+					<div class="with_padding text-center teaser hover_shadow">
+						<img src="images/service-icons/mental.png" alt="" />
+						<h4>
+							חוסר ריכוז
+						</h4>
+						<p>
+							קשיי ריכוז (או קשיי קשב) מוגדרים כמצב שבו יכולות הקשב של הפרט נמוכות, באופן קבוע או זמני, לאחר האירוע.
+						</p>
 					</div>
-					<div class="row">
-						<div class="col-md-4 text-center">
-							<article class="vertical-item content-padding post format-standard with_shadow">
+				</div>
+				<div class="col-md-3 col-sm-6 clear-sm">
+					<div class="with_padding text-center teaser hover_shadow">
+						<img src="images/service-icons/feelings.png" alt="" />
+						<h4>
+							מחשבות טורדניות
+						</h4>
+						<p>
+							מחשבות פולשניות או טורדניות הן מחשבות, דימויים או רעיונות לא רצויים שעשויים להפוך לאובססיות. הן מצערות ומעוררות מצוקה, וקשה לנהל אותן ולהשתחרר מהן.
+						</p>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6">
+					<div class="with_padding text-center teaser hover_shadow">
+						<img src="images/service-icons/conflicting.png" alt="" />
+						<h4>
+							נדודי שינה
+						</h4>
+						<p>
+							שינה לא תקינה בלילה שגורמת לעייפות ולתפקוד לקוי במהלך היום.
+						</p>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 clear-lg clear-md clear-sm">
+					<div class="with_padding text-center teaser hover_shadow">
+						<img src="images/service-icons/meditation.png" alt="" />
+						<h4>
+							ירידה בתאבון ובחשק המיני
+						</h4>
+						<p>
+							.חוסר תאבון לאחר האירוע וחוסר רצון לקיים אי אלו קשרים מיניים
+						</p>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6">
+					<div class="with_padding text-center teaser hover_shadow">
+						<img src="images/service-icons/depression.png" alt="" />
+						<h4>
+							עצבנות ומתח
+						</h4>
+						<p>
+							התפרצויות זעם, חוסר סבלנות, אי-שקט, אלימות מילולית או פיזית, מתח שרירים גבוה, נטייה לאימפולסיביות והיעדר שיקול דעת.
+						</p>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 clear-sm">
+					<div class="with_padding text-center teaser hover_shadow">
+						<img src="images/service-icons/mind.png" alt="" />
+						<h4>
+							תמונות חוזרות של האירוע
+						</h4>
+						<p>
+							שחזור האירוע על ידי הנפגע בצורה קבועה וללא יכולת להשתחרר מהזיכרון הטראומתי.
+						</p>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6">
+					<div class="with_padding text-center teaser hover_shadow">
+						<img src="images/service-icons/relaxation.png" alt="" />
+						<h4>
+							אי שקט
+						</h4>
+						<p>
+							הגוף מתוח, השרירים ב"היכון", הראש כואב רוב הזמן, אתם מוצאים עצמכם מתאפקים שוב ושוב שלא להתפרץ על האדם הקרוב ביותר שיקלע לדרככם, או לפרוץ בבכי פתאומי.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-								<div class="item-media entry-thumbnail">
-									<img src="images/blog_post1.jpg" alt="">
-								</div>
 
-								<div class="item-content entry-content">
-									<header class="entry-header">
 
-										<div class="entry-date small-text highlight">
+	<section class="ls section_padding_top_130 section_padding_bottom_100 columns_margin_top_0 columns_margin_bottom_30" dir="rtl">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 text-center">
+					<h2 class="section_header with_icon">כתבות ששוות קריאה</h2>
+					<p>
+						ריכזנו עבורכם מספר כתבות מעניינות בנושאים שונים, במידה וקראתם כתבה מעניינת שלדעתכם מתאימה לפרסום באתר נשמח שתשלחו לנו בכתובת המייל support@anonimi.com
+					</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 text-center">
+					<article class="vertical-item content-padding post format-standard with_shadow">
 
-											<time class="entry-date">
-												28/08/20
-											</time>
-
-										</div>
-
-										<h4 class="entry-title">
-											<a href="https://www.mako.co.il/pride-blogs/Article-ff2ada113e02471027.htm?partner=tagit" rel="bookmark" target="_blank">חינוך מחדש</a><br />
-											<div class="entry-date small-text highlight">דוד בביוף</div>
-										</h4>
-
-										<hr class="divider_30_1">
-
-									</header>
-									<!-- .entry-header -->
-
-									<p class="bottommargin_40 fontsize_18">לכל הומו יש לפחות סיפור אחד על הטרדה מינית. זר שנגע במסיבה, גבר ששלח תמונות של איבר המין מבלי שאף אחד ביקש או פגישה שהסתיימה בסקס, למרות שהמילה "לא" נאמרה בבירור.</p>
-
-									<a href="https://www.mako.co.il/pride-blogs/Article-ff2ada113e02471027.htm?partner=tagit" class="theme_button color1" target="_blank">לכתבה</a>
-
-								</div>
-								<!-- .item-content.entry-content -->
-							</article>
+						<div class="item-media entry-thumbnail">
+							<img src="images/blog_post1.jpg" alt="">
 						</div>
-						<div class="col-md-4 text-center">
-							<article class="vertical-item content-padding post format-standard with_shadow">
 
-								<div class="item-media entry-thumbnail">
-									<img src="images/blog_post2.jpg" alt="">
-								</div>
+						<div class="item-content entry-content">
+							<header class="entry-header">
 
-								<div class="item-content entry-content">
-									<header class="entry-header">
+								<div class="entry-date small-text highlight">
 
-										<div class="entry-date small-text highlight">
-
-											<time class="entry-date">
-												28/08/16
-											</time>
-
-										</div>
-
-										<h4 class="entry-title">
-											<a href="https://www.mako.co.il/health-wellness/mental-health/Article-1ea85a7044cb651006.htm?partner=tagit" rel="bookmark" target="_blank">לא רק מחלות נפש: למה אנשים הולכים לפסיכולוג?</a><br />
-											<div class="entry-date small-text highlight">רוני גובר</div>
-										</h4>
-
-										<hr class="divider_30_1">
-
-									</header>
-									<!-- .entry-header -->
-
-									<p class="bottommargin_40 fontsize_18">חושבים שטיפול פסיכולוגי הוא לא בשבילכם? שהביקור אצל הפסיכולוג מיועד רק לטיפול במחלות נפש? אתם טועים ובגדול, טיפול נפשי יכול להיות בדיוק מה שחסר לכם ואינכם מודעים לכך. אז איך יודעים מתי ללכת לטיפול?</p>
-
-									<a href="https://www.mako.co.il/health-wellness/mental-health/Article-1ea85a7044cb651006.htm?partner=tagit" class="theme_button color1" target="_blank">לכתבה</a>
+									<time class="entry-date">
+										28/08/20
+									</time>
 
 								</div>
-								<!-- .item-content.entry-content -->
-							</article>
-						</div>
-						<div class="col-md-4 text-center">
-							<article class="vertical-item content-padding post format-standard with_shadow">
 
-								<div class="item-media entry-thumbnail">
-									<img src="images/blog_post3.jpg" alt="">
-								</div>
+								<h4 class="entry-title">
+									<a href="https://www.mako.co.il/pride-blogs/Article-ff2ada113e02471027.htm?partner=tagit" rel="bookmark" target="_blank">חינוך מחדש</a><br />
+									<div class="entry-date small-text highlight">דוד בביוף</div>
+								</h4>
 
-								<div class="item-content entry-content">
-									<header class="entry-header">
+								<hr class="divider_30_1">
 
-										<div class="entry-date small-text highlight">
+							</header>
+							<!-- .entry-header -->
 
-											<time class="entry-date">
-												12/08/21
-											</time>
+							<p class="bottommargin_40 fontsize_18">לכל הומו יש לפחות סיפור אחד על הטרדה מינית. זר שנגע במסיבה, גבר ששלח תמונות של איבר המין מבלי שאף אחד ביקש או פגישה שהסתיימה בסקס, למרות שהמילה "לא" נאמרה בבירור.</p>
 
-										</div>
+							<a href="https://www.mako.co.il/pride-blogs/Article-ff2ada113e02471027.htm?partner=tagit" class="theme_button color1" target="_blank">לכתבה</a>
 
-										<h4 class="entry-title">
-											<a href="https://www.globes.co.il/news/article.aspx?did=1001381472" rel="bookmark" target="_blank">פס"ד הבאדי שוט - רוחות של אופטימיות נושבות מירושלים</a><br />
-											<div class="entry-date small-text highlight">עו"ד הילה אראל-שמש</div>
-										</h4>
-
-										<hr class="divider_30_1">
-
-									</header>
-									<!-- .entry-header -->
-
-									<p class="bottommargin_40 fontsize_18">בעולם שבו הגשת תלונה למשטרה על הטרדה מינית היא לא פחות מ"ויה דה לה רוזה" עבור מתלוננות, מקום העבודה הוא פלטפורמה מעולה ואפקטיבית למיגור התופעות הללו.</p>
-
-									<a href="https://www.globes.co.il/news/article.aspx?did=1001381472" class="theme_button color1" target="_blank">לכתבה</a>
-
-								</div>
-								<!-- .item-content.entry-content -->
-							</article>
 						</div>
 						<!-- .item-content.entry-content -->
+					</article>
+				</div>
+				<div class="col-md-4 text-center">
+					<article class="vertical-item content-padding post format-standard with_shadow">
 
-					</div>
-					<div class="row">
-						<div class="col-sm-12 text-center">
-							<a href="blog.html" class="theme_button color1"">לכתבות נוספות</a>
-							</div>
-							</div>
+						<div class="item-media entry-thumbnail">
+							<img src="images/blog_post2.jpg" alt="">
 						</div>
-					</div>
-</section>
 
-		<section class="cs main_color2 parallax page_testimonials section_padding_75">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-10 col-md-offset-1">
-						<div class="owl-carousel testimonials-carousel top-dots" data-responsive-sm="1" data-responsive-md="1" data-responsive-lg="1" data-dots="true">
-							<blockquote dir="rtl">
-								“האתגר של בני האדם הוא להפוך טרגדיה אישית לניצחון הרוח האנושית”
-								<div class="item-meta">
-									<h5>ויקטור פראנקל</h5>
+						<div class="item-content entry-content">
+							<header class="entry-header">
+
+								<div class="entry-date small-text highlight">
+
+									<time class="entry-date">
+										28/08/16
+									</time>
+
 								</div>
-							</blockquote>
-							<blockquote dir="rtl">
-								“לספר יש תמיד שני מחברים: מי שכותב ומי שקורא”
-								<div class="item-meta">
-									<h5>ז'אק סאלומה</h5>
-								</div>
-							</blockquote>
-							<blockquote dir="rtl">
-								“שום דבר לא יכול לעצור את האיש עם הגישה הנכונה מהלשיג את מטרתו. שום דבר עלי אדמות, לא יכול לעזור לאדם עם הגישה הלא נכונה”
-								<div class="item-meta">
-									<h5>תומס ג'פרסון</h5>
-								</div>
-							</blockquote>
+
+								<h4 class="entry-title">
+									<a href="https://www.mako.co.il/health-wellness/mental-health/Article-1ea85a7044cb651006.htm?partner=tagit" rel="bookmark" target="_blank">לא רק מחלות נפש: למה אנשים הולכים לפסיכולוג?</a><br />
+									<div class="entry-date small-text highlight">רוני גובר</div>
+								</h4>
+
+								<hr class="divider_30_1">
+
+							</header>
+							<!-- .entry-header -->
+
+							<p class="bottommargin_40 fontsize_18">חושבים שטיפול פסיכולוגי הוא לא בשבילכם? שהביקור אצל הפסיכולוג מיועד רק לטיפול במחלות נפש? אתם טועים ובגדול, טיפול נפשי יכול להיות בדיוק מה שחסר לכם ואינכם מודעים לכך. אז איך יודעים מתי ללכת לטיפול?</p>
+
+							<a href="https://www.mako.co.il/health-wellness/mental-health/Article-1ea85a7044cb651006.htm?partner=tagit" class="theme_button color1" target="_blank">לכתבה</a>
+
 						</div>
+						<!-- .item-content.entry-content -->
+					</article>
+				</div>
+				<div class="col-md-4 text-center">
+					<article class="vertical-item content-padding post format-standard with_shadow">
+
+						<div class="item-media entry-thumbnail">
+							<img src="images/blog_post3.jpg" alt="">
+						</div>
+
+						<div class="item-content entry-content">
+							<header class="entry-header">
+
+								<div class="entry-date small-text highlight">
+
+									<time class="entry-date">
+										12/08/21
+									</time>
+
+								</div>
+
+								<h4 class="entry-title">
+									<a href="https://www.globes.co.il/news/article.aspx?did=1001381472" rel="bookmark" target="_blank">פס"ד הבאדי שוט - רוחות של אופטימיות נושבות מירושלים</a><br />
+									<div class="entry-date small-text highlight">עו"ד הילה אראל-שמש</div>
+								</h4>
+
+								<hr class="divider_30_1">
+
+							</header>
+							<!-- .entry-header -->
+
+							<p class="bottommargin_40 fontsize_18">בעולם שבו הגשת תלונה למשטרה על הטרדה מינית היא לא פחות מ"ויה דה לה רוזה" עבור מתלוננות, מקום העבודה הוא פלטפורמה מעולה ואפקטיבית למיגור התופעות הללו.</p>
+
+							<a href="https://www.globes.co.il/news/article.aspx?did=1001381472" class="theme_button color1" target="_blank">לכתבה</a>
+
+						</div>
+						<!-- .item-content.entry-content -->
+					</article>
+				</div>
+				<!-- .item-content.entry-content -->
+
+			</div>
+			<div class="row">
+				<div class="col-sm-12 text-center">
+					<a href="blog.html" class="theme_button color1" ">לכתבות נוספות</a>
+				</div>
+			</div>
+		</div>
+		</div>
+	</section>
+
+	<section class="cs main_color2 parallax page_testimonials section_padding_75">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+					<div class="owl-carousel testimonials-carousel top-dots" data-responsive-sm="1" data-responsive-md="1" data-responsive-lg="1" data-dots="true">
+						<blockquote dir="rtl">
+							“האתגר של בני האדם הוא להפוך טרגדיה אישית לניצחון הרוח האנושית”
+							<div class="item-meta">
+								<h5>ויקטור פראנקל</h5>
+							</div>
+						</blockquote>
+						<blockquote dir="rtl">
+							“לספר יש תמיד שני מחברים: מי שכותב ומי שקורא”
+							<div class="item-meta">
+								<h5>ז'אק סאלומה</h5>
+							</div>
+						</blockquote>
+						<blockquote dir="rtl">
+							“שום דבר לא יכול לעצור את האיש עם הגישה הנכונה מהלשיג את מטרתו. שום דבר עלי אדמות, לא יכול לעזור לאדם עם הגישה הלא נכונה”
+							<div class="item-meta">
+								<h5>תומס ג'פרסון</h5>
+							</div>
+						</blockquote>
 					</div>
 				</div>
 			</div>
-		</section>
+		</div>
+	</section>
 
-		<section id="faq" class="ls section_padding_top_130 section_padding_bottom_100 "dir="rtl">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-12 text-center">
-						<h2 class="section_header with_icon">שאלות נפוצות</h2>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-6">
-
-						<div class="tab-content padding_0">
-
-							<div class="tab-pane fade in active" id="tab1">
-								<div class="embed-responsive embed-responsive-4by3 ">
-									<iframe src="https://www.youtube.com/embed/BSAGwLIYvUU" class="embed-placeholder">
-									</iframe>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6" dir="rtl">
-						<div class="panel-group" id="accordion1">
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordion1" href="#collapse0" class="collapsed">
-											מהי הטרדה מינית?
-										</a>
-									</h4>
-								</div>
-								<div id="collapse0" class="panel-collapse collapse">
-									<div class="panel-body">
-										הטרדה מינית הינה מונח כולל המתייחס למעשים אסורים שונים בדרגות חומרה שונות. במונח הטרדה מינית נכללות הטרדות מיניות מילוליות והטרדות מיניות שאינן מילוליות כמו הפצת תצלומים, סרטים או הקלטות של אדם המתמקדות במיניותו, צילום אנשים במצבים אינטימיים, מעשים מגונים, אינוס, מעשי סדום, בעילה אסורה בהסכמה ועוד.
-									</div>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordion1" href="#collapse1" class="collapsed">
-											האם אני נדרש לספק פרטים אודותיי על מנת לקבל טיפול?
-										</a>
-									</h4>
-								</div>
-								<div id="collapse1" class="panel-collapse collapse">
-									<div class="panel-body">
-										<b>חד משמעית לא!</b> את/ה לא חייב/ת להיחשף על מנת לקבל טיפול ועזרה על ידי פסיכולוג מוסמך.  במידה ותחליט/י להגיש תלונה יש למלא פרטים אישיים לצורך הגשת התלונה בשמך.
-										<br />
-										מכיוון שבמדינת ישראל לא ניתן להגיש תלונה באופן אנונימי אך, חשוב לציין כי פרטיך נשארים  חסויים ולא ישותפו ללא אישורך.
-									</div>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordion1" href="#collapse2" class="collapsed">
-											האם הטיפולים בתשלום?
-										</a>
-									</h4>
-								</div>
-								<div id="collapse2" class="panel-collapse collapse">
-									<div class="panel-body">
-										כלל השירותים הניתנים באתר "אנונימי" הינם ללא תשלום וללא מטרת רווח וכן נעשים בהתנדבות מלאה על ידי גורמי מקצוע מוסמכים .
-									</div>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordion1" href="#collapse3" class="collapsed">
-											איך עובד תהליך הליווי המשפטי?
-										</a>
-									</h4>
-								</div>
-								<div id="collapse3" class="panel-collapse collapse">
-									<div class="panel-body">
-										ראשית תידרש/י להיחשף ולמלא את הטופס הנמצא בדף הגשת תלונה, לאחר מכן עורך דין פלילי מטעמנו יצור איתך קשר וילוה את התלהליך מטעמך מול גורמי אכיפת החוק ותביעה אזרחית וכן יעדכן בהתקדמות התהליך.
-									</div>
-								</div>
-							</div>
-
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordion1" href="#collapse4" class="collapsed">
-											כמה זמן נמשך ההליך המשפטי? 
-										</a>
-									</h4>
-								</div>
-								<div id="collapse4" class="panel-collapse collapse">
-									<div class="panel-body">
-										 תלוי באופי המקרה ומשתנה מאחד לשני. ההליך יכול להימשך בין מספר חודשים למספר שנים במקרים מסוימים.
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
+	<section id="faq" class="ls section_padding_top_130 section_padding_bottom_100 " dir="rtl">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 text-center">
+					<h2 class="section_header with_icon">שאלות נפוצות</h2>
 				</div>
 			</div>
-		</section>
+			<div class="row">
+				<div class="col-md-6">
 
+					<div class="tab-content padding_0">
 
-		<section id="appointment" class="ls section_padding_top_130 section_padding_bottom_100" dir="rtl">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
-						<h2 class="section_header with_icon highlight">קביעת פגישה</h2>
-						<div class="fontsize_16">
-							ניתן לקבוע טיפול אחד בכל חודש
-						</div>
-						<form class="contact-form row columns_margin_bottom_40 topmargin_60" method="post" action="./">
-
-
-					</div>
-					<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
-						<div class="contact-form-email">
-							<input type="email" aria-required="true" size="30" value="" name="email" id="email" class="form-control" placeholder="כתובת מייל (אופציונאלי - לא נשמר במאגר)">
-						</div>
-					</div>
-					<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
-						<div class="contact-form-date select-group">
-							<label for="date" class="sr-only">
-								Date
-								<span class="required">*</span>
-							</label>
-							<div class="input-group">
-								<select aria-required="true" id="psy" name="psy" class="choice empty form-control psycologists-appointment">
-									<option value="" disabled selected data-default>פסיכולוג</option>
-									<option value="ליאת הר-טוב">ליאת הר-טוב</option>
-									<option value="רינה אאלוף">רינה אאלוף</option>
-									<option value="קלרה מולדן">קלרה מולדן</option>
-									<option value="אדי גרין">אדי גרין</option>
-								</select>
+						<div class="tab-pane fade in active" id="tab1">
+							<div class="embed-responsive embed-responsive-4by3 ">
+								<iframe src="https://www.youtube.com/embed/BSAGwLIYvUU" class="embed-placeholder">
+								</iframe>
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
-						<div class="contact-form-date select-group">
-							<label for="date" class="sr-only">
-								Date
-								<span class="required">*</span>
-							</label>
-							<div class="input-group">
-								<select aria-required="true" id="date" name="date" class="choice empty form-control">
-									<option value="" disabled selected data-default>תאריך</option>
-								</select>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
-						<div class="contact-form-time select-group">
-							<label for="time" class="sr-only">
-								Date
-								<span class="required">*</span>
-							</label>
-							<div class="input-group ">
-								<select aria-required="true" id="time" name="time" class="choice empty form-control">
-									<option value="" disabled selected data-default>שעה</option>
-								</select>
-							</div>
-						</div>
-					</div>
-
-
-					<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
-
-						<div class="contact-form-submit topmargin_20">
-							<button type="submit" id="contact_form_submit" name="contact_submit" class="theme_button color1 with_shadow nadav">תיאום פגישה</button><br>
-							<strong>לצפייה בפגישות עתידיות, אנא היכנס\י לאזור האישי</strong>
-						</div>
-					</div>
-
-					</form>
 				</div>
+				<div class="col-md-6" dir="rtl">
+					<div class="panel-group" id="accordion1">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a data-toggle="collapse" data-parent="#accordion1" href="#collapse0" class="collapsed">
+										מהי הטרדה מינית?
+									</a>
+								</h4>
+							</div>
+							<div id="collapse0" class="panel-collapse collapse">
+								<div class="panel-body">
+									הטרדה מינית הינה מונח כולל המתייחס למעשים אסורים שונים בדרגות חומרה שונות. במונח הטרדה מינית נכללות הטרדות מיניות מילוליות והטרדות מיניות שאינן מילוליות כמו הפצת תצלומים, סרטים או הקלטות של אדם המתמקדות במיניותו, צילום אנשים במצבים אינטימיים, מעשים מגונים, אינוס, מעשי סדום, בעילה אסורה בהסכמה ועוד.
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a data-toggle="collapse" data-parent="#accordion1" href="#collapse1" class="collapsed">
+										האם אני נדרש לספק פרטים אודותיי על מנת לקבל טיפול?
+									</a>
+								</h4>
+							</div>
+							<div id="collapse1" class="panel-collapse collapse">
+								<div class="panel-body">
+									<b>חד משמעית לא!</b> את/ה לא חייב/ת להיחשף על מנת לקבל טיפול ועזרה על ידי פסיכולוג מוסמך.  במידה ותחליט/י להגיש תלונה יש למלא פרטים אישיים לצורך הגשת התלונה בשמך.
+									<br />
+									מכיוון שבמדינת ישראל לא ניתן להגיש תלונה באופן אנונימי אך, חשוב לציין כי פרטיך נשארים  חסויים ולא ישותפו ללא אישורך.
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a data-toggle="collapse" data-parent="#accordion1" href="#collapse2" class="collapsed">
+										האם הטיפולים בתשלום?
+									</a>
+								</h4>
+							</div>
+							<div id="collapse2" class="panel-collapse collapse">
+								<div class="panel-body">
+									כלל השירותים הניתנים באתר "אנונימי" הינם ללא תשלום וללא מטרת רווח וכן נעשים בהתנדבות מלאה על ידי גורמי מקצוע מוסמכים .
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a data-toggle="collapse" data-parent="#accordion1" href="#collapse3" class="collapsed">
+										איך עובד תהליך הליווי המשפטי?
+									</a>
+								</h4>
+							</div>
+							<div id="collapse3" class="panel-collapse collapse">
+								<div class="panel-body">
+									ראשית תידרש/י להיחשף ולמלא את הטופס הנמצא בדף הגשת תלונה, לאחר מכן עורך דין פלילי מטעמנו יצור איתך קשר וילוה את התלהליך מטעמך מול גורמי אכיפת החוק ותביעה אזרחית וכן יעדכן בהתקדמות התהליך.
+								</div>
+							</div>
+						</div>
+
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a data-toggle="collapse" data-parent="#accordion1" href="#collapse4" class="collapsed">
+										כמה זמן נמשך ההליך המשפטי?
+									</a>
+								</h4>
+							</div>
+							<div id="collapse4" class="panel-collapse collapse">
+								<div class="panel-body">
+									תלוי באופי המקרה ומשתנה מאחד לשני. ההליך יכול להימשך בין מספר חודשים למספר שנים במקרים מסוימים.
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
 			</div>
-	</div>
+		</div>
+	</section>
+
+
+	<section id="appointment" class="ls section_padding_top_130 section_padding_bottom_100" dir="rtl">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
+					<h2 class="section_header with_icon highlight">קביעת פגישה</h2>
+					<div class="fontsize_16">
+						ניתן לקבוע טיפול אחד בכל חודש
+					</div>
+					<form class="contact-form row columns_margin_bottom_40 topmargin_60" method="post" action="./">
+
+
+				</div>
+				<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
+					<div class="contact-form-email">
+						<input type="email" aria-required="true" size="30" value="" name="email" id="email" class="form-control" placeholder="כתובת מייל (אופציונאלי - לא נשמר במאגר)">
+					</div>
+				</div>
+				<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
+					<div class="contact-form-date select-group">
+						<label for="date" class="sr-only">
+							Date
+							<span class="required">*</span>
+						</label>
+						<div class="input-group">
+							<select aria-required="true" id="psy" name="psy" class="choice empty form-control psycologists-appointment">
+								<option value="" disabled selected data-default>פסיכולוג</option>
+								<option value="ליאת הר-טוב">ליאת הר-טוב</option>
+								<option value="רינה אאלוף">רינה אאלוף</option>
+								<option value="קלרה מולדן">קלרה מולדן</option>
+								<option value="אדי גרין">אדי גרין</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
+					<div class="contact-form-date select-group">
+						<label for="date" class="sr-only">
+							Date
+							<span class="required">*</span>
+						</label>
+						<div class="input-group">
+							<select aria-required="true" id="date" name="date" class="choice empty form-control">
+								<option value="" disabled selected data-default>תאריך</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
+					<div class="contact-form-time select-group">
+						<label for="time" class="sr-only">
+							Date
+							<span class="required">*</span>
+						</label>
+						<div class="input-group ">
+							<select aria-required="true" id="time" name="time" class="choice empty form-control">
+								<option value="" disabled selected data-default>שעה</option>
+							</select>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
+
+					<div class="contact-form-submit topmargin_20">
+						<button type="submit" id="contact_form_submit" name="contact_submit" class="theme_button color1 with_shadow nadav">תיאום פגישה</button><br>
+						<strong>לצפייה בפגישות עתידיות, אנא היכנס\י לאזור האישי</strong>
+					</div>
+				</div>
+
+				</form>
+			</div>
+		</div>
+		</div>
 	</section>
 
 	</div>
 	<!-- eof #box_wrapper -->
 	</div>
 	<!-- eof #canvas -->
-	<div id="footer"></div>
-	<script src="js/compressed.js"></script>
-	<script src="js/main.js"></script>
+	<footer class="page_footer cs main_color2 table_section section_padding_50 columns_padding_0 ">
+		<div class="container">
+
+			<div class="row">
+
+				<div class="col-sm-4 col-sm-push-4 text-center">
+					<a href="#top" class="logo big text-shadow">
+						אנונימי
+						<span class="large-text">סיוע אנונימי עבור נפגעי הטרדה מינית</span>
+					</a>
+				</div>
+
+				<div class="col-sm-4 col-sm-pull-4 text-center text-sm-left text-md-left">
+					<div class="widget widget_nav_menu greylinks">
+
+						<ul class="menu divided_content wide_divider">
+							<li class="">
+								<a href="forum.html">צאט</a>
+							</li>
+							<li class="">
+								<a href="new_complaint.html">הגשת תלונה</a>
+							</li>
+							<li class="">
+								<a href="blog.html">כתבות</a>
+							</li>
+						</ul>
+
+					</div>
+				</div>
+
+				<div class="col-sm-4 text-center text-sm-right text-md-right">
+					<div class="widget widget_nav_menu greylinks">
+
+						<ul class="menu divided_content wide_divider">
+							<li class="">
+								<a href="team.html">הצוות שלנו</a>
+							</li>
+							<li class="">
+								<a href="about.html">מי אנחנו</a>
+							</li>
+							<li class="">
+								<a href="index.html">ראשי</a>
+
+							</li>
+						</ul>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
 
 
+		<section class="cs main_color2 page_copyright section_padding_15">
+			<div class="container with_top_border">
+				<div class="row">
+					<div class="col-sm-12 text-center">
+						<p class="small-text">פרויקט זה הינו חלק מסדנה מעשית במערכות מידע, כל הזכויות שמורות לסער, נדב וטל</p>
+					</div>
+				</div>
+			</div>
+		</section>
+	</footer>
 
 </body>
 

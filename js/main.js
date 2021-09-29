@@ -108,7 +108,7 @@ function what_user() {
 					$menuWraper.css({'left': -menuLeftOffset})
 				}
 
-			}// > 991
+			}
 		}); //sf-menu each
 	} //menuHideExtraElements
 

@@ -523,8 +523,8 @@ function what_user() {
 
 		jQuery(".new-complaint").on('click', function (e) {
 			var username = getCookie("username");
-			var first_name = document.getElementById('first_name').value;
-			var last_name = document.getElementById('last_name').value;
+			var name = document.getElementById('name').value;
+			var user_id = document.getElementById('user_id').value;
 			var email = document.getElementById('email').value;
 			var city = document.getElementById('city').value;
 			var phone_number = document.getElementById('phone').value;
@@ -536,7 +536,7 @@ function what_user() {
 			jQuery.ajax({
 				type: 'POST',
 				url: '/api/complaint',
-				data: 'username=' + username + '&first_name=' + first_name +  '&last_name=' + last_name +
+				data: 'username=' + username + '&name=' + name +  '&user_id=' + user_id +
 					'&email=' + email +  '&city=' + city +  '&phone_number=' + phone_number +
 					'&date=' + date +  '&place=' + place +  '&time=' + time +
 					'&description=' + description,

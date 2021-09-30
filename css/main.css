@@ -2730,7 +2730,9 @@ html[xmlns] .slides {
 .ds .flex-control-paging li a:hover {
 	background-color: #ffffff;
 }
-
+.scroll{
+	overflow: auto;
+}
 .flex-control-thumbs {
 	margin: 5px 0 0;
 	position: static;
@@ -6019,6 +6021,10 @@ a.logo.vertical_logo img {
 	height: 60px;
 	color: #ffffff;
 	width: 100%;
+}
+
+#col-box{
+	text-align: right;
 }
 
 #search_modal .form-control:-moz-placeholder {

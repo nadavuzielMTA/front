@@ -18,6 +18,7 @@ $(function() {
 	// your code goes here
 	var username = getCookie("username");
 	zoom_meetings = [];
+
 	if (username) {
 		var user = getCookie("username"); // get the user type
 		document.getElementById("change_user").innerText = user;
@@ -58,8 +59,32 @@ $(function() {
 		jQuery.ajax({
 			type: 'GET',
 			url: '/api/lawyer_complaint',
-			success: function (msg) {
-				console.log(msg);
+			success: function (complaints) {
+				for (var i = 0; i < complaints.length; i++) {
+					var sent_checked = '';
+					var sent_to_policy_checked = '';
+					var in_treatment_checked = '';
+					var done_checked = '';
+
+					if (complaints[i]['sent'])  sent_checked = 'checked';
+					if (complaints[i]['sent_to_police']) sent_to_policy_checked = 'checked';
+					if (complaints[i]['in_treatment']) in_treatment_checked = 'checked';
+					if (complaints[i]['done'])  done_checked = 'checked';
+
+					var row = '<tr class="item-editable"><td ></td><td><div class="media"><div class="media-left"></div>' +
+						'<div class="media-body"><h5>' + complaints[i]["name"] + '</h5></div></div></td><td>' +
+						'<time class="entry-date">' + complaints[i]["created"] + '</time></td><td>' +
+						'<time class="entry-date">' + complaints[i]["last_update"] + '</time></td>' +
+						'<td class="media-middle scroll"><p>' + complaints[i]["description"] + '</p></td> ' +
+						'<td class="media-middle text-center"><input type="checkbox"' + sent_checked + '></td>' +
+						'<td class="media-middle text-center"><input type="checkbox"' + sent_to_policy_checked + '></td>' +
+						'<td class="media-middle text-center"><input type="checkbox"' + in_treatment_checked + '></td>' +
+						'<td class="media-middle text-center"><input type="checkbox"' + done_checked + '></td>' +
+						'<td><button>שמור</button></td>' +
+						'</tr>';
+
+					$(row).insertAfter("#lawyer-table tr:first");
+				}
 			}
 		});
 	}

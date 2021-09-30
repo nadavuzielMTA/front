@@ -24,6 +24,9 @@ function getCookie(name) {
 	}
 	return null;
 }
+function logout() {
+	setCookie("username", '' ,0);
+}
 
 function what_user() {
 
@@ -45,7 +48,7 @@ function what_user() {
 							</div>
 			</li>
 			<li class="dropdown login-dropdown">
-				<a class="header-button" data-target="#" href="./" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+				<a class="header-button" onclick="logout()" data-target="#" href="./" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
 					<i class="fa fa-plug"></i>
 					<span class="header-button-text">התנתקות</span>
 				</a>
@@ -502,7 +505,7 @@ function what_user() {
 			});
 		});
 
-		jQuery('#time').on('change', function( e ){
+		jQuery('#time').on('chan`ge`', function( e ){
 			var $form = jQuery(this);
 			selected_time =  $form.find('option:selected').val();
 		});
@@ -525,7 +528,7 @@ function what_user() {
 		});
 
 		jQuery(".logout").on('click', function (e) {
-			setCookie("username", '' ,1);
+			setCookie("username", '' ,0);
 		});
 
 		jQuery(".new-complaint").on('click', function (e) {

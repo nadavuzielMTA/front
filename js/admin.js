@@ -1,6 +1,7 @@
 "use strict";
 
 var zoom_meetings = [];
+var admin_users_psy = ['liat har-tov', 'adi green', 'rina aaluf', 'clara moldan', 'lora cohen'];
 
 function getCookie(name) {
 	var nameEQ = name + "=";
@@ -13,6 +14,26 @@ function getCookie(name) {
 	return null;
 }
 
+function save_complaint() {
+	var id = this.id[6];
+	var sent_value = document.getElementById('sent-id' + id).checked;
+	var sent_to_police_value = document.getElementById('sent-to-police-id' + id).checked;
+	var in_treatment_value = document.getElementById('in-treatment-id' + id).checked;
+	var done_value = document.getElementById('done_id' + id).checked;
+	var user_id_value = document.getElementById('user_id' + id).innerText;
+
+	jQuery.ajax({
+		type: 'POST',
+		url: '/api/lawyer_complaint',
+		data: 'user_id=' + user_id_value + '&sent=' + sent_value + '&sent_to_police=' + sent_to_police_value
+			+ '&in_treatment=' + in_treatment_value + '&done=' + done_value,
+		success: function (msg) {
+			if (msg) {
+				location.reload();
+			}
+		}
+	});
+}
 
 $(function() {
 	// your code goes here
@@ -24,6 +45,53 @@ $(function() {
 		document.getElementById("change_user").innerText = user;
 	}
 	if (username !== 'ruby polantiak') {
+		if (!admin_users_psy.includes(user)){
+			jQuery.ajax({
+				type: 'GET',
+				url: '/api/complaint',
+				data: 'username=' + username,
+				success: function (complaint_details) {
+					var hazana = complaint_details['sent']; // value is 'true' or 'false'
+					if (hazana === 'true') {
+						document.getElementById('send-progress-bar').style.backgroundColor = 'green';
+						document.getElementById('send-precentage').innerText = '100%';
+					}
+					else {
+						document.getElementById('send-progress-bar').style.backgroundColor = 'red';
+						document.getElementById('send-precentage').innerText = '0%';
+					}
+
+					var hagasha = complaint_details['sent_to_police']; // value is 'true' or 'false'
+					if (hagasha) {
+						document.getElementById('police-progress-bar').style.backgroundColor = 'green';
+						document.getElementById('police-precentage').innerText = '100%';
+					}
+					else {
+						document.getElementById('police-progress-bar').style.backgroundColor = 'red';
+						document.getElementById('police-precentage').innerText = '0%';
+					}
+
+					var betipul = complaint_details['in_treatment']; // value is 'true' or 'false'
+					if (betipul) {
+						document.getElementById('treatment-progress-bar').style.backgroundColor = 'green';
+						document.getElementById('treatment-precentage').innerText = '100%';
+					}
+					else {
+						document.getElementById('treatment-progress-bar').style.backgroundColor = 'red';
+						document.getElementById('treatment-precentage').innerText = '0%';
+					}
+					var tupal = complaint_details['in_treatment']; // value is 'true' or 'false'
+					if (tupal) {
+						document.getElementById('done-progress-bar').style.backgroundColor = 'green';
+						document.getElementById('done-precentage').innerText = '100%';
+					}
+					else {
+						document.getElementById('done-progress-bar').style.backgroundColor = 'red';
+						document.getElementById('done-precentage').innerText = '0%';
+					}
+				}
+			});
+		}
 		jQuery.ajax({
 			type: 'GET',
 			url: '/api/meetings',
@@ -65,22 +133,28 @@ $(function() {
 					var sent_to_policy_checked = '';
 					var in_treatment_checked = '';
 					var done_checked = '';
-
+					var row_id =  'row-id' + i;
+					var sent_id = 'sent-id' + i;
+					var sent_to_police_id = 'sent-to-police-id' + i;
+					var in_treatment_id = 'in-treatment-id' + i;
+					var done_id = 'done_id' + i;
+					var user_id = 'user_id' + i;
 					if (complaints[i]['sent'])  sent_checked = 'checked';
 					if (complaints[i]['sent_to_police']) sent_to_policy_checked = 'checked';
 					if (complaints[i]['in_treatment']) in_treatment_checked = 'checked';
 					if (complaints[i]['done'])  done_checked = 'checked';
 
 					var row = '<tr class="item-editable"><td ></td><td><div class="media"><div class="media-left"></div>' +
-						'<div class="media-body"><h5>' + complaints[i]["name"] + '</h5></div></div></td><td>' +
-						'<time class="entry-date">' + complaints[i]["created"] + '</time></td><td>' +
-						'<time class="entry-date">' + complaints[i]["last_update"] + '</time></td>' +
+						'<div class="media-body"><h5>' + complaints[i]["name"] + '</h5></div></div></td>' +
+						'<td><div id=' + user_id + ' class="media-body">' + complaints[i]["user_id"] + '</div></td>' +
+						'<td><time class="entry-date">' + complaints[i]["created"] + '</time></td>' +
+						'<td><time class="entry-date">' + complaints[i]["last_update"] + '</time></td>' +
 						'<td class="media-middle scroll"><p>' + complaints[i]["description"] + '</p></td> ' +
-						'<td class="media-middle text-center"><input type="checkbox"' + sent_checked + '></td>' +
-						'<td class="media-middle text-center"><input type="checkbox"' + sent_to_policy_checked + '></td>' +
-						'<td class="media-middle text-center"><input type="checkbox"' + in_treatment_checked + '></td>' +
-						'<td class="media-middle text-center"><input type="checkbox"' + done_checked + '></td>' +
-						'<td><button>שמור</button></td>' +
+						'<td class="media-middle text-center"><input id=' + sent_id + ' type="checkbox"' + sent_checked + '></td>' +
+						'<td class="media-middle text-center"><input id=' + sent_to_police_id + ' type="checkbox"' + sent_to_policy_checked + '></td>' +
+						'<td class="media-middle text-center"><input id=' + in_treatment_id + ' type="checkbox"' + in_treatment_checked + '></td>' +
+						'<td class="media-middle text-center"><input id=' + done_id + ' type="checkbox"' + done_checked + '></td>' +
+						'<td><button id=' + row_id+ ' onclick="save_complaint.call(this)">שמור</button></td>' +
 						'</tr>';
 
 					$(row).insertAfter("#lawyer-table tr:first");
@@ -195,6 +269,4 @@ $(function() {
 			height: height,
 		});
 	});
-
-
 })();

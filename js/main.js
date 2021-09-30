@@ -35,7 +35,6 @@ function what_user() {
 	else if (admin_users_law.includes(user)) d.outerHTML = "<a href=" + "admin_inbox.html" + ">" + "אזור אישי" + "</a>";
 	else if (user !== null) d.outerHTML = "<a href=" + "admin_index.html" + ">" + "אזור אישי" + "</a>";
 	else d.outerHTML = "<a href=" + "admin_signup.html" + ">" + "אזור אישי" + "</a>";
-	user="saar"
 	if (user !== null) {
 		logout1.innerHTML = `
 		<div class="col-md-3 text-center text-md-left">

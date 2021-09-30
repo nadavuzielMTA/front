@@ -22,43 +22,47 @@ $(function() {
 		var user = getCookie("username"); // get the user type
 		document.getElementById("change_user").innerText = user;
 	}
+	if (username !== 'ruby polantiak') {
+		jQuery.ajax({
+			type: 'GET',
+			url: '/api/meetings',
+			data: 'username=' + username,
+			success: function (backend_events) {
+				for (var i = 0; i < backend_events.length; i++) {
+					zoom_meetings.push({
+						title: backend_events[i]['title'],
+						url: backend_events[i]['url'],
+						start: backend_events[i]['start']
+					});
+					jQuery('.events_calendar').fullCalendar(
+						{
+							header: {
+								left: 'prev,next today',
+								center: 'title',
+								right: 'month,agendaWeek,agendaDay,listWeek'
+							},
+							defaultDate: '2021-09-15',
+							editable: true,
+							eventLimit: true,
+							navLinks: true,
+							aspectRatio: 1,
+							events: zoom_meetings
+						}
+					);
+				}
 
-	jQuery.ajax({
-		type: 'GET',
-		url: '/api/meetings',
-		data: 'username=' + username,
-		success: function (backend_events) {
-			for (var i = 0; i < backend_events.length; i++) {
-				console.log(backend_events[i]['title']);
-				console.log(typeof backend_events[i]['title']);
-				zoom_meetings.push({title: backend_events[i]['title'],
-									url: backend_events[i]['url'],
-									start: backend_events[i]['start']});
-
-				console.log(zoom_meetings[i]);
-				console.log(typeof zoom_meetings[i]);
-				console.log("dsadsadas");
-				console.log(typeof {title: '13:30', url: 'dsadas', start:'blah'})
-				jQuery('.events_calendar').fullCalendar(
-					{
-						header: {
-							left: 'prev,next today',
-							center: 'title',
-							right: 'month,agendaWeek,agendaDay,listWeek'
-						},
-						defaultDate: '2021-09-15',
-						editable: true,
-						eventLimit: true,
-						navLinks: true,
-						aspectRatio: 1,
-						events: zoom_meetings
-					}
-				);
 			}
-
-		}
-	});
-
+		});
+	}
+	else {
+		jQuery.ajax({
+			type: 'GET',
+			url: '/api/lawyer_complaint',
+			success: function (msg) {
+				console.log(msg);
+			}
+		});
+	}
 });
 
 (function(){

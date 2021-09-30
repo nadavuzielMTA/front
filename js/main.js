@@ -14,7 +14,6 @@ function setCookie(name, value, days) {
 	document.cookie = name + "=" + (value || "") + expires + "; path=/";
 }
 
-
 function getCookie(name) {
 	var nameEQ = name + "=";
 	var ca = document.cookie.split(';');
@@ -35,6 +34,7 @@ function what_user() {
 	else if (user !== null) d.outerHTML = "<a href=" + "admin_index.html" + ">" + "אזור אישי" + "</a>";
 	else d.outerHTML = "<a href=" + "admin_signup.html" + ">" + "אזור אישי" + "</a>";
 }
+
 
 (function(){
 	var $body = jQuery('body');
@@ -477,7 +477,6 @@ function what_user() {
 		//psycologist available dates
 		jQuery('#date').on('change', function( e ){
 			var $form = jQuery(this);
-			console.log("111111111");
 			selected_date =  $form.find('option:selected').val();
 			var username = getCookie("username");
 			jQuery.ajax({
@@ -541,7 +540,7 @@ function what_user() {
 					'&date=' + date +  '&place=' + place +  '&time=' + time +
 					'&description=' + description,
 				success: function (msg) {
-					console.log(msg);
+					alert(msg);
 				}
 			});
 		});

@@ -1,7 +1,7 @@
 ﻿"use strict";
 //Wrapping all JavaScript code into a IIFE function for prevent global variables creation
 
-var admin_users_psy = ['leat har-tov', 'adi grin', 'rina aaluf', 'clara moldan', 'ruby polantiak'];
+var admin_users_psy = ['liat har-tov', 'adi green', 'rina aaluf', 'clara moldan', 'lora cohen'];
 var admin_users_law = ['ruby polantiak'];
 
 function setCookie(name, value, days) {
@@ -29,11 +29,32 @@ function getCookie(name) {
 function what_user() {
 
 	var d = document.getElementById("result");
+	var logout1 = document.getElementById("log_out");
 	var user = getCookie("username"); // get the user type
 	if (admin_users_psy.includes(user)) d.outerHTML = "<a href=" + "admin_index_psy.html" + ">" + "אזור אישי" + "</a>";
 	else if (admin_users_law.includes(user)) d.outerHTML = "<a href=" + "admin_inbox.html" + ">" + "אזור אישי" + "</a>";
 	else if (user !== null) d.outerHTML = "<a href=" + "admin_index.html" + ">" + "אזור אישי" + "</a>";
 	else d.outerHTML = "<a href=" + "admin_signup.html" + ">" + "אזור אישי" + "</a>";
+	user="saar"
+	if (user !== null) {
+		logout1.innerHTML = `
+		<div class="col-md-3 text-center text-md-left">
+		<ul class="inline-dropdown inline-block divided_content" >
+			<li class="dropdown login-dropdown">
+							<div class="header-button" data-target="#" href="./" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+								<i class="fa fa-user"></i>
+								<span class="header-button-text">`+ user +`</span>
+							</div>
+			</li>
+			<li class="dropdown login-dropdown">
+				<a class="header-button" data-target="#" href="./" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+					<i class="fa fa-plug"></i>
+					<span class="header-button-text">התנתקות</span>
+				</a>
+			</li>
+			</ul>
+</div>`;
+	}
 }
 
 (function(){
@@ -421,20 +442,6 @@ function what_user() {
 		}
 
 
-		function what_user() {
-			var d = document.getElementById("result");
-			let a = document.createElement('a')
-			a.text = 'zone'
-			var user = ""; // get the user type
-			if (user == "") a.href = 'admin_index.html'
-			else {
-				a.href = 'admin_user.html'
-			}
-			d.parentNode.removeChild(d);
-			document.body.appendChild(a);
-			console.log("error")
-		}
-
 		//register
 		var $form = jQuery(this);
 		jQuery(".register").on('click', function (e) {
@@ -445,7 +452,7 @@ function what_user() {
 
 				success: function (msg) {
 					setCookie("username", username,1);
-					alert(" תודה על הרשמתך " + document.getElementById('register_user_name').value);
+					alert(document.getElementById('register_user_name').value + " תודה על הרשמתך אתה מחובר למערכת ");
 					location.reload();
 				}
 			});
@@ -511,8 +518,10 @@ function what_user() {
 				success: function (msg) {
 					if (msg) {
 						setCookie("username", username, 1);
+						alert(usernam+ " ברוך הבא! ");
+						location.reload();
 					}
-					else { alert("שם משתמש או סיסמא לא נכונים"); }
+					else { alert("שם משתמש או סיסמא לא נכונים, בטוח שזהו שם המשתמש שלך? :)"); }
 				}
 			});
 		});
@@ -599,8 +608,9 @@ function what_user() {
 				data: 'username=' + username + '&action=available_dates&psychologist_name=' + selected_psycologist_name +
 					'&date=' + selected_date + '&time='+ selected_time + '&email='+ email,
 				success: function (msg) {
-					console.log(msg);
-					$form.find('.response').html(msg);
+					setCookie("username", username, 1);
+					alert(username + " נקבעה עבורך פגישה, ניתן לצפות במועד הפגישה ולינק באזור האישי ");
+					location.reload();
 				}
 			});
 		});

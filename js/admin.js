@@ -31,7 +31,8 @@ function admin_logout() {
 }
 
 function save_complaint() {
-	var id = this.id[6];
+	var id = this.id;
+	id = id.replace('row-id','');
 	var sent_value = document.getElementById('sent-id' + id).checked;
 	var sent_to_police_value = document.getElementById('sent-to-police-id' + id).checked;
 	var in_treatment_value = document.getElementById('in-treatment-id' + id).checked;

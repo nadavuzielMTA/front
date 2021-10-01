@@ -3,6 +3,7 @@
 var zoom_meetings = [];
 var admin_users_psy = ['liat har-tov', 'adi green', 'rina aaluf', 'clara moldan', 'lora cohen'];
 
+
 function getCookie(name) {
 	var nameEQ = name + "=";
 	var ca = document.cookie.split(';');
@@ -12,6 +13,21 @@ function getCookie(name) {
 		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
 	}
 	return null;
+}
+
+
+function setCookie(name, value, days) {
+	var expires = "";
+	if (days) {
+		var date = new Date();
+		date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+		expires = "; expires=" + date.toUTCString();
+	}
+	document.cookie = name + "=" + (value || "") + expires + "; path=/";
+
+}
+function admin_logout() {
+	setCookie("username", '' ,0);
 }
 
 function save_complaint() {
@@ -40,90 +56,10 @@ $(function() {
 	var username = getCookie("username");
 	zoom_meetings = [];
 
-	if (username) {
-		var user = getCookie("username"); // get the user type
-		document.getElementById("change_user").innerText = user;
+	if (username !== '') {
+		document.getElementById("change_user").innerText = username;
 	}
-	if (username !== 'ruby polantiak') {
-		if (!admin_users_psy.includes(user)){
-			jQuery.ajax({
-				type: 'GET',
-				url: '/api/complaint',
-				data: 'username=' + username,
-				success: function (complaint_details) {
-					var hazana = complaint_details['sent']; // value is 'true' or 'false'
-					if (hazana === 'true') {
-						document.getElementById('send-progress-bar').style.backgroundColor = 'green';
-						document.getElementById('send-precentage').innerText = '100%';
-					}
-					else {
-						document.getElementById('send-progress-bar').style.backgroundColor = 'red';
-						document.getElementById('send-precentage').innerText = '0%';
-					}
-
-					var hagasha = complaint_details['sent_to_police']; // value is 'true' or 'false'
-					if (hagasha) {
-						document.getElementById('police-progress-bar').style.backgroundColor = 'green';
-						document.getElementById('police-precentage').innerText = '100%';
-					}
-					else {
-						document.getElementById('police-progress-bar').style.backgroundColor = 'red';
-						document.getElementById('police-precentage').innerText = '0%';
-					}
-
-					var betipul = complaint_details['in_treatment']; // value is 'true' or 'false'
-					if (betipul) {
-						document.getElementById('treatment-progress-bar').style.backgroundColor = 'green';
-						document.getElementById('treatment-precentage').innerText = '100%';
-					}
-					else {
-						document.getElementById('treatment-progress-bar').style.backgroundColor = 'red';
-						document.getElementById('treatment-precentage').innerText = '0%';
-					}
-					var tupal = complaint_details['in_treatment']; // value is 'true' or 'false'
-					if (tupal) {
-						document.getElementById('done-progress-bar').style.backgroundColor = 'green';
-						document.getElementById('done-precentage').innerText = '100%';
-					}
-					else {
-						document.getElementById('done-progress-bar').style.backgroundColor = 'red';
-						document.getElementById('done-precentage').innerText = '0%';
-					}
-				}
-			});
-		}
-		jQuery.ajax({
-			type: 'GET',
-			url: '/api/meetings',
-			data: 'username=' + username,
-			success: function (backend_events) {
-				for (var i = 0; i < backend_events.length; i++) {
-					zoom_meetings.push({
-						title: backend_events[i]['title'],
-						url: backend_events[i]['url'],
-						start: backend_events[i]['start']
-					});
-					jQuery('.events_calendar').fullCalendar(
-						{
-							header: {
-								left: 'prev,next today',
-								center: 'title',
-								right: 'month,agendaWeek,agendaDay,listWeek'
-							},
-							defaultDate: '2021-09-15',
-							editable: true,
-							eventLimit: true,
-							navLinks: true,
-							aspectRatio: 1,
-							events: zoom_meetings
-						}
-					);
-				}
-
-			}
-		});
-	}
-	else {
+	if (username === 'ruby polantiak') {
 		jQuery.ajax({
 			type: 'GET',
 			url: '/api/lawyer_complaint',
@@ -162,10 +98,91 @@ $(function() {
 			}
 		});
 	}
+	else {
+		if (username !== ''){
+			jQuery.ajax({
+				type: 'GET',
+				url: '/api/meetings',
+				data: 'username=' + username,
+				success: function (backend_events) {
+					for (var i = 0; i < backend_events.length; i++) {
+						zoom_meetings.push({
+							title: backend_events[i]['title'],
+							url: backend_events[i]['url'],
+							start: backend_events[i]['start']
+						});
+						jQuery('.events_calendar').fullCalendar(
+							{
+								header: {
+									left: 'prev,next today',
+									center: 'title',
+									right: 'month,agendaWeek,agendaDay,listWeek'
+								},
+								defaultDate: '2021-10-20',
+								editable: true,
+								eventLimit: true,
+								navLinks: true,
+								aspectRatio: 1,
+								events: zoom_meetings
+							}
+						);
+					}
+
+				}
+			});
+			if (!admin_users_psy.includes(username)){
+				jQuery.ajax({
+					type: 'GET',
+					url: '/api/complaint',
+					data: 'username=' + username,
+					success: function (complaint_details) {
+						var hazana = complaint_details['sent']; // value is 'true' or 'false'
+						if (hazana === 'true') {
+							document.getElementById('send-progress-bar').style.backgroundColor = 'green';
+							document.getElementById('send-precentage').innerText = '100%';
+						}
+						else {
+							document.getElementById('send-progress-bar').style.backgroundColor = 'red';
+							document.getElementById('send-precentage').innerText = '0%';
+						}
+
+						var hagasha = complaint_details['sent_to_police']; // value is 'true' or 'false'
+						if (hagasha) {
+							document.getElementById('police-progress-bar').style.backgroundColor = 'green';
+							document.getElementById('police-precentage').innerText = '100%';
+						}
+						else {
+							document.getElementById('police-progress-bar').style.backgroundColor = 'red';
+							document.getElementById('police-precentage').innerText = '0%';
+						}
+
+						var betipul = complaint_details['in_treatment']; // value is 'true' or 'false'
+						if (betipul) {
+							document.getElementById('treatment-progress-bar').style.backgroundColor = 'green';
+							document.getElementById('treatment-precentage').innerText = '100%';
+						}
+						else {
+							document.getElementById('treatment-progress-bar').style.backgroundColor = 'red';
+							document.getElementById('treatment-precentage').innerText = '0%';
+						}
+						var tupal = complaint_details['in_treatment']; // value is 'true' or 'false'
+						if (tupal) {
+							document.getElementById('done-progress-bar').style.backgroundColor = 'green';
+							document.getElementById('done-precentage').innerText = '100%';
+						}
+						else {
+							document.getElementById('done-progress-bar').style.backgroundColor = 'red';
+							document.getElementById('done-precentage').innerText = '0%';
+						}
+					}
+				});
+			}
+		}
+	}
 });
 
 (function(){
-	
+
 
 		//Global Defaults
 			//fonts
@@ -182,7 +199,7 @@ $(function() {
 	Chart.defaults.scale.gridLines.color = 'rgba(100,100,100,0.15)';
 	Chart.defaults.scale.gridLines.zeroLineColor = 'rgba(100,100,100,0.15)';
 	// Chart.defaults.scale.gridLines.drawTicks = false;
-	
+
 	// Chart.defaults.scale.ticks.min = 0;
 	Chart.defaults.scale.ticks.beginAtZero = true;
 	Chart.defaults.scale.ticks.maxRotation = 0;
@@ -236,7 +253,7 @@ $(function() {
 				'Last 30 Days': [moment().subtract(29, 'days'), moment()],
 				'This Month': [moment().startOf('month'), moment().endOf('month')],
 				'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-			
+
 			},
 		}, cb);
 
@@ -251,15 +268,15 @@ $(function() {
 		//sparkline type: 'line' (default), 'bar', 'tristate', 'discrete', 'bullet', 'pie', 'box'
 		var $this = jQuery(this);
 		var data = $this.data();
-		
+
 		var type = data.type ? data.type : 'bar';
 		var lineColor = data.lineColor ? data.lineColor : '#4db19e';
 		var negBarColor = data.negColor ? data.negColor : '#dc5753';
 		var barWidth = data.barWidth ? data.barWidth : 4;
 		var height = data.height ? data.height : false;
-		
+
 		var values = data.values ? JSON.parse("[" + data.values + "]") : false;
-		
+
 		$this.sparkline(values, {
 			type: type,
 			lineColor: lineColor,

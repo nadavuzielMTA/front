@@ -12,6 +12,7 @@ function setCookie(name, value, days) {
 		expires = "; expires=" + date.toUTCString();
 	}
 	document.cookie = name + "=" + (value || "") + expires + "; path=/";
+
 }
 
 function getCookie(name) {
@@ -24,20 +25,29 @@ function getCookie(name) {
 	}
 	return null;
 }
+
 function logout() {
 	setCookie("username", '' ,0);
+	location.reload()
 }
 
 function what_user() {
-
 	var d = document.getElementById("result");
 	var logout1 = document.getElementById("log_out");
 	var user = getCookie("username"); // get the user type
+	console.log("user is:", user);
+	console.log("user type is :", typeof user);
+
+	console.log(admin_users_psy.includes(user));
+	console.log(admin_users_law.includes(user));
+	console.log(user !== null || user === '');
+
 	if (admin_users_psy.includes(user)) d.outerHTML = "<a href=" + "admin_index_psy.html" + ">" + "אזור אישי" + "</a>";
 	else if (admin_users_law.includes(user)) d.outerHTML = "<a href=" + "admin_inbox.html" + ">" + "אזור אישי" + "</a>";
-	else if (user !== null) d.outerHTML = "<a href=" + "admin_index.html" + ">" + "אזור אישי" + "</a>";
+	else if (user !== '') d.outerHTML = "<a href=" + "admin_index.html" + ">" + "אזור אישי" + "</a>";
 	else d.outerHTML = "<a href=" + "admin_signup.html" + ">" + "אזור אישי" + "</a>";
-	if (user !== null) {
+
+	if (user !== null && user !== '') {
 		logout1.innerHTML = `
 		<div class="col-md-3 text-center text-md-left">
 		<ul class="inline-dropdown inline-block divided_content" >
@@ -443,19 +453,51 @@ function what_user() {
 			jQuery('.parallax').parallax("50%", 0.01);
 		}
 
+		jQuery('.register').on('click', function( e ){
+			e.preventDefault();
 
-		//register
-		var $form = jQuery(this);
-		jQuery(".register").on('click', function (e) {
 			jQuery.ajax({
 				type: 'POST',
 				url: '/api/login',
 				data: 'username=' + document.getElementById('register_user_name').value + '&password=' + document.getElementById('register_password').value,
-
 				success: function (msg) {
-					setCookie("username", username,1);
-					alert(document.getElementById('register_user_name').value + " תודה על הרשמתך אתה מחובר למערכת ");
-					location.reload();
+					if (msg){
+						setCookie("username", document.getElementById('register_user_name').value,1);
+						alert(document.getElementById('register_user_name').value + " תודה על הרשמתך אתה מחובר למערכת ");
+						location.reload();
+					}
+					else{
+						alert("שם משתמש זה כבר קיים במערכת.")
+					}
+				},
+				error: function(a,b,t) {
+					console.log( a, b, t)
+				}
+			});
+		});
+
+		jQuery('.login').on('click', function( e ) {
+			var username = document.getElementById('login_user_name').value;
+			e.preventDefault();
+
+			jQuery.ajax({
+				type: 'GET',
+				url: '/api/login',
+				data: 'username=' + username + '&password=' + document.getElementById('login_password').value,
+				success: function (msg) {
+					if (msg) {
+						setCookie("username", username, 1);
+						alert(username + " ברוך הבא! ");
+						location.reload();
+
+					}
+					else {
+						alert("שם משתמש או סיסמא לא נכונים, בטוח שזהו שם המשתמש שלך? :)");
+					}
+				},
+				error: function(XMLHttpRequest, textStatus, errorThrown) {
+					alert("שם משתמש או סיסמא לא נכונים, בטוח שזהו שם המשתמש שלך? :)");
+					console.log(XMLHttpRequest, textStatus, errorThrown)
 				}
 			});
 		});
@@ -471,7 +513,6 @@ function what_user() {
 				url: '/api/appointment',
 				data: 'username=' + username + '&action=list_of_dates',
 				success: function (dates) {
-					console.log("dates are: ", dates);
 					var select = document.getElementById('date');
 					for (let i = 0; i < dates.length; i++) {
 						var opt = document.createElement('option');
@@ -510,26 +551,6 @@ function what_user() {
 			selected_time =  $form.find('option:selected').val();
 		});
 
-		jQuery(".login").on('click', function (e) {
-			var username = document.getElementById('login_user_name').value;
-			jQuery.ajax({
-				type: 'GET',
-				url: '/api/login',
-				data: 'username=' + username + '&password=' + document.getElementById('login_password').value,
-				success: function (msg) {
-					if (msg) {
-						setCookie("username", username, 1);
-						alert(usernam+ " ברוך הבא! ");
-						location.reload();
-					}
-					else { alert("שם משתמש או סיסמא לא נכונים, בטוח שזהו שם המשתמש שלך? :)"); }
-				}
-			});
-		});
-
-		jQuery(".logout").on('click', function (e) {
-			setCookie("username", '' ,0);
-		});
 
 		jQuery(".new-complaint").on('click', function (e) {
 			var username = getCookie("username");
@@ -624,7 +645,6 @@ function what_user() {
 		});
 		//search form processing
 		jQuery('form.searchform').on('submit', function( e ){
-
 			e.preventDefault();
 			var $form = jQuery(this);
 			var $searchModal = jQuery('#search_modal');

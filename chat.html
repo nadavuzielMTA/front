@@ -53,9 +53,7 @@
 										<i class="grey fa fa-pencil-square-o"></i>
 										<input type="password" class="form-control" id="login_password" placeholder="Password" required>
 									</div>
-									<button type="submit" class="theme_button color1 block_button login">
-										התחברות
-									</button>
+									<button class="theme_button color1 block_button login"> התחברות</button>
 
 								</form>
 
@@ -74,8 +72,7 @@
 								<p dir="rtl" style="text-align:right;">
 									<strong class="grey">הרשמה לאתר</strong>
 								</p>
-								<form role="form">
-
+								<form class="register-form">
 									<div class="form-group">
 										<label for="login_email" class="sr-only">User Name</label>
 										<i class="grey fa fa-user"></i>
@@ -86,9 +83,7 @@
 										<i class="grey fa fa-pencil-square-o"></i>
 										<input type="password" class="form-control" id="register_password" placeholder="Password" required>
 									</div>
-									<button type="submit" class="theme_button color1 block_button register">
-										הרשמה
-									</button>
+									<button class="theme_button color1 block_button register">הרשמה</button>
 
 								</form>
 
@@ -154,7 +149,7 @@
 					</span>
 				</div>
 				<div class="col-md-6 col-sm-2 text-center">
-					<nav class="mainmenu_wrapper">
+					<nav class="mainmenu_wrapper" style="float: left">
 						<ul class="mainmenu nav sf-menu">
 							<li>
 								<a href="index.html">ראשי</a>
@@ -175,7 +170,7 @@
 								<a href="new_complaint.html">הגשת תלונה</a>
 							</li>
 							<li>
-								<a href="forum.html">פורום</a>
+								<a href="chat.html">צ'אט</a>
 							</li>
 						</ul>
 					</nav>
@@ -206,11 +201,11 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4 text-center">
-						<? php include('index.php') ?>
+					<? php include('index.php') ?>
 				</div>
+			</div>
 		</div>
-		</div>
-		
+
 
 	</section>
 	<section id="appointment" class="ls section_padding_top_130 section_padding_bottom_100" dir="rtl">

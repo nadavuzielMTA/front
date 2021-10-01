@@ -1,18 +1,10 @@
 <!DOCTYPE html>
 <html class="no-js">
-<!--<![endif]-->
-
 <head dir="rtl">
 	<title>אנונימי</title>
 	<meta charset="utf-8">
-	<!--[if IE]>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<![endif]-->
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/animations.css">
 	<link rel="stylesheet" href="css/fonts.css">
@@ -30,21 +22,6 @@
 <body onload="what_user()">
 	<div class="preloader">
 		<div class="preloader_image"></div>
-	</div>
-	<div class="modal" tabindex="-1" role="dialog" aria-labelledby="search_modal" id="search_modal">
-		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			<span aria-hidden="true">
-				<i class="rt-icon2-cross2"></i>
-			</span>
-		</button>
-		<div class="widget widget_search">
-			<form method="get" class="searchform search-form form-inline" action="./">
-				<div class="form-group">
-					<input type="text" value="" name="search" class="form-control" placeholder="Search keyword" id="modal-search-input">
-				</div>
-				<button type="submit" class="theme_button">Search</button>
-			</form>
-		</div>
 	</div>
 	<section class="page_topline cs table_section table_section_md columns_padding_0">
 		<div class="container-fluid">
@@ -76,9 +53,7 @@
 										<i class="grey fa fa-pencil-square-o"></i>
 										<input type="password" class="form-control" id="login_password" placeholder="Password" required>
 									</div>
-									<button type="submit" class="theme_button color1 block_button login">
-										התחברות
-									</button>
+									<button class="theme_button color1 block_button login"> התחברות</button>
 
 								</form>
 
@@ -97,8 +72,7 @@
 								<p dir="rtl" style="text-align:right;">
 									<strong class="grey">הרשמה לאתר</strong>
 								</p>
-								<form role="form">
-
+								<form class="register-form">
 									<div class="form-group">
 										<label for="login_email" class="sr-only">User Name</label>
 										<i class="grey fa fa-user"></i>
@@ -109,9 +83,7 @@
 										<i class="grey fa fa-pencil-square-o"></i>
 										<input type="password" class="form-control" id="register_password" placeholder="Password" required>
 									</div>
-									<button type="submit" class="theme_button color1 block_button register">
-										הרשמה
-									</button>
+									<button class="theme_button color1 block_button register">הרשמה</button>
 
 								</form>
 
@@ -172,14 +144,12 @@
 					<a class="logo">
 						אנונימי
 					</a>
-					<!-- header toggler -->
 					<span class="toggle_menu visible-xs">
 						<span></span>
 					</span>
 				</div>
 				<div class="col-md-6 col-sm-2 text-center">
-					<!-- main nav start -->
-					<nav class="mainmenu_wrapper">
+					<nav class="mainmenu_wrapper" style="float: left">
 						<ul class="mainmenu nav sf-menu">
 							<li>
 								<a href="index.html">ראשי</a>
@@ -200,11 +170,10 @@
 								<a href="new_complaint.html">הגשת תלונה</a>
 							</li>
 							<li>
-								<a href="forum.html">פורום</a>
+								<a href="chat.html">צ'אט</a>
 							</li>
 						</ul>
 					</nav>
-					<!-- eof main nav -->
 					<span class="toggle_menu hidden-xs">
 						<span></span>
 					</span>
@@ -381,7 +350,7 @@
 			</div>
 		</section>
 	</footer>
-	
+
 
 
 </body>

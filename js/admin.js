@@ -242,10 +242,6 @@ $(function() {
 
 		cb(start, end);
 	})();
-
-	/////////////
-	//sparkline//
-	/////////////
 	//http://omnipotent.net/jquery.sparkline/
 	jQuery('.sparklines').each(function(){
 		//sparkline type: 'line' (default), 'bar', 'tristate', 'discrete', 'bullet', 'pie', 'box'

@@ -6,7 +6,6 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/fonts.css">
@@ -24,21 +23,6 @@
 <body onload="what_user()">
     <div class="preloader">
         <div class="preloader_image"></div>
-    </div>
-    <div class="modal" tabindex="-1" role="dialog" aria-labelledby="search_modal" id="search_modal">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">
-                <i class="rt-icon2-cross2"></i>
-            </span>
-        </button>
-        <div class="widget widget_search">
-            <form method="get" class="searchform search-form form-inline" action="./">
-                <div class="form-group">
-                    <input type="text" value="" name="search" class="form-control" placeholder="Search keyword" id="modal-search-input">
-                </div>
-                <button type="submit" class="theme_button">Search</button>
-            </form>
-        </div>
     </div>
     <section class="page_topline cs table_section table_section_md columns_padding_0">
         <div class="container-fluid">
@@ -70,9 +54,7 @@
                                         <i class="grey fa fa-pencil-square-o"></i>
                                         <input type="password" class="form-control" id="login_password" placeholder="Password" required>
                                     </div>
-                                    <button type="submit" class="theme_button color1 block_button login">
-                                        התחברות
-                                    </button>
+                                    <button class="theme_button color1 block_button login"> התחברות</button>
 
                                 </form>
 
@@ -91,8 +73,7 @@
                                 <p dir="rtl" style="text-align:right;">
                                     <strong class="grey">הרשמה לאתר</strong>
                                 </p>
-                                <form role="form">
-
+                                <form class="register-form">
                                     <div class="form-group">
                                         <label for="login_email" class="sr-only">User Name</label>
                                         <i class="grey fa fa-user"></i>
@@ -103,9 +84,7 @@
                                         <i class="grey fa fa-pencil-square-o"></i>
                                         <input type="password" class="form-control" id="register_password" placeholder="Password" required>
                                     </div>
-                                    <button type="submit" class="theme_button color1 block_button register">
-                                        הרשמה
-                                    </button>
+                                    <button class="theme_button color1 block_button register">הרשמה</button>
 
                                 </form>
 
@@ -171,7 +150,7 @@
                     </span>
                 </div>
                 <div class="col-md-6 col-sm-2 text-center">
-                    <nav class="mainmenu_wrapper">
+                    <nav class="mainmenu_wrapper" style="float: left">
                         <ul class="mainmenu nav sf-menu">
                             <li>
                                 <a href="index.html">ראשי</a>
@@ -192,7 +171,7 @@
                                 <a href="new_complaint.html">הגשת תלונה</a>
                             </li>
                             <li>
-                                <a href="forum.html">פורום</a>
+                                <a href="chat.html">צ'אט</a>
                             </li>
                         </ul>
                     </nav>
@@ -203,7 +182,6 @@
             </div>
         </div>
     </header>
-
     <section class="intro_section page_mainslider ds">
         <div class="flexslider">
             <ul class="slides">
@@ -220,7 +198,7 @@
                                                 הגשת תלונה
                                             </h3>
                                         </div>
-                                      
+
                                     </div>
                                 </div>
                             </div>
@@ -305,7 +283,7 @@
                         <div class="form-group  validate-required" id="time_field">
                             <label for="time" class="control-label">
                                 <span class="grey">שעת התרחשות האירוע (אופציונאלי):</span>
-                               
+
                             </label>
                             <input type="text" class="form-control " name="time" id="time" placeholder="" value="">
                         </div>
@@ -341,7 +319,81 @@
             </div>
         </div>
     </section>
+    <section id="appointment" class="ls section_padding_top_130 section_padding_bottom_100" dir="rtl">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
+                    <h2 class="section_header with_icon highlight">קביעת פגישה</h2>
+                    <div class="fontsize_16">
+                        ניתן לקבוע טיפול אחד בכל חודש
+                    </div>
+                    <form class="contact-form row columns_margin_bottom_40 topmargin_60" method="post" action="./">
 
+
+                </div>
+                <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
+                    <div class="contact-form-email">
+                        <input type="email" aria-required="true" size="30" value="" name="email" id="email" class="form-control" placeholder="כתובת מייל (אופציונאלי - לא נשמר במאגר)">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
+                    <div class="contact-form-date select-group">
+                        <label for="date" class="sr-only">
+                            Date
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-group">
+                            <select aria-required="true" id="psy" name="psy" class="choice empty form-control psycologists-appointment">
+                                <option value="" disabled selected data-default>פסיכולוג</option>
+                                <option value="ליאת הר-טוב">ליאת הר-טוב</option>
+                                <option value="רינה אאלוף">רינה אאלוף</option>
+                                <option value="קלרה מולדן">קלרה מולדן</option>
+                                <option value="אדי גרין">אדי גרין</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
+                    <div class="contact-form-date select-group">
+                        <label for="date" class="sr-only">
+                            Date
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-group">
+                            <select aria-required="true" id="date" name="date" class="choice empty form-control">
+                                <option value="" disabled selected data-default>תאריך</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
+                    <div class="contact-form-time select-group">
+                        <label for="time" class="sr-only">
+                            Date
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-group ">
+                            <select aria-required="true" id="time" name="time" class="choice empty form-control">
+                                <option value="" disabled selected data-default>שעה</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
+
+                    <div class="contact-form-submit topmargin_20">
+                        <button type="submit" id="contact_form_submit" name="contact_submit" class="theme_button color1 with_shadow nadav">תיאום פגישה</button><br>
+                        <strong>לצפייה בפגישות עתידיות, אנא היכנס\י לאזור האישי</strong>
+                    </div>
+                </div>
+
+                </form>
+            </div>
+        </div>
+        </div>
+    </section>
 
     <footer class="page_footer cs main_color2 table_section section_padding_50 columns_padding_0 ">
         <div class="container">

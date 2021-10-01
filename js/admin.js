@@ -81,7 +81,7 @@ $(function() {
 					if (complaints[i]['done'])  done_checked = 'checked';
 
 					var row = '<tr class="item-editable"><td ></td><td><div class="media"><div class="media-left"></div>' +
-						'<div class="media-body"><h5>' + complaints[i]["name"] + '</h5></div></div></td>' +
+						'<div class="media-body"><p>' + complaints[i]["name"] + '</p></div></div></td>' +
 						'<td><div id=' + user_id + ' class="media-body">' + complaints[i]["user_id"] + '</div></td>' +
 						'<td><time class="entry-date">' + complaints[i]["created"] + '</time></td>' +
 						'<td><time class="entry-date">' + complaints[i]["last_update"] + '</time></td>' +

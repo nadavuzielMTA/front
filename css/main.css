@@ -4185,6 +4185,7 @@ h3 + .section_header,
 		margin-top: 0;
 	}
 
+	
 	.section_header.text-center + p,
   .text-center .section_header + p {
 		max-width: 100%;
@@ -6025,6 +6026,7 @@ a.logo.vertical_logo img {
 
 #col-box{
 	text-align: right;
+	
 }
 
 #search_modal .form-control:-moz-placeholder {

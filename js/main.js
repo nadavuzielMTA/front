@@ -43,7 +43,7 @@ function what_user() {
 	if (admin_users_psy.includes(user)) d.outerHTML = "<a href=" + "admin_index_psy.html" + ">" + "אזור אישי" + "</a>";
 	else if (admin_users_law.includes(user)) d.outerHTML = "<a href=" + "admin_inbox.html" + ">" + "אזור אישי" + "</a>";
 	else if (user !== '') d.outerHTML = "<a href=" + "admin_index.html" + ">" + "אזור אישי" + "</a>";
-	else d.outerHTML = "<a href=" + "admin_signup.html" + ">" + "אזור אישי" + "</a>";
+	else d.outerHTML = "<a href=" + "admin_signin.html" + ">" + "אזור אישי" + "</a>";
 
 	if (user !== null && user !== '') {
 		logout1.innerHTML = `
@@ -462,7 +462,7 @@ function what_user() {
 					if (msg){
 						setCookie("username", document.getElementById('register_user_name').value,1);
 						alert(document.getElementById('register_user_name').value + " תודה על הרשמתך אתה מחובר למערכת ");
-						location.reload();
+						location.replace("index.html");
 					}
 					else{
 						alert("שם משתמש זה כבר קיים במערכת.")
@@ -486,7 +486,7 @@ function what_user() {
 					if (msg) {
 						setCookie("username", username, 1);
 						alert(username + " ברוך הבא! ");
-						location.reload();
+						location.replace("index.html");
 
 					}
 					else {

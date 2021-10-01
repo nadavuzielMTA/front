@@ -106,29 +106,22 @@ $(function() {
 				url: '/api/meetings',
 				data: 'username=' + username,
 				success: function (backend_events) {
-					for (var i = 0; i < backend_events.length; i++) {
-						zoom_meetings.push({
-							title: backend_events[i]['title'],
-							url: backend_events[i]['url'],
-							start: backend_events[i]['start']
-						});
-						jQuery('.events_calendar').fullCalendar(
-							{
-								header: {
-									left: 'prev,next today',
-									center: 'title',
-									right: 'month,agendaWeek,agendaDay,listWeek'
-								},
-								defaultDate: '2021-10-20',
-								editable: true,
-								eventLimit: true,
-								navLinks: true,
-								aspectRatio: 1,
-								events: zoom_meetings
-							}
-						);
-					}
-
+					console.log("backend_events = ", backend_events);
+					jQuery('.events_calendar').fullCalendar(
+						{
+							header: {
+								left: 'prev,next today',
+								center: 'title',
+								right: 'month,agendaWeek,agendaDay,listWeek'
+							},
+							defaultDate: '2021-10-20',
+							editable: true,
+							eventLimit: true,
+							navLinks: true,
+							aspectRatio: 1,
+							events: backend_events
+						}
+					);
 				}
 			});
 			if (!admin_users_psy.includes(username)){

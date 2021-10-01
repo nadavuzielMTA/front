@@ -577,6 +577,7 @@ function what_user() {
 						'&description=' + description,
 					success: function (msg) {
 						alert(msg);
+						location.reload();
 					}
 				});
 			}
@@ -629,17 +630,22 @@ function what_user() {
 			e.preventDefault();
 			var email = document.getElementById('email').value;
 			var username = getCookie("username");
-			jQuery.ajax({
-				type: 'POST',
-				url: '/api/appointment',
-				data: 'username=' + username + '&action=available_dates&psychologist_name=' + selected_psycologist_name +
-					'&date=' + selected_date + '&time='+ selected_time + '&email='+ email,
-				success: function (msg) {
-					setCookie("username", username, 1);
-					alert(username + " נקבעה עבורך פגישה, ניתן לצפות במועד הפגישה ולינק באזור האישי ");
-					location.reload();
-				}
-			});
+			if (username === ''){
+				alert("על מנת לקבוע פגישה, יש להתחבר לאתר.");
+			}
+			else {
+				jQuery.ajax({
+					type: 'POST',
+					url: '/api/appointment',
+					data: 'username=' + username + '&action=available_dates&psychologist_name=' + selected_psycologist_name +
+						'&date=' + selected_date + '&time='+ selected_time + '&email='+ email,
+					success: function (msg) {
+						setCookie("username", username, 1);
+						alert(username + " נקבעה עבורך פגישה, ניתן לצפות במועד הפגישה ולינק באזור האישי ");
+						location.reload();
+					}
+				});
+			}
 		});
 
 

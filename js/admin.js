@@ -137,7 +137,7 @@ $(function() {
 					data: 'username=' + username,
 					success: function (complaint_details) {
 						var hazana = complaint_details['sent']; // value is 'true' or 'false'
-						if (hazana === 'true' && hazana !== 'false') {
+						if (hazana && hazana !== 'false') {
 							document.getElementById('send-progress-bar').style.backgroundColor = 'green';
 							document.getElementById('send-precentage').innerText = '100%';
 						}

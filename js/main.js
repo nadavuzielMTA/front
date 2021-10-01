@@ -502,6 +502,7 @@ function what_user() {
 
 		//psycologist available dates
 		jQuery('.psycologists-appointment').on('change', function( e ){
+			e.preventDefault();
 			var $form = jQuery(this);
 			selected_psycologist_name =  $form.find('option:selected').val();
 			var username = getCookie("username");
@@ -544,35 +545,41 @@ function what_user() {
 			});
 		});
 
-		jQuery('#time').on('chan`ge`', function( e ){
+		jQuery('#time').on('change', function( e ){
 			var $form = jQuery(this);
 			selected_time =  $form.find('option:selected').val();
 		});
 
 
-		jQuery(".new-complaint").on('click', function (e) {
+		jQuery("form.new-complaint").on('submit', function (e) {
 			var username = getCookie("username");
-			var name = document.getElementById('name').value;
-			var user_id = document.getElementById('user_id').value;
-			var email = document.getElementById('email').value;
-			var city = document.getElementById('city').value;
-			var phone_number = document.getElementById('phone').value;
-			var date = document.getElementById('date').value;
-			var place = document.getElementById('place').value;
-			var time = document.getElementById('time').value;
-			var description = document.getElementById('description').value;
+			e.preventDefault();
+			if (username === '') {
+				alert("על מנת להגיש תלונה, יש להתחבר לאתר.");
+			}
+			else {
+				var name = document.getElementById('name').value;
+				var user_id = document.getElementById('user_id').value;
+				var email = document.getElementById('email').value;
+				var city = document.getElementById('city').value;
+				var phone_number = document.getElementById('phone').value;
+				var date = document.getElementById('date').value;
+				var place = document.getElementById('place').value;
+				var time = document.getElementById('time').value;
+				var description = document.getElementById('description').value;
 
-			jQuery.ajax({
-				type: 'POST',
-				url: '/api/complaint',
-				data: 'username=' + username + '&name=' + name +  '&user_id=' + user_id +
-					'&email=' + email +  '&city=' + city +  '&phone_number=' + phone_number +
-					'&date=' + date +  '&place=' + place +  '&time=' + time +
-					'&description=' + description,
-				success: function (msg) {
-					alert(msg);
-				}
-			});
+				jQuery.ajax({
+					type: 'POST',
+					url: '/api/complaint',
+					data: 'username=' + username + '&name=' + name +  '&user_id=' + user_id +
+						'&email=' + email +  '&city=' + city +  '&phone_number=' + phone_number +
+						'&date=' + date +  '&place=' + place +  '&time=' + time +
+						'&description=' + description,
+					success: function (msg) {
+						alert(msg);
+					}
+				});
+			}
 		});
 
 		//prettyPhoto

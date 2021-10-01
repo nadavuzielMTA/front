@@ -137,7 +137,7 @@ $(function() {
 					data: 'username=' + username,
 					success: function (complaint_details) {
 						var hazana = complaint_details['sent']; // value is 'true' or 'false'
-						if (hazana === 'true') {
+						if (hazana === 'true' && hazana !== 'false') {
 							document.getElementById('send-progress-bar').style.backgroundColor = 'green';
 							document.getElementById('send-precentage').innerText = '100%';
 						}
@@ -147,7 +147,7 @@ $(function() {
 						}
 
 						var hagasha = complaint_details['sent_to_police']; // value is 'true' or 'false'
-						if (hagasha) {
+						if (hagasha && hagasha !== 'false') {
 							document.getElementById('police-progress-bar').style.backgroundColor = 'green';
 							document.getElementById('police-precentage').innerText = '100%';
 						}
@@ -157,7 +157,7 @@ $(function() {
 						}
 
 						var betipul = complaint_details['in_treatment']; // value is 'true' or 'false'
-						if (betipul) {
+						if (betipul && betipul !== 'false') {
 							document.getElementById('treatment-progress-bar').style.backgroundColor = 'green';
 							document.getElementById('treatment-precentage').innerText = '100%';
 						}
@@ -166,7 +166,7 @@ $(function() {
 							document.getElementById('treatment-precentage').innerText = '0%';
 						}
 						var tupal = complaint_details['in_treatment']; // value is 'true' or 'false'
-						if (tupal) {
+						if (tupal && tupal !== 'false') {
 							document.getElementById('done-progress-bar').style.backgroundColor = 'green';
 							document.getElementById('done-precentage').innerText = '100%';
 						}

@@ -284,7 +284,6 @@ var switcherClass = {
 	    jQuery("#switcher-version").find("li").toggleClass("active");
 
 		jQuery("#box_wrapper > *").each(function() {
-    		//sections to ignore light-dark switch 
     		var $thisSection = jQuery(this);
 			if (
 				   $thisSection.hasClass('page_header_side') 

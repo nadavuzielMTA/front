@@ -1,6 +1,4 @@
 ﻿"use strict";
-//Wrapping all JavaScript code into a IIFE function for prevent global variables creation
-
 var admin_users_psy = ['liat har-tov', 'adi green', 'rina aaluf', 'clara moldan', 'lora cohen'];
 var admin_users_law = ['ruby polantiak'];
 
@@ -1297,10 +1295,10 @@ function what_user() {
 					});
 
 				});
-			}); //each
-		}//google map length
+			});
+		}
 
-	}); //end of "window load" event
+	});
 
 	$window.on('resize', function(){
 

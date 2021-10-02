@@ -159,7 +159,7 @@ $(function() {
 							document.getElementById('treatment-progress-bar').style.backgroundColor = 'red';
 							document.getElementById('treatment-precentage').innerText = '0%';
 						}
-						var tupal = complaint_details['in_treatment']; // value is 'true' or 'false'
+						var tupal = complaint_details['done']; // value is 'true' or 'false'
 						if (tupal && tupal !== 'false') {
 							document.getElementById('done-progress-bar').style.backgroundColor = 'green';
 							document.getElementById('done-precentage').innerText = '100%';
